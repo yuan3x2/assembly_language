@@ -278,66 +278,8 @@ main PROC
 		sizeof me - 1,
 		mexy,	
 		ADDR count	
-	start:
-		call ReadChar  ; 從鍵盤讀取一個字符 
-
-		cmp al, "d"
-		je colusionr
-
-		cmp al, "a"
-		je colusionl
-
-		cmp al, "w"
-		je colusionu
-
-		cmp al, "s"
-		je colusiond
-
-		jmp continue
-
-	colusionr:
-		mov ax, mexy.x
-		cmp ax, 138
-		jb mover
-		jmp continue
-
-	colusionl:
-		mov ax, mexy.x
-		cmp al, 4
-		ja movel
-		jmp continue
-
-	colusionu:
-		mov ax, mexy.y
-		cmp al, 3
-		ja moveu
-		jmp continue
-
-	colusiond:
-		mov ax, mexy.y
-		cmp al, 39
-		jb moved
-		jmp continue
-
-
-		mover:
-			call move_right
-			jmp continue
-		
-		movel:
-			call move_left
-			jmp continue
-
-		moveu:
-			call move_up
-			jmp continue
-
-		moved:
-			call move_down
-			jmp continue
-			
-	continue:
-		jmp start	
+	
+	call level2move
 
 	exit
 main ENDP
@@ -503,6 +445,69 @@ level2 PROC
 			ret
 
 level2 ENDP
+
+level2move PROC
+	start:
+		call ReadChar  ; 從鍵盤讀取一個字符 
+
+		cmp al, "d"
+		je colusionr
+
+		cmp al, "a"
+		je colusionl
+
+		cmp al, "w"
+		je colusionu
+
+		cmp al, "s"
+		je colusiond
+
+		jmp continue
+
+	colusionr:
+		mov ax, mexy.x
+		cmp ax, 138
+		jb mover
+		jmp continue
+
+	colusionl:
+		mov ax, mexy.x
+		cmp al, 4
+		ja movel
+		jmp continue
+
+	colusionu:
+		mov ax, mexy.y
+		cmp al, 3
+		ja moveu
+		jmp continue
+
+	colusiond:
+		mov ax, mexy.y
+		cmp al, 39
+		jb moved
+		jmp continue
+
+
+		mover:
+			call move_right
+			jmp continue
+		
+		movel:
+			call move_left
+			jmp continue
+
+		moveu:
+			call move_up
+			jmp continue
+
+		moved:
+			call move_down
+			jmp continue
+			
+	continue:
+		jmp start
+level2move ENDP
 
 END main
 
