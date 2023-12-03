@@ -13,7 +13,7 @@ boxBody   BYTE "牆", (BoxWidth - 2) DUP('　'), "牆"
 boxBottom BYTE BoxWidth DUP("牆")
 wallxy COORD <2,2>	
 
-content BYTE "滑到instagram上一堆髮廊分享染髮作品",0
+content BYTE "滑到ig上一堆髮廊分享染髮作品",0
 content1 BYTE "好好看，好想去染唷", 0
 content2 BYTE "如果我能夠擁有一頭漂亮的淺粉色漸層頭一定很棒！", 0
 content3 BYTE "啊......", 0
@@ -467,27 +467,166 @@ level2move PROC
 	colusionr:
 		mov ax, mexy.x
 		cmp ax, 138
-		jb mover
+		jb colusion_contentr
 		jmp continue
+
+		colusion_contentr:
+			mov bx, mexy.y
+			cmp ax, 10
+			je ccry
+			jmp mover
+
+			ccry:
+				cmp bx, 8
+				je continue
+
+				cmp bx, 11
+				je continue
+
+				cmp bx, 14
+				je continue
+
+				cmp bx, 17
+				je continue
+
+				jmp mover
+
 
 	colusionl:
 		mov ax, mexy.x
-		cmp al, 4
-		ja movel
+		cmp ax, 4
+		ja colusion_contentl
 		jmp continue
+
+		colusion_contentl:
+			mov bx, mexy.y
+			cmp ax, 40
+			je ccly1
+
+			cmp ax, 30
+			je ccly2
+
+			cmp ax, 58
+			je ccly3
+
+			cmp ax, 48
+			je ccly4
+
+			jmp movel
+
+			ccly1:
+				cmp bx, 8
+				je continue
+				jmp movel
+
+			ccly2:
+				cmp bx, 11
+				je continue
+				jmp movel
+
+			ccly3:
+				cmp bx, 14
+				je continue
+				jmp movel
+
+			ccly4:
+				cmp bx, 17
+				je continue
+				jmp movel
+			
 
 	colusionu:
 		mov ax, mexy.y
-		cmp al, 3
-		ja moveu
+		cmp ax, 3
+		ja colusion_contentu
 		jmp continue
 
+		colusion_contentu:
+			mov ax, mexy.y
+			mov bx, mexy.x
+			cmp bx, 12
+			jb moveu
+
+			cmp ax, 9
+			je ccux1
+
+			cmp ax, 12
+			je ccux2
+
+			cmp ax, 15
+			je ccux3
+
+			cmp ax, 18
+			je ccux4
+
+			jmp moveu
+
+			ccux1:
+				cmp bx, 40
+				jae moveu
+				jmp continue
+
+			ccux2:
+				cmp bx, 30
+				jae moveu
+				jmp continue
+				
+			ccux3:
+				cmp bx, 58
+				jae moveu
+				jmp continue
+
+			ccux4:
+				cmp bx, 48
+				jae moveu
+				jmp continue
+
+			
 	colusiond:
 		mov ax, mexy.y
-		cmp al, 39
-		jb moved
+		cmp ax, 39
+		jb colusion_contentd
 		jmp continue
+	
+		colusion_contentd:
+			mov ax, mexy.y
+			mov bx, mexy.x
+			cmp bx, 12
+			jb moved
 
+			cmp ax, 7
+			je ccdx1
+
+			cmp ax, 10
+			je ccdx2
+
+			cmp ax, 13
+			je ccdx3
+
+			cmp ax, 16
+			je ccdx4
+
+			jmp moved
+
+			ccdx1:
+				cmp bx, 40
+				jae moved
+				jmp continue
+
+			ccdx2:
+				cmp bx, 30
+				jae moved
+				jmp continue
+				
+			ccdx3:
+				cmp bx, 58
+				jae moved
+				jmp continue
+
+			ccdx4:
+				cmp bx, 48
+				jae moved
+				jmp continue
 
 		mover:
 			call move_right
