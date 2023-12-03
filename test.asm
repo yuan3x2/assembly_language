@@ -6,11 +6,20 @@ BoxHeight = 39d	;設定長
 .data
 me byte "我", 0
 space byte " ",0
+mexy COORD <16,14>
+
 boxTop    BYTE BoxWidth DUP("牆")
 boxBody   BYTE "牆", (BoxWidth - 2) DUP('　'), "牆"		
 boxBottom BYTE BoxWidth DUP("牆")
+wallxy COORD <2,2>	
 
-content BYTE "剛滿十八歲",0
+content BYTE "滑到instagram上一堆髮廊分享染髮作品",0
+content1 BYTE "好好看，好想去染唷", 0
+content2 BYTE "如果我能夠擁有一頭漂亮的淺粉色漸層頭一定很棒！", 0
+content3 BYTE "啊......", 0
+content4 BYTE "怎麼變成螢光粉了！凸︿＿︿凸", 0
+contentxy COORD <12, 8>
+contentcount BYTE 0
 
 startword BYTE   " _______　　　 　 _______",0
 startword1 BYTE  "|　　　 | 　　　 |　　 　|",0
@@ -30,12 +39,10 @@ startword14 BYTE "        PUSH             'P'         MOTHER           FUCKER",
 startword15 BYTE "  I       SAID        PUSH         'P'         YOU           BITXH",0
 startword16 BYTE "PUSH     'P'",0
 startcount BYTE 0
+startxy COORD <40,10>	
 
 outputHandle DWORD 0
 count DWORD 0
-mexy COORD <20,10>
-wallxy COORD <2,2>		
-startxy COORD <40,10>	
 
 .code
 main PROC
@@ -46,126 +53,126 @@ main PROC
 	call Clrscr
 	
 	INVOKE WriteConsoleOutputCharacter,
-	   outputHandle,	; console output handle
-	   ADDR startword,	; pointer to the top box line
-	   sizeof startword -1,	; size of box line
-	   startxy,	; coordinates of first char
-	   ADDR count	; output count
+	   outputHandle,	
+	   ADDR startword,	
+	   sizeof startword -1,
+	   startxy,	
+	   ADDR count
 
 	   inc startxy.y
 
 	INVOKE WriteConsoleOutputCharacter,
-	   outputHandle,	; console output handle
-	   ADDR startword1,	; pointer to the top box line
-	   sizeof startword1 -1,	; size of box line
-	   startxy,	; coordinates of first char
-	   ADDR count	; output count
+	   outputHandle,	 
+	   ADDR startword1,	 
+	   sizeof startword1 -1,	 
+	   startxy,	 
+	   ADDR count	 
 
 	   inc startxy.y
 
 	INVOKE WriteConsoleOutputCharacter,
-	   outputHandle,	; console output handle
-	   ADDR startword2,	; pointer to the top box line
-	   sizeof startword2 -1,	; size of box line
-	   startxy,	; coordinates of first char
-	   ADDR count	; output count
+	   outputHandle,	 
+	   ADDR startword2,	 
+	   sizeof startword2 -1,	 
+	   startxy,	 
+	   ADDR count	 
 
 	   inc startxy.y
 	INVOKE WriteConsoleOutputCharacter,
-	   outputHandle,	; console output handle
-	   ADDR startword3,	; pointer to the top box line
-	   sizeof startword3 -1,	; size of box line
-	   startxy,	; coordinates of first char
-	   ADDR count	; output count
-
-	   inc startxy.y
-
-	INVOKE WriteConsoleOutputCharacter,
-	   outputHandle,	; console output handle
-	   ADDR startword4,	; pointer to the top box line
-	   sizeof startword4 -1,	; size of box line
-	   startxy,	; coordinates of first char
-	   ADDR count	; output count
+	   outputHandle,	 
+	   ADDR startword3,	 
+	   sizeof startword3 -1,	 
+	   startxy,	 
+	   ADDR count	 
 
 	   inc startxy.y
 
 	INVOKE WriteConsoleOutputCharacter,
-	   outputHandle,	; console output handle
-	   ADDR startword5,	; pointer to the top box line
-	   sizeof startword5 -1,	; size of box line
-	   startxy,	; coordinates of first char
-	   ADDR count	; output count
+	   outputHandle,	 
+	   ADDR startword4,	 
+	   sizeof startword4 -1,	 
+	   startxy,	 
+	   ADDR count	 
 
 	   inc startxy.y
 
 	INVOKE WriteConsoleOutputCharacter,
-	   outputHandle,	; console output handle
-	   ADDR startword6,	; pointer to the top box line
-	   sizeof startword6 -1,	; size of box line
-	   startxy,	; coordinates of first char
-	   ADDR count	; output count
-
-	   inc startxy.y
-	INVOKE WriteConsoleOutputCharacter,
-	   outputHandle,	; console output handle
-	   ADDR startword7,	; pointer to the top box line
-	   sizeof startword7 -1,	; size of box line
-	   startxy,	; coordinates of first char
-	   ADDR count	; output count
+	   outputHandle,	 
+	   ADDR startword5,	 
+	   sizeof startword5 -1,	 
+	   startxy,	 
+	   ADDR count	 
 
 	   inc startxy.y
 
 	INVOKE WriteConsoleOutputCharacter,
-	   outputHandle,	; console output handle
-	   ADDR startword8,	; pointer to the top box line
-	   sizeof startword8 -1,	; size of box line
-	   startxy,	; coordinates of first char
-	   ADDR count	; output count
+	   outputHandle,	 
+	   ADDR startword6,	 
+	   sizeof startword6 -1,	 
+	   startxy,	 
+	   ADDR count	 
+
+	   inc startxy.y
+	INVOKE WriteConsoleOutputCharacter,
+	   outputHandle,	 
+	   ADDR startword7,	 
+	   sizeof startword7 -1,	 
+	   startxy,	 
+	   ADDR count	 
+
+	   inc startxy.y
+
+	INVOKE WriteConsoleOutputCharacter,
+	   outputHandle,	 
+	   ADDR startword8,	 
+	   sizeof startword8 -1,	 
+	   startxy,	 
+	   ADDR count	 
 
 	   inc startxy.y
 
 	   INVOKE WriteConsoleOutputCharacter,
-	   outputHandle,	; console output handle
-	   ADDR startword9,	; pointer to the top box line
-	   sizeof startword9 -1,	; size of box line
-	   startxy,	; coordinates of first char
-	   ADDR count	; output count
+	   outputHandle,	 
+	   ADDR startword9,	 
+	   sizeof startword9 -1,	 
+	   startxy,	 
+	   ADDR count	 
 
 	   inc startxy.y
 
 	INVOKE WriteConsoleOutputCharacter,
-	   outputHandle,	; console output handle
-	   ADDR startword10,	; pointer to the top box line
-	   sizeof startword10 -1,	; size of box line
-	   startxy,	; coordinates of first char
-	   ADDR count	; output count
+	   outputHandle,	 
+	   ADDR startword10,	 
+	   sizeof startword10 -1,	 
+	   startxy,	 
+	   ADDR count	 
 
 	   inc startxy.y
 
 	INVOKE WriteConsoleOutputCharacter,
-	   outputHandle,	; console output handle
-	   ADDR startword11,	; pointer to the top box line
-	   sizeof startword11 -1,	; size of box line
-	   startxy,	; coordinates of first char
-	   ADDR count	; output count
+	   outputHandle,	 
+	   ADDR startword11,	 
+	   sizeof startword11 -1,	 
+	   startxy,	 
+	   ADDR count	 
 
 	   inc startxy.y
 
 	INVOKE WriteConsoleOutputCharacter,
-	outputHandle,	; console output handle
-	ADDR startword12,	; pointer to the top box line
-	sizeof startword12 -1,	; size of box line
-	startxy,	; coordinates of first char
-	ADDR count	; output count
+	outputHandle,	 
+	ADDR startword12,	 
+	sizeof startword12 -1,	 
+	startxy,	 
+	ADDR count	 
 
 	add startxy.y, 3
 
 	INVOKE WriteConsoleOutputCharacter,
-	outputHandle,	; console output handle
-	ADDR startword13,	; pointer to the top box line
-	sizeof startword13 -1,	; size of box line
-	startxy,	; coordinates of first char
-	ADDR count	; output count
+	outputHandle,	 
+	ADDR startword13,	 
+	sizeof startword13 -1,	 
+	startxy,	 
+	ADDR count	 
 
 	add startxy.y, 3
 	
@@ -183,11 +190,11 @@ main PROC
 	
 	hehe:
 		INVOKE WriteConsoleOutputCharacter,
-			outputHandle,	; console output handle
-			ADDR startword14,	; pointer to the top box line
-			sizeof startword14 -1,	; size of box line
-			startxy,	; coordinates of first char
-			ADDR count	; output count
+			outputHandle,	 
+			ADDR startword14,	 
+			sizeof startword14 -1,	 
+			startxy,	 
+			ADDR count	 
 		inc startcount
 		add startxy.y, 3
 
@@ -195,11 +202,11 @@ main PROC
 
 	bitch:
 		INVOKE WriteConsoleOutputCharacter,
-			outputHandle,	; console output handle
-			ADDR startword15,	; pointer to the top box line
-			sizeof startword15 -1,	; size of box line
-			startxy,	; coordinates of first char
-			ADDR count	; output count
+			outputHandle,	 
+			ADDR startword15,	 
+			sizeof startword15 -1,	 
+			startxy,	 
+			ADDR count	 
 		inc startcount
 		mov byte ptr startxy.y, 3
 
@@ -219,11 +226,11 @@ main PROC
 		mov byte ptr startxy.y, ah
 
 		INVOKE WriteConsoleOutputCharacter,
-			outputHandle,	; console output handle
-			ADDR startword16,	; pointer to the top box line
-			sizeof startword16 -1,	; size of box line
-			startxy,	; coordinates of first char
-			ADDR count	; output count
+			outputHandle,	 
+			ADDR startword16,	 
+			sizeof startword16 -1,	 
+			startxy,	 
+			ADDR count	 
 
 		jmp play
 
@@ -233,11 +240,11 @@ main PROC
 			call Clrscr
 
 		INVOKE WriteConsoleOutputCharacter,
-		   outputHandle,	; console output handle
-		   ADDR boxTop,	; pointer to the top box line
-		   sizeof boxTop,	; size of box line
-		   wallxy,	; coordinates of first char
-		   ADDR count	; output count
+		   outputHandle,	 
+		   ADDR boxTop,	 
+		   sizeof boxTop,	 
+		   wallxy,	 
+		   ADDR count	 
 
 		inc wallxy.y	; 移動到下一行增加y
 
@@ -246,11 +253,11 @@ main PROC
 		L1:	push ecx	; save counter
 	
 			INVOKE WriteConsoleOutputCharacter,
-			   outputHandle,	; console output handle
+			   outputHandle,	 
 			   ADDR boxBody,	; pointer to the box body
-			   sizeof boxTop,	; size of box line
-			   wallxy,	; coordinates of first char
-			   ADDR count	; output count
+			   sizeof boxTop,	 
+			   wallxy,	 
+			   ADDR count	 
 
 			inc wallxy.y	
 			pop ecx	; restore counter
@@ -263,14 +270,14 @@ main PROC
 		   sizeof boxTop,
 		   wallxy,	
 		   ADDR count	
-
-		INVOKE WriteConsoleOutputCharacter,
-			outputHandle,	
-			ADDR me,	
-			sizeof me - 1,	
-			mexy,	
-			ADDR count	
-
+	
+	call level2
+	INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR me,	
+		sizeof me - 1,
+		mexy,	
+		ADDR count	
 	start:
 		call ReadChar  ; 從鍵盤讀取一個字符 
 
@@ -330,7 +337,7 @@ main PROC
 			jmp continue
 			
 	continue:
-		jmp start
+		jmp start	
 
 	exit
 main ENDP
@@ -414,6 +421,88 @@ move_down PROC
 
 	ret
 move_down ENDP
+
+level2 PROC
+
+	INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR content,	
+		sizeof content-1,
+		contentxy,	
+		ADDR count
+
+	add contentxy.y, 3
+
+	start:
+		call ReadChar
+		cmp al, " "
+		je which
+		jmp start
+
+	which:
+		mov bl, contentcount
+		cmp bl, 0
+		je continue1
+		cmp bl, 1
+		je continue2
+		cmp bl, 3
+		je continue3
+		cmp bl, 4
+		je continue4
+
+		continue1:
+			INVOKE WriteConsoleOutputCharacter,
+			outputHandle,	
+			ADDR content1,	
+			sizeof content1-1,
+			contentxy,	
+			ADDR count
+
+			add contentxy.y, 3
+			inc contentcount
+
+			jmp start
+
+		continue2:
+			INVOKE WriteConsoleOutputCharacter,
+			outputHandle,	
+			ADDR content2,	
+			sizeof content2-1,
+			contentxy,	
+			ADDR count
+
+			add contentxy.y, 3
+			mov contentcount, 3
+
+			jmp start
+
+		continue3:
+			INVOKE WriteConsoleOutputCharacter,
+			outputHandle,	
+			ADDR content3,	
+			sizeof content3-1,
+			contentxy,	
+			ADDR count
+
+			add contentxy.x, sizeof content3-1
+			mov contentcount, 4
+
+			jmp start
+
+		continue4:
+			INVOKE WriteConsoleOutputCharacter,
+			outputHandle,	
+			ADDR content4,	
+			sizeof content4-1,
+			contentxy,	
+			ADDR count
+
+			add contentxy.y, 3
+			inc contentcount
+
+			ret
+
+level2 ENDP
 
 END main
 
