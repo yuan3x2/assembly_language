@@ -5,13 +5,20 @@ BoxHeight = 39d	;設定長
 
 .data
 me byte "我", 0
-space byte " ",0
+space byte "　",0
+space1 byte "　　　",0
 mexy COORD <16,14>
+
+;-----------------------------------------------bg------------------------------------------------------------
 
 boxTop    BYTE BoxWidth DUP("牆")
 boxBody   BYTE "牆", (BoxWidth - 2) DUP('　'), "牆"		
 boxBottom BYTE BoxWidth DUP("牆")
 wallxy COORD <2,2>	
+
+toolBox BYTE "道具欄：",0
+Boxxy COORD <2,42>
+;------------------------------------------level2--------------------------------------------------------------
 
 content BYTE "滑到ig上一堆髮廊分享染髮作品",0
 content1 BYTE "好好看，好想去染唷", 0
@@ -20,6 +27,21 @@ content3 BYTE "啊......", 0
 content4 BYTE "怎麼變成螢光粉了！凸︿＿︿凸", 0
 contentxy COORD <12, 8>
 contentcount BYTE 0
+
+toolcontent BYTE "是可以把顏色漂白的漂白水耶", 0
+toolcontent1 BYTE "哇賽！變好看了！太感動了～", 0
+
+tool1 BYTE "漂白水", 0
+tool1get DWORD 0
+
+tool2 BYTE "虫",0
+tool2get DWORD 0
+tool2xy COORD <28, 17>
+
+tool3 BYTE "兀",0
+tool3get DWORD 0
+tool3xy COORD <30, 17>
+;------------------------------------------startword------------------------------------------------------------
 
 startword BYTE   " _______　　　 　 _______",0
 startword1 BYTE  "|　　　 | 　　　 |　　 　|",0
@@ -34,18 +56,22 @@ startword9 BYTE  "|　　 　 |　　 | 　　　　|　　　　　 \　/　　　　　|　　　　　
 startword10 BYTE "|　 _____|___＿|______   |　　　　　　 /　　　　　 |　　　　　　|",0
 startword11 BYTE "|　　 　 |　　 |　　　　 |　　　　　　/ \　　　　　|　　　　　　|",0
 startword12 BYTE "|　　　  |　　 |　　　　 |　　　　　　　　　　　　 |____________|", 0
-startword13 BYTE "        PUSH              P            TO              PLAY",0
-startword14 BYTE "        PUSH             'P'         MOTHER           FUCKER",0
-startword15 BYTE "  I       SAID        PUSH         'P'         YOU           BITXH",0
-startword16 BYTE "PUSH     'P'",0
+startword13 BYTE "        PRESS              P            TO              PLAY",0
+startword14 BYTE "        PRESS             'P'         MOTHER           FUCKER",0
+startword15 BYTE "  I       SAID        PRESS         'P'         YOU           BITXH",0
+startword16 BYTE "PRESS     'P'",0
 startcount BYTE 0
 startxy COORD <40,10>	
+;----------------------------------------------------------------------------------------------------------------
+
 
 outputHandle DWORD 0
 count DWORD 0
 
 .code
 main PROC
+
+;-----------------------------------------------start------------------------------------------------------------
 
 	; Get the console ouput handle
 	INVOKE GetStdHandle, STD_OUTPUT_HANDLE
@@ -233,6 +259,7 @@ main PROC
 			ADDR count	 
 
 		jmp play
+;--------------------------------------------------bg--------------------------------------------------------------
 
 	draw_bg:
 		INVOKE GetStdHandle, STD_OUTPUT_HANDLE
@@ -270,7 +297,16 @@ main PROC
 		   sizeof boxTop,
 		   wallxy,	
 		   ADDR count	
-	
+
+		INVOKE WriteConsoleOutputCharacter,
+		   outputHandle,	 
+		   ADDR toolBox,	 
+		   sizeof toolBox-1,	 
+		   Boxxy,	
+		   ADDR count	
+
+	;-----------------------------------------------level2---------------------------------------------------------------
+
 	call level2
 	INVOKE WriteConsoleOutputCharacter,
 		outputHandle,	
@@ -284,11 +320,13 @@ main PROC
 	exit
 main ENDP
 
+;------------------------------------------------move----------------------------------------------------------------
+
 move_right PROC
 	INVOKE WriteConsoleOutputCharacter,
 		outputHandle,	
 		ADDR space,	
-		sizeof space,	
+		sizeof space-1,	
 		mexy,
 		ADDR count
 
@@ -308,7 +346,7 @@ move_left PROC
 	INVOKE WriteConsoleOutputCharacter,
 		outputHandle,	
 		ADDR space,	
-		sizeof space,	
+		sizeof space-1,	
 		mexy,	
 		ADDR count	
 
@@ -328,7 +366,7 @@ move_up PROC
 	INVOKE WriteConsoleOutputCharacter,
 		outputHandle,	
 		ADDR space,
-		sizeof space,
+		sizeof space-1,
 		mexy,	
 		ADDR count	
 
@@ -348,7 +386,7 @@ move_down PROC
 	INVOKE WriteConsoleOutputCharacter,
 		outputHandle,	
 		ADDR space,	
-		sizeof space,	
+		sizeof space-1,	
 		mexy,	
 		ADDR count
 
@@ -363,6 +401,8 @@ move_down PROC
 
 	ret
 move_down ENDP
+
+;-----------------------------------------------level2 bg---------------------------------------------------------------------
 
 level2 PROC
 
@@ -440,11 +480,14 @@ level2 PROC
 			ADDR count
 
 			add contentxy.y, 3
+			sub contentxy.x, sizeof content3-1
 			inc contentcount
 
 			ret
 
 level2 ENDP
+
+;------------------------------------------------level2move--------------------------------------------------------
 
 level2move PROC
 	start:
@@ -462,7 +505,15 @@ level2move PROC
 		cmp al, "s"
 		je colusiond
 
+		cmp al, " "
+		je see
+
+		cmp al, "e"
+		je use
+
 		jmp continue
+
+;-----------------------------------------colusion---------------------------------------------
 
 	colusionr:
 		mov ax, mexy.x
@@ -489,6 +540,11 @@ level2move PROC
 				cmp bx, 17
 				je continue
 
+				.IF tool1get == 1
+					cmp bx, 20
+					je continue
+				.ENDIF
+
 				jmp mover
 
 
@@ -512,6 +568,11 @@ level2move PROC
 			cmp ax, 48
 			je ccly4
 
+			.IF tool1get == 1
+				cmp ax, 38
+				je ccly5
+			.ENDIF
+
 			jmp movel
 
 			ccly1:
@@ -534,6 +595,10 @@ level2move PROC
 				je continue
 				jmp movel
 			
+			ccly5:
+				cmp bx, 20
+				je continue
+				jmp movel
 
 	colusionu:
 		mov ax, mexy.y
@@ -546,6 +611,14 @@ level2move PROC
 			mov bx, mexy.x
 			cmp bx, 12
 			jb moveu
+
+			.IF tool1get == 1
+				.IF mexy.y == 21
+					.IF mexy.x <= 36
+						jmp continue
+					.ENDIF
+				.ENDIF
+			.ENDIF
 
 			cmp ax, 9
 			je ccux1
@@ -580,7 +653,7 @@ level2move PROC
 				cmp bx, 48
 				jae moveu
 				jmp continue
-
+			
 			
 	colusiond:
 		mov ax, mexy.y
@@ -593,6 +666,14 @@ level2move PROC
 			mov bx, mexy.x
 			cmp bx, 12
 			jb moved
+
+			.IF tool1get == 1
+				.IF mexy.y == 19
+					.IF mexy.x <= 36
+						jmp continue
+					.ENDIF
+				.ENDIF
+			.ENDIF
 
 			cmp ax, 7
 			je ccdx1
@@ -643,7 +724,112 @@ level2move PROC
 		moved:
 			call move_down
 			jmp continue
-			
+
+;--------------------------------------see--------------------------------------------------
+
+	see:
+		.IF tool1get == 0
+			.IF mexy.x == 30
+				.IF mexy.y == 13 || mexy.y == 15
+					INVOKE WriteConsoleOutputCharacter,
+						outputHandle,	
+						ADDR toolcontent,	
+						sizeof toolcontent-1,
+						contentxy,	
+						ADDR count
+				
+					add Boxxy.x, sizeof toolBox
+
+					INVOKE WriteConsoleOutputCharacter,
+						outputHandle,	
+						ADDR tool1,	
+						sizeof tool1-1,
+						Boxxy,	
+						ADDR count
+					inc tool1get
+				.ENDIF
+			.ENDIF
+		.ENDIF
+		jmp continue	
+;----------------------------------------------use-------------------------------------------	
+
+	use:
+		.IF tool1get == 1
+			.IF mexy.x == 28
+				.IF mexy.y == 16 || mexy.y == 18
+					.IF tool2get == 0
+						INVOKE WriteConsoleOutputCharacter,
+							outputHandle,	
+							ADDR tool2,	
+							sizeof tool2-1,
+							tool2xy,	
+							ADDR count
+						inc tool2get
+						jmp continue
+					.ENDIF
+					
+					.IF tool2get == 1
+						INVOKE WriteConsoleOutputCharacter,
+							outputHandle,	
+							ADDR space,	
+							sizeof space-1,
+							tool2xy,	
+							ADDR count
+						inc tool2get
+					.ENDIF
+				.ENDIF
+			.ENDIF
+
+			.IF mexy.x == 30
+				.IF mexy.y == 16 || mexy.y == 18
+					.IF tool3get == 0
+						INVOKE WriteConsoleOutputCharacter,
+							outputHandle,	
+							ADDR tool3,	
+							sizeof tool3-1,
+							tool3xy,	
+							ADDR count
+						inc tool3get
+						jmp continue
+					.ENDIF
+
+					.IF tool3get == 1
+						INVOKE WriteConsoleOutputCharacter,
+							outputHandle,	
+							ADDR space,	
+							sizeof space-1,
+							tool3xy,	
+							ADDR count
+						inc tool3get
+					.ENDIF
+				.ENDIF
+			.ENDIF
+
+		.ENDIF
+
+		.IF	tool2get == 2 && tool3get == 2
+
+			INVOKE WriteConsoleOutputCharacter,
+				outputHandle,	
+				ADDR toolcontent1,	
+				sizeof toolcontent1-1,
+				contentxy,	
+				ADDR count
+
+			inc tool2get
+
+			INVOKE WriteConsoleOutputCharacter,
+				outputHandle,	
+				ADDR space1,	
+				sizeof space1-1,
+				Boxxy,	
+				ADDR count
+			sub Boxxy.x , sizeof space1-1
+
+		.ENDIF
+
+		jmp continue
+
 	continue:
 		jmp start
 level2move ENDP
