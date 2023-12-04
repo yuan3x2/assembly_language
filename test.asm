@@ -25,11 +25,17 @@ content1 BYTE "好好看，好想去染唷", 0
 content2 BYTE "如果我能夠擁有一頭漂亮的淺粉色漸層頭一定很棒！", 0
 content3 BYTE "啊......", 0
 content4 BYTE "怎麼變成螢光粉了！凸︿＿︿凸", 0
+content5 BYTE "頭髮終於變成好看的漸層粉色了", 0
+content6 BYTE "（定睛一看目瞪口呆", 0
+content7 BYTE "哇靠，這是什麼無良髮廊，染個頭髮竟然要這麼貴！", 0
+content8 BYTE "錢包要哭泣了，怎麼可能要九千圓，嗚嗚", 0
 contentxy COORD <12, 8>
 contentcount BYTE 0
 
 toolcontent BYTE "是可以把顏色漂白的漂白水耶", 0
 toolcontent1 BYTE "哇賽！變好看了！太感動了～", 0
+toolcontent2 BYTE "多虧了你這個「砍」價高手～", 0
+toolcontent3 BYTE "省下了一大筆錢＄＄＄", 0
 
 tool1 BYTE "漂白水", 0
 tool1get DWORD 0
@@ -41,6 +47,18 @@ tool2xy COORD <28, 17>
 tool3 BYTE "兀",0
 tool3get DWORD 0
 tool3xy COORD <30, 17>
+
+tool4 BYTE "十",0
+tool4get DWORD 0
+tool4xy COORD <38, 17>
+
+tool5 BYTE "一",0
+tool5get DWORD 0
+tool5xy COORD <38, 17>
+
+tool6 BYTE "/_",0
+tool6get DWORD 0
+tool6xy COORD <38, 17>
 ;------------------------------------------startword------------------------------------------------------------
 
 startword BYTE   " _______　　　 　 _______",0
@@ -317,6 +335,11 @@ main PROC
 	
 	call level2move
 
+	;-----------------------------------------------level2_2-------------------------------------------------------------
+	INVOKE Sleep, 1000
+	call level2_2
+	call level2_2move
+
 	exit
 main ENDP
 
@@ -405,6 +428,8 @@ move_down ENDP
 ;-----------------------------------------------level2 bg---------------------------------------------------------------------
 
 level2 PROC
+	
+	INVOKE sleep, 1000
 
 	INVOKE WriteConsoleOutputCharacter,
 		outputHandle,	
@@ -427,9 +452,9 @@ level2 PROC
 		je continue1
 		cmp bl, 1
 		je continue2
-		cmp bl, 3
+		cmp bl, 2
 		je continue3
-		cmp bl, 4
+		cmp bl, 3
 		je continue4
 
 		continue1:
@@ -454,7 +479,7 @@ level2 PROC
 			ADDR count
 
 			add contentxy.y, 3
-			mov contentcount, 3
+			inc contentcount
 
 			jmp start
 
@@ -467,7 +492,7 @@ level2 PROC
 			ADDR count
 
 			add contentxy.x, sizeof content3-1
-			mov contentcount, 4
+			inc contentcount
 
 			jmp start
 
@@ -492,6 +517,8 @@ level2 ENDP
 level2move PROC
 	start:
 		call ReadChar  ; 從鍵盤讀取一個字符 
+
+
 
 		cmp al, "d"
 		je colusionr
@@ -826,6 +853,8 @@ level2move PROC
 				ADDR count
 			sub Boxxy.x , sizeof space1-1
 
+			ret
+
 		.ENDIF
 
 		jmp continue
@@ -834,5 +863,452 @@ level2move PROC
 		jmp start
 level2move ENDP
 
+;---------------------------------------------------level2_2 bg--------------------------------------------------------
+level2_2 PROC
+	
+	mov contentxy.x, 12
+	mov contentxy.y, 8
+	mov contentcount, 0
+
+	mov ecx, 14
+	S1:push ecx
+		INVOKE WriteConsoleOutputCharacter,
+			outputHandle,	
+			ADDR space,	
+			sizeof space-1,
+			contentxy,	
+			ADDR count
+		add contentxy.x, 2
+		pop ecx
+		loop S1
+
+	mov contentxy.x, 12
+	add contentxy.y, 3
+
+	mov ecx, 9
+	S2:push ecx
+		INVOKE WriteConsoleOutputCharacter,
+			outputHandle,	
+			ADDR space,	
+			sizeof space-1,
+			contentxy,	
+			ADDR count
+		add contentxy.x, 2
+		pop ecx
+		loop S2
+
+	mov contentxy.x, 12
+	add contentxy.y, 3
+
+	mov ecx, 23
+	S3:push ecx
+		INVOKE WriteConsoleOutputCharacter,
+			outputHandle,	
+			ADDR space,	
+			sizeof space-1,
+			contentxy,	
+			ADDR count
+		add contentxy.x, 2
+		pop ecx
+		loop S3
+
+	mov contentxy.x, 12
+	add contentxy.y, 3
+
+	mov ecx, 18
+	S4:push ecx
+		INVOKE WriteConsoleOutputCharacter,
+			outputHandle,	
+			ADDR space,	
+			sizeof space-1,
+			contentxy,	
+			ADDR count
+		add contentxy.x, 2
+		pop ecx
+		loop S4
+
+	mov contentxy.x, 12
+	add contentxy.y, 3
+
+	mov ecx, 26
+	S5:push ecx
+		INVOKE WriteConsoleOutputCharacter,
+			outputHandle,	
+			ADDR space,	
+			sizeof space-1,
+			contentxy,	
+			ADDR count
+		add contentxy.x, 2
+		pop ecx
+		loop S5
+
+	mov contentxy.x, 12
+	mov contentxy.y, 8
+
+	INVOKE sleep, 2000
+
+	INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR content5,	
+		sizeof content5-1,
+		contentxy,	
+		ADDR count
+
+	add contentxy.y, 3
+
+	start:
+		call ReadChar
+		cmp al, " "
+		je which
+		jmp start
+
+	which:
+		mov bl, contentcount
+		cmp bl, 0
+		je continue1
+		cmp bl, 1
+		je continue2
+		cmp bl, 2
+		je continue3
+
+		continue1:
+			INVOKE WriteConsoleOutputCharacter,
+			outputHandle,	
+			ADDR content6,	
+			sizeof content6-1,
+			contentxy,	
+			ADDR count
+
+			add contentxy.y, 3
+			inc contentcount
+
+			jmp start
+
+		continue2:
+			INVOKE WriteConsoleOutputCharacter,
+			outputHandle,	
+			ADDR content7,	
+			sizeof content7-1,
+			contentxy,	
+			ADDR count
+
+			add contentxy.y, 3
+			inc contentcount
+
+			jmp start
+
+		continue3:
+			INVOKE WriteConsoleOutputCharacter,
+			outputHandle,	
+			ADDR content8,	
+			sizeof content8-1,
+			contentxy,	
+			ADDR count
+
+			add contentxy.y, 3
+			inc contentcount
+
+			ret
+
+level2_2 ENDP
+;--------------------------------------------level2_2move-----------------------------------------------------
+level2_2move PROC
+
+	start:
+		call ReadChar  ; 從鍵盤讀取一個字符 
+
+		cmp al, "d"
+		je colusionr
+
+		cmp al, "a"
+		je colusionl
+
+		cmp al, "w"
+		je colusionu
+
+		cmp al, "s"
+		je colusiond
+
+		cmp al, "e"
+		je use
+
+		jmp continue
+
+;-----------------------------------------colusion---------------------------------------------
+
+	colusionr:
+		mov ax, mexy.x
+		cmp ax, 138
+		jb colusion_contentr
+		jmp continue
+
+		colusion_contentr:
+			mov bx, mexy.y
+			cmp ax, 10
+			je ccry
+			jmp mover
+
+			ccry:
+				cmp bx, 8
+				je continue
+
+				cmp bx, 11
+				je continue
+
+				cmp bx, 14
+				je continue
+
+				cmp bx, 17
+				je continue
+
+				.IF tool6get == 1
+					cmp bx, 20
+					je continue
+				.ENDIF
+
+				jmp mover
+
+
+	colusionl:
+		mov ax, mexy.x
+		cmp ax, 4
+		ja colusion_contentl
+		jmp continue
+
+		colusion_contentl:
+			mov bx, mexy.y
+			cmp ax, 40
+			je ccly1
+
+			cmp ax, 30
+			je ccly2
+
+			cmp ax, 58
+			je ccly3
+
+			cmp ax, 48
+			je ccly4
+
+			.IF tool6get == 1
+				cmp ax, 38
+				je ccly5
+			.ENDIF
+
+			jmp movel
+
+			ccly1:
+				cmp bx, 8
+				je continue
+				jmp movel
+
+			ccly2:
+				cmp bx, 11
+				je continue
+				jmp movel
+
+			ccly3:
+				cmp bx, 14
+				je continue
+				jmp movel
+
+			ccly4:
+				cmp bx, 17
+				je continue
+				jmp movel
+			
+			ccly5:
+				cmp bx, 20
+				je continue
+				jmp movel
+
+	colusionu:
+		mov ax, mexy.y
+		cmp ax, 3
+		ja colusion_contentu
+		jmp continue
+
+		colusion_contentu:
+			mov ax, mexy.y
+			mov bx, mexy.x
+			cmp bx, 12
+			jb moveu
+
+			.IF tool6get == 1
+				.IF mexy.y == 21
+					.IF mexy.x <= 36
+						jmp continue
+					.ENDIF
+				.ENDIF
+			.ENDIF
+
+			cmp ax, 9
+			je ccux1
+
+			cmp ax, 12
+			je ccux2
+
+			cmp ax, 15
+			je ccux3
+
+			cmp ax, 18
+			je ccux4
+
+			jmp moveu
+
+			ccux1:
+				cmp bx, 40
+				jae moveu
+				jmp continue
+
+			ccux2:
+				cmp bx, 30
+				jae moveu
+				jmp continue
+				
+			ccux3:
+				cmp bx, 58
+				jae moveu
+				jmp continue
+
+			ccux4:
+				cmp bx, 48
+				jae moveu
+				jmp continue
+			
+			
+	colusiond:
+		mov ax, mexy.y
+		cmp ax, 39
+		jb colusion_contentd
+		jmp continue
+	
+		colusion_contentd:
+			mov ax, mexy.y
+			mov bx, mexy.x
+			cmp bx, 12
+			jb moved
+
+			.IF tool6get == 1
+				.IF mexy.y == 19
+					.IF mexy.x <= 36
+						jmp continue
+					.ENDIF
+				.ENDIF
+			.ENDIF
+
+			cmp ax, 7
+			je ccdx1
+
+			cmp ax, 10
+			je ccdx2
+
+			cmp ax, 13
+			je ccdx3
+
+			cmp ax, 16
+			je ccdx4
+
+			jmp moved
+
+			ccdx1:
+				cmp bx, 40
+				jae moved
+				jmp continue
+
+			ccdx2:
+				cmp bx, 30
+				jae moved
+				jmp continue
+				
+			ccdx3:
+				cmp bx, 58
+				jae moved
+				jmp continue
+
+			ccdx4:
+				cmp bx, 48
+				jae moved
+				jmp continue
+
+		mover:
+			call move_right
+			jmp continue
+		
+		movel:
+			call move_left
+			jmp continue
+
+		moveu:
+			call move_up
+			jmp continue
+
+		moved:
+			call move_down
+			jmp continue
+
+;------------------------------------------------use---------------------------------------------------------------
+	use:
+		.IF mexy.x == 38
+			.IF mexy.y == 16 || mexy.y == 18
+				.IF tool4get == 0
+					INVOKE WriteConsoleOutputCharacter,
+						outputHandle,	
+						ADDR tool4,	
+						sizeof tool4-1,
+						tool4xy,	
+						ADDR count
+					inc tool4get
+					jmp continue
+				.ENDIF
+
+				.IF tool5get == 0
+					INVOKE WriteConsoleOutputCharacter,
+						outputHandle,	
+						ADDR tool5,	
+						sizeof tool5-1,
+						tool5xy,	
+						ADDR count
+					inc tool5get
+					jmp continue
+				.ENDIF
+
+				.IF tool6get == 0
+					INVOKE WriteConsoleOutputCharacter,
+						outputHandle,	
+						ADDR tool6,	
+						sizeof tool6-1,
+						tool6xy,	
+						ADDR count
+					inc tool6get
+				.ENDIF
+			.ENDIF
+		.ENDIF 
+
+		.IF tool6get == 1
+			INVOKE WriteConsoleOutputCharacter,
+				outputHandle,	
+				ADDR toolcontent2,	
+				sizeof toolcontent2-1,
+				contentxy,	
+				ADDR count
+			
+			add contentxy.y, 3
+			Invoke sleep, 3000
+
+			INVOKE WriteConsoleOutputCharacter,
+				outputHandle,	
+				ADDR toolcontent3,	
+				sizeof toolcontent3-1,
+				contentxy,	
+				ADDR count
+
+			ret
+		.ENDIF
+
+
+	continue:
+		jmp start
+
+level2_2move ENDP
 END main
 
