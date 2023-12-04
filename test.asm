@@ -223,8 +223,9 @@ main PROC
 	play:
 		mov bl, startcount
 		call ReadChar
-		cmp al, "p"
-		je draw_bg
+		.IF al == "p" || al == "P"
+			je draw_bg
+		.ENDIF
 		cmp bl, 1
 		je bitch
 		cmp bl, 2
@@ -519,18 +520,22 @@ level2move PROC
 		call ReadChar  ; 從鍵盤讀取一個字符 
 
 
+		.IF al == "d" || al == "D"
+			je colusionr
+		.ENDIF
 
-		cmp al, "d"
-		je colusionr
+		.IF al == "a" || al == "A"
+			je colusionl
+		.ENDIF
+		
+		.IF al == "w" || al == "W"
+			je colusionu
+		.ENDIF
 
-		cmp al, "a"
-		je colusionl
-
-		cmp al, "w"
-		je colusionu
-
-		cmp al, "s"
-		je colusiond
+		
+		.IF al == "s" || al == "S"
+			je colusiond
+		.ENDIF
 
 		cmp al, " "
 		je see
@@ -1017,17 +1022,21 @@ level2_2move PROC
 	start:
 		call ReadChar  ; 從鍵盤讀取一個字符 
 
-		cmp al, "d"
-		je colusionr
+		.IF al == "d" || al == "D"
+			je colusionr
+		.ENDIF
 
-		cmp al, "a"
-		je colusionl
+		.IF al == "a" || al == "A"
+			je colusionl
+		.ENDIF
+		
+		.IF al == "w" || al == "W"
+			je colusionu
+		.ENDIF
 
-		cmp al, "w"
-		je colusionu
-
-		cmp al, "s"
-		je colusiond
+		.IF al == "s" || al == "S"
+			je colusiond
+		.ENDIF
 
 		cmp al, "e"
 		je use
