@@ -14,7 +14,7 @@ mexy COORD <90,25>
 
 ;====================================endinganime=======================
 endcxy COORD <40, 15>
-endpxy COORD <60, 15>
+endpxy COORD <60, 10>
 
 endc1 BYTE "「你騙我！到底要怎樣才可以出去這個鬼地方」",0
 endc2 BYTE "「嗚嗚嗚線代考試嗚嗚嗚嗚嗚」",0
@@ -31,7 +31,12 @@ endp11 BYTE "啊　　　　　　　啊啊啊啊　　　啊",0
 endp12 BYTE "啊　　　　　　啊啊啊啊啊啊　　啊",0
 endp13 BYTE "啊　　　　　　啊啊啊啊啊啊　　啊",0
 endp14 BYTE "啊　　　　　　啊啊啊啊啊啊　　啊",0
-endp15 BYTE "啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊",0
+endp15 BYTE "啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊",0
+endp16 BYTE "製作名單：ＡＡＡ",0
+endp17 BYTE "　　　　　ＢＢＢ",0
+endp18 BYTE "　　　　　ＣＣＣ",0
+endp19 BYTE "　　　　　ＤＤＤ",0
+endp20 BYTE "感謝遊玩此遊戲！",0
 
 ;-----------------------------------------------preface------------------------------------------------------
 preface1 BYTE "「這是哪？我怎麼躺在地上？」",0
@@ -857,6 +862,43 @@ L:
 		outputHandle,	
 		ADDR endp15,
 		sizeof endp15-1,	
+		endpxy,	
+		ADDR count
+	add endpxy.y,2
+	add endpxy.x, 30
+	INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR endp16,
+		sizeof endp16-1,	
+		endpxy,	
+		ADDR count
+	inc endpxy.y
+
+	INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR endp17,
+		sizeof endp17-1,	
+		endpxy,	
+		ADDR count
+	inc endpxy.y
+	INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR endp18,
+		sizeof endp18-1,	
+		endpxy,	
+		ADDR count
+	inc endpxy.y
+	INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR endp19,
+		sizeof endp19-1,	
+		endpxy,	
+		ADDR count
+	inc endpxy.y
+	INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR endp20,
+		sizeof endp20-1,	
 		endpxy,	
 		ADDR count
 	inc endpxy.y
