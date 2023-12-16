@@ -4187,7 +4187,7 @@ move_right31 PROC
 	INVOKE WriteConsoleOutputCharacter,
 		outputHandle,	
 		ADDR space,	
-		sizeof space,	
+		sizeof space-1,	
 		mexy_3,
 		ADDR count
 
@@ -4201,7 +4201,7 @@ move_left31 PROC
 	INVOKE WriteConsoleOutputCharacter,
 		outputHandle,	
 		ADDR space,	
-		sizeof space,	
+		sizeof space-1,	
 		mexy_3,	
 		ADDR count	
 
@@ -4215,7 +4215,7 @@ move_up31 PROC
 	INVOKE WriteConsoleOutputCharacter,
 		outputHandle,	
 		ADDR space,
-		sizeof space,
+		sizeof space-1,
 		mexy_3,	
 		ADDR count	
 
@@ -4229,7 +4229,7 @@ move_down31 PROC
 	INVOKE WriteConsoleOutputCharacter,
 		outputHandle,	
 		ADDR space,	
-		sizeof space,	
+		sizeof space-1,	
 		mexy_3,	
 		ADDR count
 
@@ -4244,7 +4244,7 @@ move_right32 PROC
 	INVOKE WriteConsoleOutputCharacter,
 		outputHandle,	
 		ADDR space,	
-		sizeof space,	
+		sizeof space-1,	
 		me2xy_3,
 		ADDR count
 
@@ -4258,7 +4258,7 @@ move_left32 PROC
 	INVOKE WriteConsoleOutputCharacter,
 		outputHandle,	
 		ADDR space,	
-		sizeof space,	
+		sizeof space-1,	
 		me2xy_3,	
 		ADDR count	
 
@@ -4272,7 +4272,7 @@ move_up32 PROC
 	INVOKE WriteConsoleOutputCharacter,
 		outputHandle,	
 		ADDR space,
-		sizeof space,
+		sizeof space-1,
 		me2xy_3,	
 		ADDR count	
 
@@ -4286,7 +4286,7 @@ move_down32 PROC
 	INVOKE WriteConsoleOutputCharacter,
 		outputHandle,	
 		ADDR space,	
-		sizeof space,	
+		sizeof space-1,	
 		me2xy_3,	
 		ADDR count
 
