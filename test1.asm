@@ -1,140 +1,167 @@
 INCLUDE Irvine32.inc
 
-BoxWidth = 70d	;è¨­å®šå¯¬
-BoxHeight = 39d	;è¨­å®šé•·
+BoxWidth = 70d	;³]©w¼e
+BoxHeight = 39d	;³]©wªø
 
 .data
-me byte "æˆ‘", 0
-space byte "ã€€",0
-space1 byte "ã€€ã€€ã€€",0
-mexy COORD <16,14>
+me byte "§Ú", 0
+space byte "¡@",0
+space1 byte "¡@¡@¡@",0
+mexy COORD <90,25>
 
 
 ;-----------------------------------------------preface------------------------------------------------------
-preface1 BYTE "ã€Œé€™æ˜¯å“ªï¼Ÿæˆ‘æ€Žéº¼èººåœ¨åœ°ä¸Šï¼Ÿã€",0
-preface2 BYTE "ã€Œé ­å¥½ç—›......ã€",0
-preface3 BYTE "ä½ çš„å¾Œè…¦æ“å‚³ä¾†é™£é™£ç–¼ç—›ï¼Œç’°é¡§å››å‘¨å»ç™¼ç¾é€™è£¡æ˜¯ä¸€å€‹é™Œç”Ÿçš„æˆ¿é–“",0
-preface4 BYTE "ã€ŒFUCKï¼Œä»–åª½çš„é€™è£¡åˆ°åº•æ˜¯å“ª ?ã€",0
-preface5 BYTE "æŽ¥è‘—ä½ èµ°åˆ°é–€å£ç™¼ç¾ä¸€æ‰‡é–€ï¼Œè¼•è¼•ä¸€æŽ¨......",0
-preface6 BYTE "ã€Œé€™æ‰‡ç ´é–€ç«Ÿç„¶æ‰“ä¸é–‹ï¼æˆ‘é‚„è¦åŽ»è€ƒæŸé½Šç·šä»£ï¼Œé€™æ¬¡æ²’åŽ»æˆ‘å¿…æ­»ç„¡ç–‘å•Šå•Šå•Šå•Šå’¦å—šèª’å–”ï¼Ÿã€",0
-preface7 BYTE "é€™æ™‚ï¼Œä½ ç™¼ç¾åœ°ä¸Šæœ‰ä¸€å€‹æ—¥è¨˜æœ¬",0
-preface8 BYTE "ä½ æ‰“é–‹æ—¥è¨˜æœ¬çš„ç¬¬ä¸€é ï¼Œç™¼ç¾ä¸Šé¢å¯«è‘—",0
-preface9 BYTE "ã€Žæˆ‘å¥½æ¨å•Š......å¿ƒå¿ƒå¿µå¿µçš„æ±è¥¿å±…ç„¶å†·æŽ‰äº†ï¼Œè®“æˆ‘æ›´å¿ƒå¯’äº†å•Š    BYã€Œï¼Ž____ï¼Žã€ã€",0
-preface10 BYTE "ä½ ç¿»åˆ°ä¸‹ä¸€é ",0
-preface11 BYTE "ã€Žæˆ‘çš„é ­é«®å•Šå•Šå•Šï¼Œæˆ‘ä¸æƒ³è®ŠèŠ­æ¯”å¨ƒå¨ƒQAQ    BY ã€‚ã€‚ã€‚ã€‚ã€‚ã€",0
-preface12 BYTE "ä½ å†ç¿»åˆ°ä¸‹ä¸€é ",0
-preface13 BYTE "ã€Žçœ‹ä¾†å«æŽOèµ«çš„éƒ½æœƒæ‹¿å† è»  æŽçœŸå¼· lol  BY py not piyanã€",0
-preface14 BYTE "ã€Žæˆ‘å¥½å†·å•Šã€‚ã€‚ã€‚çœ‹ä¾†è¦è²·ä¸€äº›ä¿æš–çš„æ±è¥¿äº†   BY æˆ‘ä¸æ·‹é›¨ã€",0
-preface15 BYTE "ã€Œé€™äº›åˆ°åº•æ˜¯ä»€éº¼å•Šï¼ŒçœŸå¥‡æ€ªã€‚ã€",0
-preface16 BYTE "ä½ ç¿»åˆ°æ—¥è¨˜æœ¬æœ€å¾Œä¸€é ",0
-preface17 BYTE "ã€Žè¦ªæ„›çš„æŒ‘æˆ°è€…æ‚¨å¥½ï½žæ­¡è¿Žæ‚¨ä¾†åˆ°ã€Šçµ„åˆyuan--æ–‡å­—éŠæˆ²å¤§å†’éšªã€‹",0
-preface18 BYTE "ç›¸ä¿¡æ‚¨ä¸€å®šéžå¸¸æœŸå¾…å±•é–‹å†’éšªäº†å°å§ !ã€",0
-preface19 BYTE "ã€Œ......ã€",0
-preface20 BYTE "ã€Žæ‚¨ä¸€å®šå¾ˆå¥½å¥‡ç‚ºä»€éº¼ä½ åœ¨é€™è£¡å°å§ï¼Œç­”æ¡ˆå°±æ˜¯......æ²’æœ‰åŽŸå› ï¼ã€",0
-preface22 BYTE "ã€Œå¹¹ã€",0
-preface23 BYTE "ã€Žæ‚¨éœ€è¦åœ¨é€™é–“æˆ¿é–“å…§æ‰¾å°‹ç·šç´¢é€ƒè„«ï¼Œ",0
-preface24 BYTE "æŒ‰ä¸‹ã€ç©ºç™½éµã€‘æ™‚å¯ä»¥æŸ¥çœ‹ç‰©å“ï¼Œ",0
-preface25 BYTE "æŒ‰ä¸‹ã€Eã€‘æ™‚ï¼Œå¯ä»¥ä½¿ç”¨é“å…·æ¬„å…§çš„é“å…·ï¼Œ",0
-preface26 BYTE "æŒ‰ä¸‹ã€W/S/A/Dã€‘æ™‚åˆ†åˆ¥æ˜¯ä¸Š/ä¸‹/å·¦/å³ç§»å‹•ï¼Œä»¥ä¸Šå°±æ˜¯éŠæˆ²è¦å‰‡ã€‚",0
-preface27 BYTE "ç¥æ‚¨èƒ½å¤ é‹ç”¨å„ç¨®ã€Œæ–‡å­—ã€çš„é‚è¼¯æ€ç¶­ï¼Œé †åˆ©é€ƒå‡ºç”Ÿå¤©ï¼",0
-preface28 BYTE "To be or not to be continueã€",0
-preface29 BYTE "ã€è«‹æŒ‰Pé–‹å§‹éŠæˆ²ã€‘",0
+preface1 BYTE "¡u³o¬O­þ¡H§Ú«ç»ò½ö¦b¦a¤W¡H¡v",0
+preface2 BYTE "¡uÀY¦nµh......¡v",0
+preface3 BYTE "§Aªº«á¸£¨@¶Ç¨Ó°}°}¯kµh¡AÀôÅU¥|©P«oµo²{³o¸Ì¬O¤@­Ó­¯¥Íªº©Ð¶¡",0
+preface4 BYTE "¡uFUCK¡A¥L¶ýªº³o¸Ì¨ì©³¬O­þ ?¡v",0
+preface5 BYTE "±µµÛ§A¨«¨ìªù¤fµo²{¤@®°ªù¡A»´»´¤@±À......",0
+preface6 BYTE "¡u³o®°¯}ªù³ºµM¥´¤£¶}¡I§ÚÁÙ­n¥h¦Ò¬f»ô½u¥N¡A³o¦¸¨S¥h§Ú¥²¦ºµLºÃ°Ú°Ú°Ú°Ú«x¶ãäM³á¡H¡v",0
+preface7 BYTE "³o®É¡A§Aµo²{¦a¤W¦³¤@­Ó¤é°O¥»",0
+preface8 BYTE "§A¥´¶}¤é°O¥»ªº²Ä¤@­¶¡Aµo²{¤W­±¼gµÛ",0
+preface9 BYTE "¡y§Ú¦n«ë°Ú......¤ß¤ß©À©ÀªºªF¦è©~µM§N±¼¤F¡AÅý§Ú§ó¤ß´H¤F°Ú    BY¡u¡D____¡D¡v¡z",0
+preface10 BYTE "§AÂ½¨ì¤U¤@­¶",0
+preface11 BYTE "¡y§ÚªºÀY¾v°Ú°Ú°Ú¡A§Ú¤£·QÅÜªÝ¤ñ«½«½QAQ    BY ¡C¡C¡C¡C¡C¡z",0
+preface12 BYTE "§A¦AÂ½¨ì¤U¤@­¶",0
+preface13 BYTE "¡y¬Ý¨Ó¥s§õO»®ªº³£·|®³«a­x  §õ¯u±j lol  BY py not piyan¡z",0
+preface14 BYTE "¡y§Ú¦n§N°Ú¡C¡C¡C¬Ý¨Ó­n¶R¤@¨Ç«O·xªºªF¦è¤F   BY §Ú¤£²O«B¡z",0
+preface15 BYTE "¡u³o¨Ç¨ì©³¬O¤°»ò°Ú¡A¯u©_©Ç¡C¡v",0
+preface16 BYTE "§AÂ½¨ì¤é°O¥»³Ì«á¤@­¶",0
+preface17 BYTE "¡y¿Ë·Rªº¬D¾ÔªÌ±z¦n¡ãÅwªï±z¨Ó¨ì¡m²Õ¦Xyuan--¤å¦r¹CÀ¸¤j«_ÀI¡n",0
+preface18 BYTE "¬Û«H±z¤@©w«D±`´Á«Ý®i¶}«_ÀI¤F¹ï§a !¡z",0
+preface19 BYTE "¡u......¡v",0
+preface20 BYTE "¡y±z¤@©w«Ü¦n©_¬°¤°»ò§A¦b³o¸Ì¹ï§a¡Aµª®×´N¬O......¨S¦³­ì¦]¡I¡z",0
+preface22 BYTE "¡u·F¡v",0
+preface23 BYTE "¡y±z»Ý­n¦b³o¶¡©Ð¶¡¤º§ä´M½u¯Á°k²æ¡A",0
+preface24 BYTE "«ö¤U¡iªÅ¥ÕÁä¡j®É¥i¥H¬d¬Ýª««~¡A",0
+preface25 BYTE "«ö¤U¡iE¡j®É¡A¥i¥H¨Ï¥Î¹D¨ãÄæ¤ºªº¹D¨ã¡A",0
+preface26 BYTE "«ö¤U¡iW/S/A/D¡j®É¤À§O¬O¤W/¤U/¥ª/¥k²¾°Ê¡A¥H¤W´N¬O¹CÀ¸³W«h¡C",0
+preface27 BYTE "¯¬±z¯à°÷¹B¥Î¦UºØ¡u¤å¦r¡vªºÅÞ¿è«äºû¡A¶¶§Q°k¥X¥Í¤Ñ¡I",0
+preface28 BYTE "To be or not to be continue¡z",0
+preface29 BYTE "¡i½Ð«öP¶}©l¹CÀ¸¡j",0
 
 
 prefacexy COORD <40, 15>
 ;-----------------------------------------------bg------------------------------------------------------------
 
-boxTop    BYTE BoxWidth DUP("ç‰†")
-boxBody   BYTE "ç‰†", (BoxWidth - 2) DUP('ã€€'), "ç‰†"		
-boxBottom BYTE BoxWidth DUP("ç‰†")
+boxTop    BYTE BoxWidth DUP("Àð")
+boxBody   BYTE "Àð", (BoxWidth - 2) DUP('¡@'), "µ¡"		
+boxBottom BYTE BoxWidth DUP("Àð")
 wallxy COORD <2,2>	
 
-toolBox BYTE "é“å…·æ¬„ï¼š",0
+toolBox BYTE "¹D¨ãÄæ¡G",0
 Boxxy COORD <2,42>
 
-;---------------------------------------- ä¸»ç•«é¢ -----------------------------------
-mainbg0   BYTE 26 DUP('ã€€'), "æµ´", 3 DUP('ã€€'), 2 DUP("æ¡Œ"), 16 DUP('ã€€'), 2 DUP("æ¿"), 16 DUP('ã€€'), 2 DUP("æ¡Œ"),0  ;loop 4 æ¬¡
-mainbg1   BYTE 26 DUP('ã€€'), "æµ´", 3 DUP('ã€€'), 18 DUP("æ¡Œ"), 2 DUP("æ¿"), 18 DUP("æ¡Œ"),0  
-mainbg2   BYTE 26 DUP('ã€€'), "æµ´", 3 DUP('ã€€'), 18 DUP('ã€€'), 2 DUP("æ¿"), 18 DUP('ã€€'), 0 ;2~8 å¯æ”¾åç‰Œ
-mainbg3   BYTE 26 DUP('ã€€'), "æµ´", 3 DUP('ã€€'), 18 DUP('ã€€'), 2 DUP("æ¿"), 18 DUP('ã€€'), 0
-mainbg4   BYTE 26 DUP('ã€€'), "æµ´", 3 DUP('ã€€'), 18 DUP('ã€€'), 2 DUP("æ¿"), 18 DUP('ã€€'), 0 
-mainbg5   BYTE 26 DUP('ã€€'), "æµ´", 3 DUP('ã€€'), 18 DUP('ã€€'), 2 DUP("æ¿"), 18 DUP('ã€€'), 0 
-mainbg6   BYTE 26 DUP('ã€€'), "æµ´", 3 DUP('ã€€'), 18 DUP('ã€€'), 2 DUP("æ¿"), 18 DUP('ã€€'), 0 
-mainbg7   BYTE 26 DUP('ã€€'), "æµ´", 3 DUP('ã€€'), 18 DUP('ã€€'), 2 DUP("æ¿"), 18 DUP('ã€€'), 0
-mainbg8   BYTE 26 DUP('ã€€'), "æµ´", 3 DUP('ã€€'), 18 DUP('ã€€'), 2 DUP("æ¿"), 18 DUP('ã€€'), 0
-mainbg10  BYTE 26 DUP('ã€€'), "æµ´", 41 DUP('ã€€'), 0 ; loop 6æ¬¡
-mainbg11  BYTE 10 DUP('æµ´'), "é–‚", 10 DUP('æµ´'), 2 DUP("é¡"), 3 DUP('æµ´'), "æµ´", 41 DUP('ã€€'), 0
-mainbg12  BYTE 37 DUP('ã€€'), 0 ;loop 5æ¬¡
-mainbg13  BYTE 30 DUP('ã€€'), 18 DUP('ã€€'), 2 DUP("æ¿"), 18 DUP('ã€€'), 0 ;13~19 å¯æ”¾åç‰Œ
-mainbg14  BYTE 30 DUP('ã€€'), 18 DUP('ã€€'), 2 DUP("æ¿"), 18 DUP('ã€€'), 0 
-mainbg15  BYTE 30 DUP('ã€€'), 18 DUP('ã€€'), 2 DUP("æ¿"), 18 DUP('ã€€'), 0 
-mainbg16  BYTE 30 DUP('ã€€'), 18 DUP('ã€€'), 2 DUP("æ¿"), 18 DUP('ã€€'), 0 
-mainbg17  BYTE 30 DUP('ã€€'), 18 DUP('ã€€'), 2 DUP("æ¿"), 18 DUP('ã€€'), 0 
-mainbg18  BYTE 30 DUP('ã€€'), 18 DUP('ã€€'), 2 DUP("æ¿"), 18 DUP('ã€€'),0  
-mainbg19  BYTE 30 DUP('ã€€'), 18 DUP('ã€€'), 2 DUP("æ¿"), 18 DUP('ã€€'), 0 
-mainbg21  BYTE 30 DUP('ã€€'), 18 DUP("æ¡Œ"), 2 DUP("æ¿"), 18 DUP("æ¡Œ"),0 
-mainbg22  BYTE 30 DUP('ã€€'), 2 DUP("æ¡Œ"), 16 DUP('ã€€'), 2 DUP("æ¿"), 16 DUP('ã€€'), 2 DUP("æ¡Œ"),0  ;loop 4 æ¬¡
+;---------------------------------------- ¥Dµe­± -----------------------------------
+
+mainbg0   BYTE 26 DUP('¡@'), "¯D", 3 DUP('¡@'), 2 DUP("®à"), 16 DUP('¡@'), 2 DUP("ªO"), 16 DUP('¡@'), 2 DUP("®à"),0  ;loop 4 ¦¸
+mainbg1   BYTE 26 DUP('¡@'), "¯D", 3 DUP('¡@'), 18 DUP("®à"), 2 DUP("ªO"), 18 DUP("®à"),0  
+mainbg2   BYTE 26 DUP('¡@'), "¯D", 3 DUP('¡@'), 18 DUP('¡@'), 2 DUP("ªO"), 18 DUP('¡@'), 0 ;2~8 ¥i©ñ¦WµP
+mainbg3   BYTE 26 DUP('¡@'), "¯D", 3 DUP('¡@'), 18 DUP('¡@'), 2 DUP("ªO"), 18 DUP('¡@'), 0
+mainbg4   BYTE 26 DUP('¡@'), "¯D", 3 DUP('¡@'), 8 DUP('¡@'), " ---- ", 7 DUP('¡@'), 2 DUP("ªO"), 8 DUP('¡@'),  " ---- ", 0 
+mainbg5   BYTE 26 DUP('¡@'), "¯D", 3 DUP('¡@'), 8 DUP('¡@'), "|¢¶¢¶|", 7 DUP('¡@'), 2 DUP("ªO"), 8 DUP('¡@'),  "|²O«B|", 0 
+mainbg6   BYTE 26 DUP('¡@'), "¯D", 3 DUP('¡@'), 8 DUP('¡@'), " ---- ", 7 DUP('¡@'), 2 DUP("ªO"), 8 DUP('¡@'),  " ---- ", 0 
+mainbg7   BYTE 26 DUP('¡@'), "¯D", 3 DUP('¡@'), 18 DUP('¡@'), 2 DUP("ªO"), 18 DUP('¡@'), 0
+mainbg8   BYTE 26 DUP('¡@'), "¯D", 3 DUP('¡@'), 18 DUP('¡@'), 2 DUP("ªO"), 18 DUP('¡@'), 0
+mainbg10  BYTE 26 DUP('¡@'), "¯D", 41 DUP('¡@'), 0 ; loop 6¦¸
+mainbg11  BYTE 10 DUP('¯D'), "­¬", 10 DUP('¯D'), 2 DUP("Ãè"), 3 DUP('¯D'), "¯D", 41 DUP('¡@'), 0
+mainbg12  BYTE 37 DUP('¡@'), 0 ;loop 5¦¸
+mainbg13  BYTE 30 DUP('¡@'), 18 DUP('¡@'), 2 DUP("ªO"), 18 DUP('¡@'), 0 ;13~19 ¥i©ñ¦WµP
+mainbg14  BYTE 30 DUP('¡@'), 18 DUP('¡@'), 2 DUP("ªO"), 18 DUP('¡@'), 0 
+mainbg15  BYTE 30 DUP('¡@'), 8 DUP('¡@'), " ---- ", 7 DUP('¡@'), 2 DUP("ªO"), 8 DUP('¡@'),  " ---- ", 0 
+mainbg16  BYTE 30 DUP('¡@'), 8 DUP('¡@'), "| ¶ê |", 7 DUP('¡@'), 2 DUP("ªO"), 8 DUP('¡@'),  "|¢Þ¢ç|", 0 
+mainbg17  BYTE 30 DUP('¡@'), 8 DUP('¡@'), " ---- ", 7 DUP('¡@'), 2 DUP("ªO"), 8 DUP('¡@'),  " ---- ", 0 
+mainbg18  BYTE 30 DUP('¡@'), 18 DUP('¡@'), 2 DUP("ªO"), 18 DUP('¡@'),0  
+mainbg19  BYTE 30 DUP('¡@'), 18 DUP('¡@'), 2 DUP("ªO"), 18 DUP('¡@'), 0 
+mainbg21  BYTE 30 DUP('¡@'), 18 DUP("®à"), 2 DUP("ªO"), 18 DUP("®à"),0 
+mainbg22  BYTE 30 DUP('¡@'), 2 DUP("®à"), 16 DUP('¡@'), 2 DUP("ªO"), 16 DUP('¡@'), 2 DUP("®à"),0  ;loop 4 ¦¸
 
 mainbgxy COORD <4, 3>
 
-maindoor BYTE "é–‚", 0
+maindoor BYTE "­¬", 0
 maindoorxy COORD <2, 30>
 
+maindoor1 BYTE "ªù", 0
+
+mirror BYTE "ÃèÃè", 0
+mirror1xy COORD <46, 21>
+mirror2xy COORD <48, 21>
+
+
+menucontentspace BYTE 26 DUP("¡@")
+menucontentspacexy COORD <4, 3>
+
+menucontent0 BYTE "¤S¦^¨ì³Ìªìªº°_ÂI", 0
+menucontent1 BYTE "§b§b¦a¯¸¦bÃè¤l«e", 0
+menucontent2 BYTE "³o¸Ì¬O¯D«Ç ", 0
+menucontent3 BYTE "«ç»ò¥i¥H°½¿s§O¤H¬~¾þ©O `^¡¬ ", 0
+
+
+menucontent4 BYTE "level1", 0
+menucontent5 BYTE "level2", 0
+menucontent6 BYTE "level3", 0
+menucontent7 BYTE "ÁÙ¨S¿ô¡A¤£­n¥s§Ú @#$%^&*", 0
+
+menucontent10 BYTE "®¥³ß±z¦¨¥\°k¥X¥Í¤Ñ¡I", 0
+menucontent11 BYTE "§O«æ§O«æ¡A°¨¤W´N¯à¥X¥h¤F", 0
+
+menucontentxyinitial COORD <14, 9>
+menucontentxy COORD <14, 9>
 ;------------------------------------------level1--------------------------------------------------------------
 
 level1end BYTE 0
 
-micro_wave BYTE   "å¥½å†·å–”ï¼Œæœ€è¿‘éº¥ç•¶å‹žæœ‰è²·ä¸€é€ä¸€èª’ï¼Œåœ¨å¯’å†·çš„å†¬å¤©åƒä¸Šå‰›å‡ºæ²¹é‹çš„å¤§è–¯è‚¯å®šè¶…å¹¸ç¦çš„æ‹‰ï¼",0
-micro_wave1 BYTE  "å•Š...æ€Žéº¼æ¡Œä¸Šçš„å·²ç¶“è»ŸæŽ‰äº†ã„šã„šï¼Œ",0
-micro_wave2 BYTE  "åŽŸæœ¬æƒ³æ‹¿å¹é¢¨æ©ŸåŠ ç†±ï¼Œä½†å®¤å‹å»ºè­°æˆ‘å¯ä»¥æ”¾åˆ°å¾®æ³¢çˆè€¶ï¼Œ",0
-micro_wave3 BYTE  "é‚£å°±æ‹¿åŽ»åŠ ç†±äº†å–”...ï¼Ÿ",0
+micro_wave BYTE   "¦n§N³á¡A³Ìªñ³Á·í³Ò¦³¶R¤@°e¤@äM¡A¦b´H§Nªº¥V¤Ñ¦Y¤W­è¥XªoÁçªº¤jÁ¦ªÖ©w¶W©¯ºÖªº©Ô¡I",0
+micro_wave1 BYTE  "°Ú...«ç»ò®à¤Wªº¤w¸g³n±¼¤F£«£«¡A",0
+micro_wave2 BYTE  "­ì¥»·Q®³§j­·¾÷¥[¼ö¡A¦ý«Ç¤Í«ØÄ³§Ú¥i¥H©ñ¨ì·LªiÄl­C¡A",0
+micro_wave3 BYTE  "¨º´N®³¥h¥[¼ö¤F³á...¡H",0
 
-no_get_fries BYTE "é˜¿ä½ æ˜¯è¦ç‚¸ä»€éº¼å•¦ï¼Ÿï¼¿ï¼Ÿï¼ŒæŒ‰ä»»æ„éµä»¥ç¹¼çºŒç ´é—œ..."
-fries BYTE "ç²å¾—å†·æŽ‰çš„å¤§è–¯ä¸€ä»½ï¼ŒæŒ‰ä»»æ„éµä»¥ç¹¼çºŒç ´é—œ..."
+no_get_fries BYTE "ªü§A¬O­n¬µ¤°»ò°Õ¡H¡Ä¡H¡A«ö¥ô·NÁä¥HÄ~Äò¯}Ãö..."
+fries BYTE "Àò±o§N±¼ªº¤jÁ¦¤@¥÷¡A«ö¥ô·NÁä¥HÄ~Äò¯}Ãö..."
 
-whitebg BYTE BoxWidth-4 DUP("ã€€"),0
-cold_fries BYTE  "ã€€ï¼¿ã€€ã€€ã€€ã€€ï¼¿ã€€ã€€ã€€ã€€ï¼¿ã€€ã€€ã€€ã€€ï¼¿ã€€ã€€ã€€ã€€ï¼¿ã€€",0
-cold_fries1 BYTE "ï½œã€€ï½œã€€ã€€ï½œã€€ï½œã€€ã€€ï½œã€€ï½œã€€ã€€ï½œã€€ï½œã€€ã€€ï½œã€€ï½œ",0
-cold_fries2 BYTE "ï½œã€€ï½œã€€ã€€ï½œã€€ï½œã€€ã€€ï½œã€€ï½œã€€ã€€ï½œã€€ï½œã€€ã€€ï½œã€€ï½œ",0
-cold_fries3 BYTE "ï½œã€€ï½œã€€ã€€ï½œã€€ï½œã€€ã€€ï½œã€€ï½œã€€ã€€ï½œã€€ï½œã€€ã€€ï½œã€€ï½œ",0
-cold_fries4 BYTE "ï½œã€€ï½œã€€ã€€ï½œã€€ï½œã€€ã€€ï½œã€€ï½œã€€ã€€ï½œã€€ï½œã€€ã€€ï½œã€€ï½œ",0
-cold_fries5 BYTE "ï½œã€€ï½œã€€ã€€ï½œã€€ï½œã€€ã€€ï½œã€€ï½œã€€ã€€ï½œã€€ï½œã€€ã€€ï½œã€€ï½œ",0
-cold_fries6 BYTE "ã€€ï¼¿ã€€ã€€ã€€ã€€ï¼¿ã€€ã€€ã€€ã€€ï¼¿ã€€ã€€ã€€ã€€ï¼¿ã€€ã€€ã€€ã€€ï¼¿ã€€",0
-oil_pot BYTE "ï½œã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ï½œ",0
-oil_pot1 BYTE "ï½œï½žï½žï½žï½žï½žï½žï½žï½žï½žï½žï½žï½žï½žï½žï½žï½žï½žï½žï½žï½žï½žï½žï½žï½žï½žï½œ",0
-oil_pot2 BYTE "ï½œã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ï½œ",0
-oil_pot3 BYTE "ï½œã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ï½œ",0
-oil_pot4 BYTE  "ï¼¿ï¼¿ï¼¿ï¼¿ï¼¿ï¼¿ï¼¿ï¼¿ï¼¿ï¼¿ï¼¿ï¼¿ï¼¿ï¼¿ï¼¿ï¼¿ï¼¿ï¼¿ï¼¿ï¼¿ï¼¿ï¼¿ï¼¿ï¼¿ï¼¿ï¼¿ï¼¿",0
-nofries BYTE "ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€",0
+whitebg BYTE BoxWidth-4 DUP("¡@"),0
+cold_fries BYTE  "¡@¡Ä¡@¡@¡@¡@¡Ä¡@¡@¡@¡@¡Ä¡@¡@¡@¡@¡Ä¡@¡@¡@¡@¡Ä¡@",0
+cold_fries1 BYTE "¡U¡@¡U¡@¡@¡U¡@¡U¡@¡@¡U¡@¡U¡@¡@¡U¡@¡U¡@¡@¡U¡@¡U",0
+cold_fries2 BYTE "¡U¡@¡U¡@¡@¡U¡@¡U¡@¡@¡U¡@¡U¡@¡@¡U¡@¡U¡@¡@¡U¡@¡U",0
+cold_fries3 BYTE "¡U¡@¡U¡@¡@¡U¡@¡U¡@¡@¡U¡@¡U¡@¡@¡U¡@¡U¡@¡@¡U¡@¡U",0
+cold_fries4 BYTE "¡U¡@¡U¡@¡@¡U¡@¡U¡@¡@¡U¡@¡U¡@¡@¡U¡@¡U¡@¡@¡U¡@¡U",0
+cold_fries5 BYTE "¡U¡@¡U¡@¡@¡U¡@¡U¡@¡@¡U¡@¡U¡@¡@¡U¡@¡U¡@¡@¡U¡@¡U",0
+cold_fries6 BYTE "¡@¡Ä¡@¡@¡@¡@¡Ä¡@¡@¡@¡@¡Ä¡@¡@¡@¡@¡Ä¡@¡@¡@¡@¡Ä¡@",0
+oil_pot BYTE "¡U¡@¡@¡@¡@¡@¡@¡@¡@¡@¡@¡@¡@¡@¡@¡@¡@¡@¡@¡@¡@¡@¡@¡@¡@¡@¡U",0
+oil_pot1 BYTE "¡U¡ã¡ã¡ã¡ã¡ã¡ã¡ã¡ã¡ã¡ã¡ã¡ã¡ã¡ã¡ã¡ã¡ã¡ã¡ã¡ã¡ã¡ã¡ã¡ã¡ã¡U",0
+oil_pot2 BYTE "¡U¡@¡@¡@¡@¡@¡@¡@¡@¡@¡@¡@¡@¡@¡@¡@¡@¡@¡@¡@¡@¡@¡@¡@¡@¡@¡U",0
+oil_pot3 BYTE "¡U¡@¡@¡@¡@¡@¡@¡@¡@¡@¡@¡@¡@¡@¡@¡@¡@¡@¡@¡@¡@¡@¡@¡@¡@¡@¡U",0
+oil_pot4 BYTE  "¡Ä¡Ä¡Ä¡Ä¡Ä¡Ä¡Ä¡Ä¡Ä¡Ä¡Ä¡Ä¡Ä¡Ä¡Ä¡Ä¡Ä¡Ä¡Ä¡Ä¡Ä¡Ä¡Ä¡Ä¡Ä¡Ä¡Ä",0
+nofries BYTE "¡@¡@¡@¡@¡@¡@¡@¡@¡@¡@¡@¡@¡@¡@¡@¡@¡@¡@¡@¡@¡@¡@¡@¡@¡@¡@¡@",0
 
-fried_fries BYTE "ã€€ã€€ã€€ã€€ä¸€ä¸€ä¸€ä¸€ä¸€ã€€ã€€ã€€ã€€ã€€ã€€ä¸€ä¸€ä¸€ä¸€ä¸€ã€€ã€€ã€€ã€€ã€€ã€€ä¸€ä¸€ä¸€ä¸€ä¸€ã€€ã€€ã€€ã€€ã€€",0
-fried_fries1 BYTE "ã€€ã€€ã€€ã€€ä¸€ä¸€ä¸€ä¸€ä¸€ã€€ã€€ã€€ã€€ã€€ã€€ä¸€ä¸€ç•¶ç•¶ç•¶ã€€ã€€ä¸€ä¸€ä¸€ä¸€ä¸€ã€€ã€€ã€€ã€€ã€€",0
-fried_fries2 BYTE "ã€€ã€€ä¸€ã€€ã€€ã€€ç•¶ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ä¸€ã€€ç•¶ç•¶ç•¶ã€€ã€€ä¸€ã€€ã€€ä¸€ä¸€ä¸€ã€€ã€€ã€€ã€€",0
-fried_fries3 BYTE "ä¸€ä¸€ä¸€ã€€ã€€ã€€ç•¶ã€€ã€€ç•¶ã€€ã€€ä¸€ã€€ã€€ã€€ã€€ç•¶ç•¶ç•¶ã€€ã€€ç•¶ç•¶ç•¶ç•¶ã€€ä¸€ã€€ç•¶ç•¶ç•¶ã€€ã€€ä¸€ä¸€ä¸€",0
-fried_fries4 BYTE "ä¸€ä¸€ä¸€ã€€ã€€ã€€ç•¶ã€€ã€€ç•¶ç•¶ã€€ã€€ç•¶ç•¶ç•¶ã€€ç•¶ç•¶ã€€ã€€ã€€ç•¶ç•¶ç•¶ç•¶ã€€ã€€ã€€ç•¶ç•¶ç•¶ç•¶ã€€ä¸€ä¸€ä¸€",0
-fried_fries5 BYTE "ã€€ã€€ã€€ã€€ã€€ã€€ç•¶ã€€ã€€ç•¶ç•¶ã€€ã€€ç•¶ç•¶ç•¶ã€€ç•¶ç•¶ã€€ã€€ã€€ç•¶ç•¶ç•¶ç•¶ã€€ã€€ç•¶ç•¶ç•¶ç•¶ã€€ã€€ã€€ã€€",0
-fried_fries6 BYTE "ã€€ã€€ã€€ã€€ã€€ã€€ç•¶ã€€ã€€ç•¶ç•¶ã€€ã€€ç•¶ç•¶ç•¶ã€€ç•¶ç•¶ç•¶ã€€ã€€ç•¶ç•¶ç•¶ç•¶ã€€ã€€ç•¶ç•¶ç•¶ç•¶ã€€ä¸€ã€€ã€€ã€€",0
-fried_fries7 BYTE "ã€€ã€€ã€€ã€€ã€€ã€€ç•¶ã€€ã€€ç•¶ç•¶ã€€ã€€ç•¶ç•¶ç•¶ã€€ç•¶ç•¶ç•¶ã€€ã€€ç•¶ç•¶ç•¶ã€€ã€€ç•¶ç•¶ç•¶ç•¶ã€€ã€€ã€€ã€€ã€€",0
-fried_fries8 BYTE "ä¸€ä¸€ä¸€ä¸€ä¸€ã€€ç•¶ã€€ã€€ç•¶ç•¶ã€€ã€€ç•¶ç•¶ç•¶ã€€ç•¶ç•¶ç•¶ã€€ã€€ç•¶ç•¶ç•¶ã€€ã€€ç•¶ç•¶ç•¶ã€€ã€€ä¸€ä¸€ä¸€ä¸€",0
-fried_fries9 BYTE "ä¸€ä¸€ä¸€ä¸€ã€€ã€€ç•¶ç•¶ã€€ç•¶ç•¶ã€€ã€€ç•¶ç•¶ã€€ã€€ç•¶ç•¶ç•¶ã€€ã€€ç•¶ç•¶ç•¶ã€€ã€€ç•¶ç•¶ç•¶ã€€ä¸€ä¸€ä¸€ä¸€ä¸€",0
-fried_fries10 BYTE "ä¸€ä¸€ä¸€ä¸€ä¸€éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥ã€€ä¸€ä¸€ä¸€ä¸€",0
-fried_fries11 BYTE "ã€€ã€€ã€€ã€€ä¸€ã€€éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥ã€€ã€€ã€€ã€€ã€€",0
-fried_fries12 BYTE "ã€€ã€€ã€€ã€€ä¸€ã€€éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥ä¸€ã€€ã€€ã€€ã€€",0
-fried_fries13 BYTE "ã€€ã€€ã€€ã€€ä¸€ä¸€éº¥éº¥éº¥éº¥éº¥éº¥éº¥ã€€ã€€ã€€éº¥ã€€éº¥éº¥éº¥ã€€ã€€éº¥éº¥éº¥éº¥éº¥éº¥éº¥ã€€ã€€ã€€ã€€ã€€ã€€",0
-fried_fries14 BYTE "ä¸€ä¸€ä¸€ä¸€ã€€ã€€ã€€éº¥éº¥éº¥éº¥éº¥éº¥ä¸€ä¸€éº¥éº¥ã€€ä¸€ä¸€ã€€éº¥ã€€ã€€éº¥éº¥éº¥éº¥éº¥éº¥ã€€ä¸€ä¸€ä¸€ä¸€ä¸€",0
-fried_fries15 BYTE "ä¸€ä¸€ä¸€ä¸€ã€€ã€€ã€€éº¥éº¥éº¥éº¥éº¥éº¥ã€€ä¸€éº¥éº¥éº¥ä¸€ã€€éº¥éº¥ã€€ã€€éº¥éº¥éº¥éº¥éº¥éº¥ã€€ã€€ä¸€ä¸€ä¸€ä¸€",0
-fried_fries16 BYTE "ä¸€ä¸€ä¸€ä¸€ã€€ã€€ä¸€éº¥éº¥éº¥éº¥éº¥éº¥ä¸€ä¸€éº¥éº¥éº¥ä¸€ã€€éº¥éº¥ã€€ã€€éº¥éº¥éº¥éº¥éº¥ã€€ã€€ã€€ä¸€ä¸€ä¸€ä¸€",0
-fried_fries17 BYTE "ã€€ã€€ã€€ã€€ä¸€ä¸€ä¸€ã€€éº¥éº¥éº¥éº¥éº¥ä¸€ä¸€éº¥éº¥éº¥ä¸€ã€€éº¥éº¥ã€€ã€€éº¥éº¥éº¥éº¥éº¥ã€€ä¸€ä¸€ã€€ã€€ã€€ã€€",0
-fried_fries18 BYTE "ã€€ã€€ã€€ã€€ä¸€ä¸€ä¸€ã€€éº¥éº¥éº¥éº¥éº¥ã€€ã€€éº¥éº¥éº¥ã€€ã€€éº¥éº¥ã€€ã€€éº¥éº¥éº¥éº¥éº¥ä¸€ä¸€ä¸€ã€€ã€€ã€€ã€€",0
-fried_fries19 BYTE "ä¸€ä¸€ä¸€ä¸€ã€€ã€€ã€€ä¸€ã€€éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥ã€€ã€€ã€€ã€€ä¸€ä¸€ä¸€ä¸€",0
-fried_fries20 BYTE "ä¸€ä¸€ä¸€ä¸€ã€€ã€€ã€€ã€€ã€€éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥ã€€ã€€ã€€ã€€ä¸€ä¸€ä¸€ä¸€",0
-fried_fries21 BYTE "ä¸€ä¸€ä¸€ä¸€ã€€ã€€ã€€ã€€ã€€éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥ä¸€ã€€ã€€ã€€ä¸€ä¸€ä¸€ä¸€",0
-fried_fries22 BYTE "ã€€ã€€ã€€ã€€ä¸€ä¸€ä¸€ä¸€ä¸€éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥éº¥ã€€ä¸€ä¸€ä¸€ä¸€ã€€ã€€",0
-fried_fries23 BYTE "ã€€ã€€ã€€ã€€ä¸€ä¸€ä¸€ä¸€ä¸€ã€€ã€€ã€€ã€€ã€€ã€€ä¸€ä¸€ä¸€ä¸€ä¸€ä¸€ã€€ã€€ã€€ã€€ã€€ä¸€ä¸€ä¸€ä¸€ä¸€ã€€ã€€",0
+fried_fries BYTE "¡@¡@¡@¡@¤@¤@¤@¤@¤@¡@¡@¡@¡@¡@¡@¤@¤@¤@¤@¤@¡@¡@¡@¡@¡@¡@¤@¤@¤@¤@¤@¡@¡@¡@¡@¡@",0
+fried_fries1 BYTE "¡@¡@¡@¡@¤@¤@¤@¤@¤@¡@¡@¡@¡@¡@¡@¤@¤@·í·í·í¡@¡@¤@¤@¤@¤@¤@¡@¡@¡@¡@¡@",0
+fried_fries2 BYTE "¡@¡@¤@¡@¡@¡@·í¡@¡@¡@¡@¡@¡@¡@¡@¤@¡@·í·í·í¡@¡@¤@¡@¡@¤@¤@¤@¡@¡@¡@¡@",0
+fried_fries3 BYTE "¤@¤@¤@¡@¡@¡@·í¡@¡@·í¡@¡@¤@¡@¡@¡@¡@·í·í·í¡@¡@·í·í·í·í¡@¤@¡@·í·í·í¡@¡@¤@¤@¤@",0
+fried_fries4 BYTE "¤@¤@¤@¡@¡@¡@·í¡@¡@·í·í¡@¡@·í·í·í¡@·í·í¡@¡@¡@·í·í·í·í¡@¡@¡@·í·í·í·í¡@¤@¤@¤@",0
+fried_fries5 BYTE "¡@¡@¡@¡@¡@¡@·í¡@¡@·í·í¡@¡@·í·í·í¡@·í·í¡@¡@¡@·í·í·í·í¡@¡@·í·í·í·í¡@¡@¡@¡@",0
+fried_fries6 BYTE "¡@¡@¡@¡@¡@¡@·í¡@¡@·í·í¡@¡@·í·í·í¡@·í·í·í¡@¡@·í·í·í·í¡@¡@·í·í·í·í¡@¤@¡@¡@¡@",0
+fried_fries7 BYTE "¡@¡@¡@¡@¡@¡@·í¡@¡@·í·í¡@¡@·í·í·í¡@·í·í·í¡@¡@·í·í·í¡@¡@·í·í·í·í¡@¡@¡@¡@¡@",0
+fried_fries8 BYTE "¤@¤@¤@¤@¤@¡@·í¡@¡@·í·í¡@¡@·í·í·í¡@·í·í·í¡@¡@·í·í·í¡@¡@·í·í·í¡@¡@¤@¤@¤@¤@",0
+fried_fries9 BYTE "¤@¤@¤@¤@¡@¡@·í·í¡@·í·í¡@¡@·í·í¡@¡@·í·í·í¡@¡@·í·í·í¡@¡@·í·í·í¡@¤@¤@¤@¤@¤@",0
+fried_fries10 BYTE "¤@¤@¤@¤@¤@³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á¡@¤@¤@¤@¤@",0
+fried_fries11 BYTE "¡@¡@¡@¡@¤@¡@³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á¡@¡@¡@¡@¡@",0
+fried_fries12 BYTE "¡@¡@¡@¡@¤@¡@³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á¤@¡@¡@¡@¡@",0
+fried_fries13 BYTE "¡@¡@¡@¡@¤@¤@³Á³Á³Á³Á³Á³Á³Á¡@¡@¡@³Á¡@³Á³Á³Á¡@¡@³Á³Á³Á³Á³Á³Á³Á¡@¡@¡@¡@¡@¡@",0
+fried_fries14 BYTE "¤@¤@¤@¤@¡@¡@¡@³Á³Á³Á³Á³Á³Á¤@¤@³Á³Á¡@¤@¤@¡@³Á¡@¡@³Á³Á³Á³Á³Á³Á¡@¤@¤@¤@¤@¤@",0
+fried_fries15 BYTE "¤@¤@¤@¤@¡@¡@¡@³Á³Á³Á³Á³Á³Á¡@¤@³Á³Á³Á¤@¡@³Á³Á¡@¡@³Á³Á³Á³Á³Á³Á¡@¡@¤@¤@¤@¤@",0
+fried_fries16 BYTE "¤@¤@¤@¤@¡@¡@¤@³Á³Á³Á³Á³Á³Á¤@¤@³Á³Á³Á¤@¡@³Á³Á¡@¡@³Á³Á³Á³Á³Á¡@¡@¡@¤@¤@¤@¤@",0
+fried_fries17 BYTE "¡@¡@¡@¡@¤@¤@¤@¡@³Á³Á³Á³Á³Á¤@¤@³Á³Á³Á¤@¡@³Á³Á¡@¡@³Á³Á³Á³Á³Á¡@¤@¤@¡@¡@¡@¡@",0
+fried_fries18 BYTE "¡@¡@¡@¡@¤@¤@¤@¡@³Á³Á³Á³Á³Á¡@¡@³Á³Á³Á¡@¡@³Á³Á¡@¡@³Á³Á³Á³Á³Á¤@¤@¤@¡@¡@¡@¡@",0
+fried_fries19 BYTE "¤@¤@¤@¤@¡@¡@¡@¤@¡@³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á¡@¡@¡@¡@¤@¤@¤@¤@",0
+fried_fries20 BYTE "¤@¤@¤@¤@¡@¡@¡@¡@¡@³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á¡@¡@¡@¡@¤@¤@¤@¤@",0
+fried_fries21 BYTE "¤@¤@¤@¤@¡@¡@¡@¡@¡@³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á¤@¡@¡@¡@¤@¤@¤@¤@",0
+fried_fries22 BYTE "¡@¡@¡@¡@¤@¤@¤@¤@¤@³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á³Á¡@¤@¤@¤@¤@¡@¡@",0
+fried_fries23 BYTE "¡@¡@¡@¡@¤@¤@¤@¤@¤@¡@¡@¡@¡@¡@¡@¤@¤@¤@¤@¤@¤@¡@¡@¡@¡@¡@¤@¤@¤@¤@¤@¡@¡@",0
 
-fried_french_fries_announce BYTE "æ­å–œä½ å¹«meç‚¸å®Œè–¯æ¢!ç²å¾—èœåˆ€ä¸€æŠŠ",0
-fried_french_fries_announce1 BYTE "å¸¶è‘—ä»–åŽ»æ‰¾å°‹ä¸‹ä¸€é—œå§",0
-fried_french_fries_announce2 BYTE "æŒ‰ä¸‹ç©ºç™½éµçµæŸ(ËŠ~Ë‹)881",0
+fried_french_fries_announce BYTE "®¥³ß§AÀ°me¬µ§¹Á¦±ø!Àò±oµæ¤M¤@§â",0
+fried_french_fries_announce1 BYTE "±aµÛ¥L¥h§ä´M¤U¤@Ãö§a",0
+fried_french_fries_announce2 BYTE "«ö¤UªÅ¥ÕÁäµ²§ô(£½~£¿)881",0
 
 cold_friesxy COORD <43,12>
 oil_potxy COORD <40,20>
@@ -145,54 +172,55 @@ whitebgxy COORD <7,3>
 
 cellsWritten DWORD ?
 
-get_cold_fries BYTE "å¤§è–¯",0
-get_cold_friesspace BYTE "ã€€ã€€",0
+get_cold_fries BYTE "¤jÁ¦",0
+get_cold_friesspace BYTE "¡@¡@",0
 whether_get_cold_fries BYTE 0
 
 ;------------------------------------------level2--------------------------------------------------------------
-l2tol3 BYTE "æ­å–œä½ é€šéŽç¬¬äºŒé—œ", 0 
-l2tol31 BYTE "ç²å¾—é€šé—œçŽå‹µï¼šç åƒ¹çœä¸‹çš„éŒ¢ï¼„", 0
-money BYTE 68 DUP('ï¼„')
-moneyspace BYTE 68 DUP('ã€€')
+l2tol3 BYTE "®¥³ß§A³q¹L²Ä¤GÃö", 0 
+l2tol31 BYTE "Àò±o³qÃö¼úÀy¡G¬å»ù¬Ù¤Uªº¿ú¢C", 0
+money BYTE 68 DUP('¢C')
+change BYTE 136 DUP('¢h')
+moneyspace BYTE 68 DUP('¡@')
 l2tol3xy COORD <50, 15>
 moneyxy COORD <4,3>
 
-content BYTE "æ»‘åˆ°igä¸Šä¸€å †é«®å»Šåˆ†äº«æŸ“é«®ä½œå“",0
-content1 BYTE "å¥½å¥½çœ‹ï¼Œå¥½æƒ³åŽ»æŸ“å”·", 0
-content2 BYTE "å¦‚æžœæˆ‘èƒ½å¤ æ“æœ‰ä¸€é ­æ¼‚äº®çš„æ·ºç²‰è‰²æ¼¸å±¤é ­ä¸€å®šå¾ˆæ£’ï¼", 0
-content3 BYTE "å•Š......", 0
-content4 BYTE "æ€Žéº¼è®Šæˆèž¢å…‰ç²‰äº†ï¼å‡¸ï¸¿ï¼¿ï¸¿å‡¸", 0
-content5 BYTE "é ­é«®çµ‚æ–¼è®Šæˆå¥½çœ‹çš„æ¼¸å±¤ç²‰è‰²äº†", 0
-content6 BYTE "ï¼ˆå®šç›ä¸€çœ‹ç›®çžªå£å‘†", 0
-content7 BYTE "å“‡é ï¼Œé€™æ˜¯ä»€éº¼ç„¡è‰¯é«®å»Šï¼ŒæŸ“å€‹é ­é«®ç«Ÿç„¶è¦é€™éº¼è²´ï¼", 0
-content8 BYTE "éŒ¢åŒ…è¦å“­æ³£äº†ï¼Œæ€Žéº¼å¯èƒ½è¦ä¹åƒåœ“ï¼Œå—šå—š", 0
+content BYTE "·Æ¨ìig¤W¤@°ï¾v´Y¤À¨É¬V¾v§@«~",0
+content1 BYTE "¦n¦n¬Ý¡A¦n·Q¥h¬V­ò", 0
+content2 BYTE "¦pªG§Ú¯à°÷¾Ö¦³¤@ÀYº}«Gªº²L¯»¦âº¥¼hÀY¤@©w«Ü´Î¡I", 0
+content3 BYTE "°Ú......", 0
+content4 BYTE "«ç»òÅÜ¦¨¿Ã¥ú¯»¤F¡I¥Y¡s¡Ä¡s¥Y", 0
+content5 BYTE "ÀY¾v²×©óÅÜ¦¨¦n¬Ýªºº¥¼h¯»¦â¤F", 0
+content6 BYTE "¡]©w·ú¤@¬Ý¥ØÀü¤f§b", 0
+content7 BYTE "«z¾a¡A³o¬O¤°»òµL¨}¾v´Y¡A¬V­ÓÀY¾v³ºµM­n³o»ò¶Q¡I", 0
+content8 BYTE "¿ú¥]­n­úª_¤F¡A«ç»ò¥i¯à­n¤E¤d¶ê¡A¶ã¶ã", 0
 contentxy COORD <12, 8>
 contentcount BYTE 0
 
-toolcontent BYTE "æ˜¯å¯ä»¥æŠŠé¡è‰²æ¼‚ç™½çš„æ¼‚ç™½æ°´è€¶", 0
-toolcontent1 BYTE "å“‡è³½ï¼è®Šå¥½çœ‹äº†ï¼å¤ªæ„Ÿå‹•äº†ï½ž", 0
-toolcontent2 BYTE "å¤šè™§äº†ä½ é€™å€‹ã€Œç ã€åƒ¹é«˜æ‰‹ï½ž", 0
-toolcontent3 BYTE "çœä¸‹äº†ä¸€å¤§ç­†éŒ¢ï¼„ï¼„ï¼„", 0
+toolcontent BYTE "¬O¥i¥H§âÃC¦âº}¥Õªºº}¥Õ¤ô­C", 0
+toolcontent1 BYTE "«zÁÉ¡IÅÜ¦n¬Ý¤F¡I¤Ó·P°Ê¤F¡ã", 0
+toolcontent2 BYTE "¦hÁ«¤F§A³o­Ó¡u¬å¡v»ù°ª¤â¡ã", 0
+toolcontent3 BYTE "¬Ù¤U¤F¤@¤jµ§¿ú¢C¢C¢C", 0
 
-tool0 BYTE "åˆ€", 0
+tool0 BYTE "¤M", 0
 tool0get DWORD 0
 
-tool1 BYTE "æ¼‚ç™½æ°´", 0
+tool1 BYTE "º}¥Õ¤ô", 0
 tool1get DWORD 0
 
-tool2 BYTE "è™«",0
+tool2 BYTE "¦ä",0
 tool2get DWORD 0
 tool2xy COORD <28, 17>
 
-tool3 BYTE "å…€",0
+tool3 BYTE "¤a",0
 tool3get DWORD 0
 tool3xy COORD <30, 17>
 
-tool4 BYTE "å",0
+tool4 BYTE "¤Q",0
 tool4get DWORD 0
 tool4xy COORD <38, 17>
 
-tool5 BYTE "ä¸€",0
+tool5 BYTE "¤@",0
 tool5get DWORD 0
 tool5xy COORD <38, 17>
 
@@ -205,15 +233,15 @@ tool7get DWORD 0
 
 tool8xy COORD <>
 
-tool8 BYTE "ç·šåœˆ", 0
+tool8 BYTE "½u°é", 0
 
-tool9 BYTE "é›»æ± ",0
+tool9 BYTE "¹q¦À",0
 
-tool10 BYTE "é›»æ± éµ",0
+tool10 BYTE "¹q¦ÀÅK",0
 
-tool11 BYTE "ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€",0
+tool11 BYTE "¡@¡@¡@¡@¡@¡@¡@¡@¡@¡@",0
 
-toolend BYTE "éŽ®å¯¢ä¹‹å¯¶",0
+toolend BYTE "Âí¹ì¤§Ä_",0
 toolendget DWORD 0
 ;---------------------------------------- level 3 by py -----------------------------------
 be_master PROTO
@@ -228,87 +256,87 @@ move_down32 PROTO
 
 tool1_3 BYTE " $$ ",0
 tool11_3 BYTE " $  ",0	
-tool2_3 BYTE " èŠ‹åœ“ ",0
-tool3_3 BYTE " æŸšå­ ",0
-tool4_3 BYTE " èŠ‹åœ“æŸšå­ ",0
+tool2_3 BYTE " ¨¡¶ê ",0
+tool3_3 BYTE " ¬c¤l ",0
+tool4_3 BYTE " ¨¡¶ê¬c¤l ",0
 tool3_xy COORD <10,42>
 tool3_1xy COORD <14, 42>
 get_tool BYTE 0
-tool5_3 BYTE "ä¸€å€‹éµå­",0
-tool6_3 BYTE "å…©å€‹éµå­",0
-tool7_3 BYTE "ä¸‰å€‹éµå­",0
-tool8_3 BYTE "å››å€‹éµå­",0
+tool5_3 BYTE "¤@­ÓÃZ¤l",0
+tool6_3 BYTE "¨â­ÓÃZ¤l",0
+tool7_3 BYTE "¤T­ÓÃZ¤l",0
+tool8_3 BYTE "¥|­ÓÃZ¤l",0
 tool3_2xy COORD <10,42>
-tool_3 BYTE "éµæ£’",0
+tool_3 BYTE "ÅK´Î",0
 
-tool_clear BYTE "ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€", 0
+tool_clear BYTE "¡@¡@¡@¡@¡@¡@¡@¡@", 0
 toolcxy COORD <10,42>
 
-clearspace BYTE 68 DUP('ã€€')
+clearspace BYTE 68 DUP('¡@')
 clearxy COORD <4, 4>
-ending_clear BYTE 68 DUP('ã„')
+ending_clear BYTE 68 DUP('£~')
 
-level3_1 BYTE   "çµ„èªžæœŸæœ«å ±å‘Šé‚„æ²’æ‰“å®Œï¼Œä½†",0 ;y=8
-level3_1_2 BYTE   "å¥½é¤“å–”OAO",0
-level3_2  BYTE  "åŽ»å®µå¤œè¡—è²·ä»™è‰åŠ èŠ‹åœ“åƒå¥½äº†",0
-level3_3  BYTE  "å®¿èˆé‚„æœ‰æŸšå­å¯ä»¥é…",0
-level3_4  BYTE  "æ¬¸æ¬¸ï¼Œä½ å€‘çŸ¥é“....",0
-level3_5  BYTE  " : è›¤ ä»€éº¼å•¦ã€€è©±ä¸è¦è¬›ä¸€åŠ!!!!",0
+level3_1 BYTE   "²Õ»y´Á¥½³ø§iÁÙ¨S¥´§¹¡A¦ý",0 ;y=8
+level3_1_2 BYTE   "¦n¾j³áOAO",0
+level3_2  BYTE  "¥h®d©]µó¶R¥P¯ó¥[¨¡¶ê¦Y¦n¤F",0
+level3_3  BYTE  "±JªÙÁÙ¦³¬c¤l¥i¥H°t",0
+level3_4  BYTE  "ÕÙÕÙ¡A§A­Ìª¾¹D....",0
+level3_5  BYTE  " : µð ¤°»ò°Õ¡@¸Ü¤£­nÁ¿¤@¥b!!!!",0
 level3_6  BYTE  "----------------------------------",0
-level3_7  BYTE  "ä»»å‹™ä¸€ï¼š ",0
-level3_8  BYTE  "è®“å®¤å‹ç¹¼çºŒè¬›ä¸‹åŽ».... ",0
-level3_9  BYTE  "-----------(ç§»å‹•ä»¥é–‹å§‹)------------",0
-level3_91  BYTE  "ä½ å¥½äº†å•¦ ä¸è¦èŠ‹è¨€æŸšæ­¢çš„ å¿«é»žè¬›!!",0
+level3_7  BYTE  "¥ô°È¤@¡G ",0
+level3_8  BYTE  "Åý«Ç¤ÍÄ~ÄòÁ¿¤U¥h.... ",0
+level3_9  BYTE  "-----------(²¾°Ê¥H¶}©l)------------",0
+level3_91  BYTE  "§A¦n¤F°Õ ¤£­n¨¡¨¥¬c¤îªº §ÖÂIÁ¿!!",0
 textcount BYTE 0 
 textxy COORD <12,8>
 mexy_3 COORD <12,8>
 
-level3_10 BYTE   "é½å¥½å•¦",0
-level3_11 BYTE   "ä½ å€‘çŸ¥é“ç‚ºä»€éº¼åƒé›žè‚‰è›‹åå¸çš„æ™‚å€™",0
-level3_12  BYTE  "è›‹éƒ½æœƒæ»‘ä¸‹åŽ»å—Ž ",0
-level3_13  BYTE  "å› ç‚ºæ™‚é–“ä¹…äº†å°±æœƒè›‹æŽ‰äº†: )",0
-level3_14  BYTE  " : ä½ å¥½äº†å•¦é–‰å˜´",0
-level3_15  BYTE  "è¦æ‹¿æˆ‘å€‘ä¸Šæ¬¡åŽ»è²·çš„éµå­(çŽ©å¶)ç ¸ä½ !!!",0
+level3_10 BYTE   "óø¦n°Õ",0
+level3_11 BYTE   "§A­Ìª¾¹D¬°¤°»ò¦YÂû¦×³J¦R¥qªº®É­Ô",0
+level3_12  BYTE  "³J³£·|·Æ¤U¥h¶Ü ",0
+level3_13  BYTE  "¦]¬°®É¶¡¤[¤F´N·|³J±¼¤F: )",0
+level3_14  BYTE  " : §A¦n¤F°Õ³¬¼L",0
+level3_15  BYTE  "­n®³§Ú­Ì¤W¦¸¥h¶RªºÃZ¤l(ª±°¸)¯{§A!!!",0
 level3_16  BYTE  "----------------------------------",0
-level3_17  BYTE  "ä»»å‹™äºŒï¼š ",0
-level3_18  BYTE  "è®“å®¤å‹é–‰å˜´(å‰›å‰›å¥½å°±å¥½...)... ",0
-level3_19  BYTE  "-----------(ç§»å‹•ä»¥é–‹å§‹)-----------",0
+level3_17  BYTE  "¥ô°È¤G¡G ",0
+level3_18  BYTE  "Åý«Ç¤Í³¬¼L(­è­è¦n´N¦n...)... ",0
+level3_19  BYTE  "-----------(²¾°Ê¥H¶}©l)-----------",0
 text2xy COORD <12,8>
 me2xy_3 COORD <12,23>
 
-get_mes1 BYTE  "ç²å¾—éµå­ä¸€éš»", 0
-get_mes2 BYTE  "å†å¤šæ‹¿ä¸€äº›çœ‹çœ‹ ?", 0
-get_mes3 BYTE  "é‚„ä¸å¤ !!", 0
-get_mes4 BYTE  "åŽ»è©¦è©¦çœ‹å§ouo", 0
-get_mes5 BYTE  "å¥½äº†å•¦å¤ äº†å•¦", 0
+get_mes1 BYTE  "Àò±oÃZ¤l¤@°¦", 0
+get_mes2 BYTE  "¦A¦h®³¤@¨Ç¬Ý¬Ý ?", 0
+get_mes3 BYTE  "ÁÙ¤£°÷!!", 0
+get_mes4 BYTE  "¥h¸Õ¸Õ¬Ý§aouo", 0
+get_mes5 BYTE  "¦n¤F°Õ°÷¤F°Õ", 0
 get_mes COORD <12, 33>
 
-showresult BYTE   ": çµ¦æˆ‘é©å¯éµæ­¢å•¦!!",0
-showresult2 BYTE   "æ¬¸é€™è«§éŸ³ä¸éŒ¯ çµ¦éŽ",0
+showresult BYTE   ": µ¹§Ú¾A¥iÃZ¤î°Õ!!",0
+showresult2 BYTE   "ÕÙ³o¿Ó­µ¤£¿ù µ¹¹L",0
 showresult3 BYTE   ": ??????????????",0
 
-ending1 BYTE  "ç²å¾—é€šé—œé“å…·ã€Œéµæ£’ã€", 0
-ending2 BYTE  "æ­å–œé€šéŽç¬¬ä¸‰é—œowo", 0
-ending3 BYTE  "é›–ç„¶ä½ æ²’æœ‰èº«é¨Žç™½é¦¬", 0
-ending4 BYTE  "å–”å° çµ¦ä½ çœ‹å€‹å¯æ„›çš„æ±è¥¿", 0
-ending5 BYTE  "æ˜¯Doraçš„ç¢—æ¬¸", 0
+ending1 BYTE  "Àò±o³qÃö¹D¨ã¡uÅK´Î¡v", 0
+ending2 BYTE  "®¥³ß³q¹L²Ä¤TÃöowo", 0
+ending3 BYTE  "ÁöµM§A¨S¦³¨­ÃM¥Õ°¨", 0
+ending4 BYTE  "³á¹ï µ¹§A¬Ý­Ó¥i·RªºªF¦è", 0
+ending5 BYTE  "¬ODoraªº¸JÕÙ", 0
 ending6 BYTE  "A-dora-bowl", 0
 
 ;------------------------------------------startword------------------------------------------------------------
 
-startword BYTE   " _______ã€€ã€€ã€€ ã€€ _______",0
-startword1 BYTE  "|ã€€ã€€ã€€ | ã€€ã€€ã€€ |ã€€ã€€ ã€€|",0
-startword2 BYTE  "|ã€€ã€€ã€€ |ã€€ã€€ã€€  |ã€€ã€€ã€€ |ã€€ã€€ã€€ã€€ã€€ã€€/ã€€ã€€ã€€ã€€ã€€ã€€ ã€€/",0
-startword3 BYTE  " _______ã€€ã€€ã€€ã€€  _______ã€€ã€€ã€€ã€€ã€€ã€€/ã€€     ã€€ã€€ã€€ã€€/",0
-startword4 BYTE  "|ã€€ã€€ã€€ |ã€€ã€€ã€€  |ã€€ã€€ã€€ |ã€€ã€€ã€€ã€€ã€€/ã€€ã€€\ã€€ã€€ã€€ã€€ã€€/",0
-startword5 BYTE  "|ã€€ã€€ã€€ |ã€€ã€€ã€€  |ã€€ã€€ã€€ |ã€€ã€€ã€€ã€€ /ã€€ã€€ã€€\ã€€ã€€ã€€ã€€/ã€€ã€€ã€€ã€€ã€€ã€€\",0
-startword6 BYTE  " _______ã€€ã€€ã€€ã€€  _______ã€€ã€€ã€€ã€€ __________ã€€ã€€ã€€ã€€____________",0
-startword7 BYTE  "|ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ ã€€ã€€ã€€ |ã€€ã€€ã€€ã€€ \ã€€ã€€ã€€/",0
-startword8 BYTE  "|ã€€ ã€€ã€€ ________ã€€ã€€ã€€ã€€|ã€€ã€€ã€€ã€€ã€€\ã€€ã€€/ã€€ã€€ã€€ã€€  ____________",0
-startword9 BYTE  "|ã€€ã€€ ã€€ |ã€€ã€€ | ã€€ã€€ã€€ã€€|ã€€ã€€ã€€ã€€ã€€ \ã€€/ã€€ã€€ã€€ã€€ã€€|ã€€ã€€ã€€ã€€ã€€ã€€|",0
-startword10 BYTE "|ã€€ _____|___ï¼¿|______   |ã€€ã€€ã€€ã€€ã€€ã€€ /ã€€ã€€ã€€ã€€ã€€ |ã€€ã€€ã€€ã€€ã€€ã€€|",0
-startword11 BYTE "|ã€€ã€€ ã€€ |ã€€ã€€ |ã€€ã€€ã€€ã€€ |ã€€ã€€ã€€ã€€ã€€ã€€/ \ã€€ã€€ã€€ã€€ã€€|ã€€ã€€ã€€ã€€ã€€ã€€|",0
-startword12 BYTE "|ã€€ã€€ã€€  |ã€€ã€€ |ã€€ã€€ã€€ã€€ |ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ |____________|", 0
+startword BYTE   " _______¡@¡@¡@ ¡@ _______",0
+startword1 BYTE  "|¡@¡@¡@ | ¡@¡@¡@ |¡@¡@ ¡@|",0
+startword2 BYTE  "|¡@¡@¡@ |¡@¡@¡@  |¡@¡@¡@ |¡@¡@¡@¡@¡@¡@/¡@¡@¡@¡@¡@¡@ ¡@/",0
+startword3 BYTE  " _______¡@¡@¡@¡@  _______¡@¡@¡@¡@¡@¡@/¡@     ¡@¡@¡@¡@/",0
+startword4 BYTE  "|¡@¡@¡@ |¡@¡@¡@  |¡@¡@¡@ |¡@¡@¡@¡@¡@/¡@¡@\¡@¡@¡@¡@¡@/",0
+startword5 BYTE  "|¡@¡@¡@ |¡@¡@¡@  |¡@¡@¡@ |¡@¡@¡@¡@ /¡@¡@¡@\¡@¡@¡@¡@/¡@¡@¡@¡@¡@¡@\",0
+startword6 BYTE  " _______¡@¡@¡@¡@  _______¡@¡@¡@¡@ __________¡@¡@¡@¡@____________",0
+startword7 BYTE  "|¡@¡@¡@¡@¡@¡@¡@¡@ ¡@¡@¡@ |¡@¡@¡@¡@ \¡@¡@¡@/",0
+startword8 BYTE  "|¡@ ¡@¡@ ________¡@¡@¡@¡@|¡@¡@¡@¡@¡@\¡@¡@/¡@¡@¡@¡@  ____________",0
+startword9 BYTE  "|¡@¡@ ¡@ |¡@¡@ | ¡@¡@¡@¡@|¡@¡@¡@¡@¡@ \¡@/¡@¡@¡@¡@¡@|¡@¡@¡@¡@¡@¡@|",0
+startword10 BYTE "|¡@ _____|___¡Ä|______   |¡@¡@¡@¡@¡@¡@ /¡@¡@¡@¡@¡@ |¡@¡@¡@¡@¡@¡@|",0
+startword11 BYTE "|¡@¡@ ¡@ |¡@¡@ |¡@¡@¡@¡@ |¡@¡@¡@¡@¡@¡@/ \¡@¡@¡@¡@¡@|¡@¡@¡@¡@¡@¡@|",0
+startword12 BYTE "|¡@¡@¡@  |¡@¡@ |¡@¡@¡@¡@ |¡@¡@¡@¡@¡@¡@¡@¡@¡@¡@¡@¡@ |____________|", 0
 startword13 BYTE "        PRESS              P            TO              PLAY",0
 startword14 BYTE "        PRESS             'P'         MOTHER           FUCKER",0
 startword15 BYTE "  I       SAID        PRESS         'P'         YOU           BITXH",0
@@ -324,20 +352,20 @@ lv4con8xy COORD <90, 8>
 lv4pright BYTE 1
 lv4cxy COORD <30, 18>
 ;------------------------level4-------------------------------------------------------------------
-lv4_con1 BYTE "å¯¦åœ¨æ˜¯å¤ªå†·äº†ï¼æˆ‘æ€¥éœ€è²·ä¸€æ¢åœå·¾ä¾†ä¿æš–â€¦",0
-lv4_con2 BYTE "å•Šâ€¦æ€Žéº¼åƒè¾›è¬è‹¦è²·ä¾†çš„åœå·¾ä¸Šæœ‰é˜²ç›œç£é‡¦å•Šï¼",0
-lv4_con3 BYTE "çœ‹ä¾†è¦æƒ³è¾¦æ³•æŠŠå®ƒè§£é–‹â€¦",0
-lv4_con4 BYTE "æ¬¸ï¼Ÿæ¡Œä¸Šå¥½åƒæœ‰ä¸€äº›æ±è¥¿â€¦",0
-lv4_con5 BYTE "æ˜¯åŽ»å¤œå¸‚æ™‚è²·æ±è¥¿é™„è´ˆçš„ç·šåœˆã€ä¸€å€‹ç„¡ç·šæ»‘é¼ å’Œä¸€äº›é›¶é£Ÿï¼Ÿï¼",0
-lv4_con6 BYTE "â€¦å•Šï¼é€™äº›æ±è¥¿å‰›å¥½å¯ä»¥çµ„æˆé›»ç£éµï¼",0
-lv4_con8 BYTE "ç¾åœ¨ä¸æ˜¯åƒé›¶é£Ÿçš„æ™‚å€™äº†!",0
-lv4_con9 BYTE "é€™å€‹æ€Žéº¼åœ¨é€™è£¡â€¦å…ˆæ‹¿è‘—å¥½äº†â€¦",0
-lv4_con10 BYTE "é€™å€‹è£¡é¢çš„é›»æ± æ‡‰è©²æœƒæœ‰ç”¨è™•â€¦",0
-lv4_con11 BYTE "é˜²ç›œã€€ã€€ç£é‡¦",0
-lv4_con12 BYTE "çµ‚æ–¼å¯ä»¥ç©¿ä¸Šåœå·¾å‡ºé–€äº†â€¦æ¬¸ï¼Ÿï¼é€™æ˜¯ä»€éº¼æ±è¥¿å‘€ï¼Ÿï¼ï¼æŠ¹å¸ƒæ´—ï¼ï¼ï¼ï¼ï¼",0
-lv4_con14 BYTE "æ­å–œé€šéŽç¬¬å››é—œï¼ä½ æˆåŠŸç²å¾—ã€ŒéŽ®å¯¢ä¹‹å¯¶ã€ï¼ï¼ï¼ï¼ï¼",0
+lv4_con1 BYTE "¹ê¦b¬O¤Ó§N¤F¡I§Ú«æ»Ý¶R¤@±ø³ò¤y¨Ó«O·x¡K",0
+lv4_con2 BYTE "°Ú¡K«ç»ò¤d¨¯¸U­W¶R¨Óªº³ò¤y¤W¦³¨¾µsºÏ³§°Ú¡I",0
+lv4_con3 BYTE "¬Ý¨Ó­n·Q¿ìªk§â¥¦¸Ñ¶}¡K",0
+lv4_con4 BYTE "ÕÙ¡H®à¤W¦n¹³¦³¤@¨ÇªF¦è¡K",0
+lv4_con5 BYTE "¬O¥h©]¥«®É¶RªF¦èªþÃØªº½u°é¡B¤@­ÓµL½u·Æ¹«©M¤@¨Ç¹s­¹¡H¡I",0
+lv4_con6 BYTE "¡K°Ú¡I³o¨ÇªF¦è­è¦n¥i¥H²Õ¦¨¹qºÏÅK¡I",0
+lv4_con8 BYTE "²{¦b¤£¬O¦Y¹s­¹ªº®É­Ô¤F!",0
+lv4_con9 BYTE "³o­Ó«ç»ò¦b³o¸Ì¡K¥ý®³µÛ¦n¤F¡K",0
+lv4_con10 BYTE "³o­Ó¦n¹³¦³¤°»ò¥Î³B¡K",0
+lv4_con11 BYTE "¨¾µs¡@¡@ºÏ³§",0
+lv4_con12 BYTE "²×©ó¥i¥H¬ï¤W³ò¤y¥Xªù¤F¡KÕÙ¡H¡I³o¬O¤°»òªF¦è§r¡H¡I¡I©Ù¥¬¬~¡I¡I¡I¡I¡I",0
+lv4_con14 BYTE "§A¦¨¥\Àò±oÂí¹ì¤§Ä_¡I¡I¡I¡I¡I",0
 
-lv4_con13 BYTE BoxWidth-2 DUP("â–‡â–‡"),0
+lv4_con13 BYTE BoxWidth-2 DUP("¢h¢h"),0
 lv4pl WORD 0
 lv4pb WORD 0
 lv4pa WORD 0
@@ -345,6 +373,10 @@ lv4pc WORD 0
 ;=================================================lv4over==============================================
 outputHandle DWORD 0
 count DWORD 0
+level1finish DWORD 0
+level2finish DWORD 0
+level3finish DWORD 0
+level4finish DWORD 0
 
 .code
 main PROC
@@ -353,7 +385,7 @@ main PROC
 
 	; Get the console ouput handle
 	INVOKE GetStdHandle, STD_OUTPUT_HANDLE
-	mov outputHandle, eax	;å› ç‚º GetStdHandle æœƒå­˜æ–¼eaxï¼Œå°‡eaxå…§çš„å€¼å­˜å…¥outputHandle
+	mov outputHandle, eax	;¦]¬° GetStdHandle ·|¦s©óeax¡A±Neax¤ºªº­È¦s¤JoutputHandle
 	call Clrscr
 	
 	INVOKE WriteConsoleOutputCharacter,
@@ -518,7 +550,7 @@ main PROC
 		jmp play
 
 	pp:
-		call Random32 ; ç”Ÿæˆ 32 ä½å…ƒçš„éš¨æ©Ÿæ•¸ï¼Œçµæžœå­˜å„²åœ¨ eax ä¸­
+		call Random32 ; ¥Í¦¨ 32 ¦ì¤¸ªºÀH¾÷¼Æ¡Aµ²ªG¦sÀx¦b eax ¤¤
 		mov al, ah
 
 		mov byte ptr startxy.x, al
@@ -545,6 +577,8 @@ main PROC
 			mov outputHandle, eax
 			call Clrscr
 	;	call preface
+
+
 ;--------------------------------------------------bg--------------------------------------------------------------
 
 	draw_bg:
@@ -559,7 +593,7 @@ main PROC
 		   wallxy,	 
 		   ADDR count	 
 
-		inc wallxy.y	; ç§»å‹•åˆ°ä¸‹ä¸€è¡Œå¢žåŠ y
+		inc wallxy.y	; ²¾°Ê¨ì¤U¤@¦æ¼W¥[y
 
 		mov ecx, BoxHeight-2	
 
@@ -592,35 +626,17 @@ main PROC
 		   ADDR count	
 		add Boxxy, SIZEOF toolBox+1
 
+		call main_menu
+		call menu_move
 	;-----------------------------------------------level1---------------------------------------------------------------
-
-	mov mexy.x, 42
-	mov mexy.y, 14
-	INVOKE Sleep, 1000
-	;call level1
-	;call level1move
-
-	INVOKE Sleep, 2000
+		
+		inc level1finish
+		mov mexy.x, 90
+		mov mexy.y, 25
+		call main_menu
+		call menu_move
 	;-----------------------------------------------level2---------------------------------------------------------------
-	mov mexy.x, 16
-	mov mexy.y, 14
-
-;	call level2
-	INVOKE WriteConsoleOutputCharacter,
-		outputHandle,	
-		ADDR me,	
-		sizeof me - 1,
-		mexy,	
-		ADDR count	
-	
-	;call level2move
-
-	;-----------------------------------------------level2_2-------------------------------------------------------------
-	INVOKE Sleep, 3000
-;	call level2_2
-;	call level2_2move
-
-	;------------------------------------------------l2tol3-------------------------------------------------------------
+		
 	INVOKE Sleep, 2000
 	INVOKE WriteConsoleOutputCharacter,
 		outputHandle,	
@@ -681,23 +697,30 @@ main PROC
 
 		pop ecx
 		Loop Lmoneyspace
+
+		inc level2finish
+		mov mexy.x, 90
+		mov mexy.y, 25
+		call main_menu
+		call menu_move
 ;-----------------------------------------------level 3-------------------------------------------------------------
-	call be_master
+		inc level3finish
+		mov mexy.x, 90
+		mov mexy.y, 25
+		call main_menu
+		call menu_move
 ;-----------------------------------------------level 4-------------------------------------------------------------
-	call level4
-	INVOKE WriteConsoleOutputCharacter,
-		outputHandle,	
-		ADDR me,	
-		sizeof me - 1,
-		lv4mexy,	
-		ADDR count
-	call level4move
+		inc level4finish
+		mov mexy.x, 90
+		mov mexy.y, 25
+		call main_menu
+		call menu_move
 
 
 	exit
 main ENDP
 
-;---------------------------------------- ä¸»ç•«é¢ main_menu PROC -----------------------------------
+;---------------------------------------- ¥Dµe­± main_menu PROC -----------------------------------
 main_menu PROC
 
 	INVOKE WriteConsoleOutputCharacter,
@@ -803,7 +826,7 @@ main_menu PROC
 			ADDR count	
 		inc mainbgxy.y
 
-		mov ecx, 5
+		mov ecx, 6
 		Lbg3:
 			push ecx
 			INVOKE WriteConsoleOutputCharacter,
@@ -892,8 +915,718 @@ main_menu PROC
 			inc mainbgxy.y
 			pop ecx
 			loop Lbg4
+		
+		INVOKE WriteConsoleOutputCharacter,
+			outputHandle,	
+			ADDR me,	
+			sizeof me -1,	
+			mexy,	
+			ADDR count	
+
+			mov mainbgxy.y , 3
+	ret
 main_menu ENDP
 
+;---------------------------------------------menu move ------------------------------------------------
+
+menu_move PROC
+	
+	start:
+		call ReadChar  ; ±qÁä½LÅª¨ú¤@­Ó¦r²Å 
+
+		.IF al == "d" || al == "D"
+			je colusionr
+		.ENDIF
+
+		.IF al == "a" || al == "A"
+			je colusionl
+		.ENDIF
+		
+		.IF al == "w" || al == "W"
+			je colusionu
+		.ENDIF
+
+		
+		.IF al == "s" || al == "S"
+			je colusiond
+		.ENDIF
+
+		cmp al, " "
+		je see
+
+		.IF al == "e" || al == "E"
+			je use
+		.ENDIF
+
+		jmp continue
+
+;-----------------------------------------colusion---------------------------------------------
+
+	colusionr:
+		.IF mexy.x == 138
+			jmp continue
+		.ENDIF
+
+		.IF mexy.x == 62 && mexy.y <8
+			jmp continue
+		.ENDIF
+
+		.IF mexy.x == 62 && mexy.y >34
+			jmp continue
+		.ENDIF
+
+		.IF mexy.x == 78 && mexy.y >9 && mexy.y <13
+			jmp continue
+		.ENDIF
+
+		.IF mexy.x == 78 && mexy.y >29 && mexy.y <33
+			jmp continue
+		.ENDIF
+
+		.IF mexy.x == 118 && mexy.y >9 && mexy.y <13
+			jmp continue
+		.ENDIF
+
+		.IF mexy.x == 118 && mexy.y >29 && mexy.y <33
+			jmp continue
+		.ENDIF
+
+
+		.IF mexy.x == 98 && mexy.y <15
+			jmp continue
+		.ENDIF
+
+		.IF mexy.x == 98 && mexy.y >27
+			jmp continue
+		.ENDIF
+
+		call move_right
+		jmp continue
+
+	colusionl:
+		
+		.IF mexy.x == 4
+			jmp continue
+		.ENDIF
+
+		.IF mexy.x == 86 && mexy.y >9 && mexy.y <13
+			jmp continue
+		.ENDIF
+
+		.IF mexy.x == 86 && mexy.y >29 && mexy.y <33
+			jmp continue
+		.ENDIF
+
+		.IF mexy.x == 126 && mexy.y >9 && mexy.y <13
+			jmp continue
+		.ENDIF
+
+		.IF mexy.x == 126 && mexy.y >29 && mexy.y <33
+			jmp continue
+		.ENDIF
+
+		.IF mexy.x == 58 && mexy.y <22
+			jmp continue
+		.ENDIF
+
+		.IF mexy.x == 104 && mexy.y <15
+			jmp continue
+		.ENDIF
+
+		.IF mexy.x == 104 && mexy.y >27
+			jmp continue
+		.ENDIF
+
+		call move_left
+		jmp continue
+
+	colusionu:
+		
+		.IF mexy.y == 3
+			jmp continue
+		.ENDIF
+
+		.IF mexy.y == 22 && mexy.x <58
+			jmp continue
+		.ENDIF
+
+		.IF mexy.y == 8 && mexy.x > 62
+			jmp continue
+		.ENDIF
+
+		.IF mexy.y == 15 
+			.IF mexy.x > 98 && mexy.x < 104
+				jmp continue
+			.ENDIF
+		.ENDIF
+
+		.IF mexy.y == 13 && mexy.x >78 && mexy.x <86
+			jmp continue
+		.ENDIF
+
+		.IF mexy.y == 13 && mexy.x >118 && mexy.x <126
+			jmp continue
+		.ENDIF
+
+		.IF mexy.y == 33 && mexy.x >78 && mexy.x <86
+			jmp continue
+		.ENDIF
+
+		.IF mexy.y == 33 && mexy.x >118 && mexy.x <126
+			jmp continue
+		.ENDIF
+
+		call move_up
+		jmp continue
+
+	colusiond:
+
+		.IF mexy.y == 39
+			jmp continue
+		.ENDIF
+
+		.IF mexy.y == 34 && mexy.x > 62
+			jmp continue
+		.ENDIF
+
+		.IF mexy.y == 27
+			.IF mexy.x > 98 && mexy.x < 104
+				jmp continue
+			.ENDIF
+		.ENDIF
+
+		.IF mexy.y == 9 && mexy.x >78 && mexy.x <86
+			jmp continue
+		.ENDIF
+
+		.IF mexy.y == 9 && mexy.x >118 && mexy.x <126
+			jmp continue
+		.ENDIF
+
+		.IF mexy.y == 29 && mexy.x >78 && mexy.x <86
+			jmp continue
+		.ENDIF
+
+		.IF mexy.y == 29 && mexy.x >118 && mexy.x <126
+			jmp continue
+		.ENDIF
+
+		call move_down
+		jmp continue
+
+;--------------------------------------see--------------------------------------------------
+
+	see:
+		mov ebx, menucontentxyinitial
+		mov menucontentxy, ebx
+		
+		;Ãè¤l
+		.IF mexy.x == 46 && mexy.y == 22
+			INVOKE WriteConsoleOutputCharacter,
+				outputHandle,
+				ADDR menucontent0,	
+				sizeof menucontent0 - 1,	
+				menucontentxy,	
+				ADDR count	
+
+		.ENDIF
+
+		.IF mexy.x == 48 && mexy.y == 22
+
+			add menucontentxy.y, 2
+
+			INVOKE WriteConsoleOutputCharacter,
+				outputHandle,
+				ADDR menucontent1,	
+				sizeof menucontent1 - 1,	
+				menucontentxy,	
+				ADDR count
+		.ENDIF
+
+		;¯D«Ç
+		.IF mexy.x == 24 && mexy.y == 22
+			call clear_menu
+			INVOKE WriteConsoleOutputCharacter,
+				outputHandle,
+				ADDR menucontent2,	
+				sizeof menucontent2 - 1,	
+				menucontentxy,	
+				ADDR count	
+			
+			add menucontentxy.y, 2
+
+			INVOKE WriteConsoleOutputCharacter,
+				outputHandle,
+				ADDR menucontent3,	
+				sizeof menucontent3 - 1,	
+				menucontentxy,	
+				ADDR count	
+		.ENDIF
+
+
+		;77
+			.IF mexy.x == 78 && mexy.y >9 && mexy.y <13
+				.IF level1finish == 1
+					jmp l1
+				.ENDIF
+
+				.IF level1finish == 0 && level2finish == 0 && level3finish == 0 && level4finish == 0
+					mov mexy.x, 42
+					mov mexy.y, 14
+					call clear_allmenu
+					call level1
+					call level1move
+
+					ret
+				.ENDIF
+			.ENDIF
+			
+			.IF mexy.x == 86 && mexy.y >9 && mexy.y <13
+				.IF level1finish == 1
+					jmp l1
+				.ENDIF
+
+				.IF level1finish == 0 && level2finish == 0 && level3finish == 0 && level4finish == 0
+					mov mexy.x, 42
+					mov mexy.y, 14
+					call clear_allmenu
+					call level1
+					call level1move
+
+					ret
+				.ENDIF
+			.ENDIF
+
+			.IF mexy.y == 13 && mexy.x >78 && mexy.x <86
+				.IF level1finish == 1
+					jmp l1
+				.ENDIF
+
+				.IF level1finish == 0 && level2finish == 0 && level3finish == 0 && level4finish == 0
+					mov mexy.x, 42
+					mov mexy.y, 14
+					call clear_allmenu
+					call level1
+					call level1move
+					ret
+				.ENDIF
+			.ENDIF
+
+			.IF mexy.y == 9 && mexy.x >78 && mexy.x <86
+				.IF level1finish == 1
+					jmp l1
+				.ENDIF
+
+				.IF level1finish == 0 && level2finish == 0 && level3finish == 0 && level4finish == 0
+					mov mexy.x, 42
+					mov mexy.y, 14
+					call clear_allmenu
+					call level1
+					call level1move
+					ret
+				.ENDIF
+			.ENDIF
+
+			jmp nl1
+
+			l1:
+				call clear_menu
+				INVOKE WriteConsoleOutputCharacter,
+					outputHandle,
+					ADDR menucontent4,	
+					sizeof menucontent4 - 1,	
+					menucontentxy,	
+					ADDR count
+			nl1:
+
+
+		;¶ê
+			
+			.IF mexy.x == 78 && mexy.y >29 && mexy.y <33
+				.IF level1finish == 0 || level2finish == 1
+					jmp l2
+				.ENDIF
+
+				.IF level1finish == 1 && level2finish == 0 && level3finish == 0 && level4finish == 0
+					mov mexy.x, 16
+					mov mexy.y, 14
+					call clear_allmenu
+					call level2
+					INVOKE WriteConsoleOutputCharacter,
+						outputHandle,	
+						ADDR me,	
+						sizeof me - 1,
+						mexy,	
+						ADDR count	
+	
+					call level2move
+
+					INVOKE Sleep, 3000
+					call level2_2
+					call level2_2move
+					ret
+				.ENDIF
+			.ENDIF
+
+			.IF mexy.x == 86 && mexy.y >29 && mexy.y <33
+				.IF level1finish == 0 || level2finish == 1
+					jmp l2
+				.ENDIF
+
+				.IF level1finish == 1 && level2finish == 0 && level3finish == 0 && level4finish == 0
+					mov mexy.x, 16
+					mov mexy.y, 14
+					call clear_allmenu
+					call level2
+					INVOKE WriteConsoleOutputCharacter,
+						outputHandle,	
+						ADDR me,	
+						sizeof me - 1,
+						mexy,	
+						ADDR count	
+	
+					call level2move
+
+					INVOKE Sleep, 3000
+					call level2_2
+					call level2_2move
+					ret
+				.ENDIF
+			.ENDIF
+			
+			.IF mexy.y == 33 && mexy.x >78 && mexy.x <86
+				.IF level1finish == 0 || level2finish == 1
+					jmp l2
+				.ENDIF
+
+				.IF level1finish == 1 && level2finish == 0 && level3finish == 0 && level4finish == 0
+					mov mexy.x, 16
+					mov mexy.y, 14
+					call clear_allmenu
+					call level2
+					INVOKE WriteConsoleOutputCharacter,
+						outputHandle,	
+						ADDR me,	
+						sizeof me - 1,
+						mexy,	
+						ADDR count	
+	
+					call level2move
+
+					INVOKE Sleep, 3000
+					call level2_2
+					call level2_2move
+					ret
+				.ENDIF
+			.ENDIF
+
+			.IF mexy.y == 29 && mexy.x >78 && mexy.x <86
+				.IF level1finish == 0 || level2finish == 1
+					jmp l2
+				.ENDIF
+
+				.IF level1finish == 1 && level2finish == 0 && level3finish == 0 && level4finish == 0
+					mov mexy.x, 16
+					mov mexy.y, 14
+					call clear_allmenu
+					call level2
+					INVOKE WriteConsoleOutputCharacter,
+						outputHandle,	
+						ADDR me,	
+						sizeof me - 1,
+						mexy,	
+						ADDR count	
+	
+					call level2move
+
+					INVOKE Sleep, 3000
+					call level2_2
+					call level2_2move
+					ret
+				.ENDIF
+			.ENDIF
+
+			jmp nl2
+
+			l2:
+				call clear_menu
+				INVOKE WriteConsoleOutputCharacter,
+					outputHandle,
+					ADDR menucontent5,	
+					sizeof menucontent5 - 1,	
+					menucontentxy,	
+					ADDR count
+			nl2:
+
+		;¦Ð
+		
+			.IF mexy.x == 118 && mexy.y >9 && mexy.y <13
+				.IF level3finish == 0 || level4finish == 1
+					jmp l3
+				.ENDIF
+				.IF level1finish == 1 && level2finish == 1 && level3finish == 1 && level4finish == 0
+					call clear_allmenu
+					call level4
+					INVOKE WriteConsoleOutputCharacter,
+						outputHandle,	
+						ADDR me,	
+						sizeof me - 1,
+						lv4mexy,	
+						ADDR count
+					call level4move
+					ret
+				.ENDIF
+			.ENDIF
+
+			.IF mexy.x == 126 && mexy.y >9 && mexy.y <13
+				.IF level3finish == 0 || level4finish == 1
+					jmp l3
+				.ENDIF
+				.IF level1finish == 1 && level2finish == 1 && level3finish == 1 && level4finish == 0
+					call clear_allmenu
+					call level4
+					INVOKE WriteConsoleOutputCharacter,
+						outputHandle,	
+						ADDR me,	
+						sizeof me - 1,
+						lv4mexy,	
+						ADDR count
+					call level4move
+					ret
+				.ENDIF
+			.ENDIF
+
+			.IF mexy.y == 13 && mexy.x >118 && mexy.x <126
+				.IF level3finish == 0 || level4finish == 1
+					jmp l3
+				.ENDIF
+				.IF level1finish == 1 && level2finish == 1 && level3finish == 1 && level4finish == 0
+					call clear_allmenu
+					call level4
+					INVOKE WriteConsoleOutputCharacter,
+						outputHandle,	
+						ADDR me,	
+						sizeof me - 1,
+						lv4mexy,	
+						ADDR count
+					call level4move
+					ret
+				.ENDIF
+			.ENDIF
+
+			.IF mexy.y == 9 && mexy.x >118 && mexy.x <126
+				.IF level3finish == 0 || level4finish == 1
+					jmp l3
+				.ENDIF
+				.IF level1finish == 1 && level2finish == 1 && level3finish == 1 && level4finish == 0
+					call clear_allmenu
+					call level4
+					INVOKE WriteConsoleOutputCharacter,
+						outputHandle,	
+						ADDR me,	
+						sizeof me - 1,
+						lv4mexy,	
+						ADDR count
+					call level4move
+					ret
+				.ENDIF
+			.ENDIF
+
+			jmp nl3
+
+			l3:
+				call clear_menu
+				INVOKE WriteConsoleOutputCharacter,
+					outputHandle,
+					ADDR menucontent7,	
+					sizeof menucontent7 - 1,	
+					menucontentxy,	
+					ADDR count
+			nl3:
+
+		;py
+		
+			.IF mexy.x == 118 && mexy.y >29 && mexy.y <33
+				.IF level2finish == 0 || level3finish == 1
+					jmp l4
+				.ENDIF
+				.IF level1finish == 1 && level2finish == 1 && level3finish == 0 && level4finish == 0
+					call clear_allmenu
+					call be_master
+					ret
+				.ENDIF
+			.ENDIF
+
+			.IF mexy.x == 126 && mexy.y >29 && mexy.y <33
+				.IF level2finish == 0 || level3finish == 1
+					jmp l4
+				.ENDIF
+				.IF level1finish == 1 && level2finish == 1 && level3finish == 0 && level4finish == 0
+					call clear_allmenu
+					call be_master
+					ret
+				.ENDIF
+			.ENDIF
+
+			.IF mexy.y == 33 && mexy.x >118 && mexy.x <126
+				.IF level2finish == 0 || level3finish == 1
+					jmp l4
+				.ENDIF
+				.IF level1finish == 1 && level2finish == 1 && level3finish == 0 && level4finish == 0
+					call clear_allmenu
+					call be_master
+					ret
+				.ENDIF
+			.ENDIF
+
+			.IF mexy.y == 29 && mexy.x >118 && mexy.x <126
+				.IF level2finish == 0 || level3finish == 1
+					jmp l4
+				.ENDIF
+				.IF level1finish == 1 && level2finish == 1 && level3finish == 0 && level4finish == 0
+					call clear_allmenu
+					call be_master
+					ret
+				.ENDIF
+			.ENDIF
+
+			jmp nl4
+
+			l4:
+				call clear_menu
+				INVOKE WriteConsoleOutputCharacter,
+					outputHandle,
+					ADDR menucontent6,	
+					sizeof menucontent6 - 1,	
+					menucontentxy,	
+					ADDR count
+			nl4:
+
+		jmp continue
+
+	use:
+		.IF mexy.x == 4 && mexy.y == 30
+			.IF toolendget == 1
+				INVOKE WriteConsoleOutputCharacter,
+					outputHandle,
+					ADDR maindoor1,	
+					sizeof maindoor1 - 1,	
+					maindoorxy,	
+					ADDR count
+
+				call clear_menu
+				INVOKE WriteConsoleOutputCharacter,
+					outputHandle,
+					ADDR menucontent10,	
+					sizeof menucontent10 - 1,	
+					menucontentxy,	
+					ADDR count
+
+				INVOKE Sleep , 8000
+
+				call clear_menu
+				INVOKE WriteConsoleOutputCharacter,
+					outputHandle,
+					ADDR menucontent11,	
+					sizeof menucontent11 - 1,	
+					menucontentxy,	
+					ADDR count
+				
+				INVOKE Sleep , 4000
+				ret
+			.ENDIF
+		.ENDIF
+
+	continue:
+		
+		INVOKE WriteConsoleOutputCharacter,
+			outputHandle,
+			ADDR mirror,	
+			sizeof mirror - 1,	
+			mirror1xy,	
+			ADDR count	
+
+		;Ãè¤l
+		.IF mexy.x == 46 && mexy.y == 22
+			INVOKE WriteConsoleOutputCharacter,
+				outputHandle,
+				ADDR me,	
+				sizeof me - 1,	
+				mirror1xy,	
+				ADDR count	
+
+		.ENDIF
+
+		.IF mexy.x == 48 && mexy.y == 22
+
+			INVOKE WriteConsoleOutputCharacter,
+				outputHandle,
+				ADDR me,	
+				sizeof me - 1,	
+				mirror2xy,	
+				ADDR count	
+		.ENDIF
+
+			
+
+
+		jmp start
+
+menu_move ENDP
+
+clear_menu PROC
+	mov menucontentspacexy.y, 3
+	mov ecx, 18
+	L1: push ecx
+		INVOKE WriteConsoleOutputCharacter,
+			outputHandle,
+			ADDR menucontentspace,	
+			sizeof menucontentspace,	
+			menucontentspacexy,	
+			ADDR count
+		
+		inc menucontentspacexy.y
+		pop ecx
+		Loop L1
+	ret
+clear_menu ENDP
+
+clear_allmenu PROC
+	mov moneyxy.y, 3
+	mov ecx, 37
+	changemenu: push ecx
+		INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR change,	
+		sizeof change,
+		moneyxy,	
+		ADDR count	
+
+		inc moneyxy.y
+		INVOKE Sleep, 50
+
+		pop ecx
+		Loop changemenu
+	
+	mov moneyxy.y, 3
+
+	mov ecx, 37
+	changespace: push ecx
+		INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR moneyspace,	
+		sizeof moneyspace,
+		moneyxy,	
+		ADDR count	
+
+		inc moneyxy.y
+		INVOKE Sleep, 50
+
+		pop ecx
+		Loop changespace
+	mov moneyxy.y, 3
+	ret
+clear_allmenu ENDP
 ;------------------------------------------------move----------------------------------------------------------------
 
 move_right PROC
@@ -988,7 +1721,6 @@ level1 PROC
 	   ADDR count	; output count
 
 	   add contentxy.y, 3
-	   
 	
 	start:
 		call ReadChar
@@ -1039,7 +1771,7 @@ level1 PROC
 	   ADDR count	; output count
 
 
-	   ; æ›´æ–°åº§æ¨™å›žåŽŸæœ¬çš„//////////////////////////////
+	   ; §ó·s®y¼Ð¦^­ì¥»ªº//////////////////////////////
 
 	ret
 
@@ -1676,7 +2408,7 @@ start:
 			ret
 		.ENDIF
 
-		call ReadChar  ; å¾žéµç›¤è®€å–ä¸€å€‹å­—ç¬¦ 
+		call ReadChar  ; ±qÁä½LÅª¨ú¤@­Ó¦r²Å 
 
 		cmp al, "d"
 		je colusionr
@@ -2018,7 +2750,7 @@ level2 ENDP
 
 level2move PROC
 	start:
-		call ReadChar  ; å¾žéµç›¤è®€å–ä¸€å€‹å­—ç¬¦ 
+		call ReadChar  ; ±qÁä½LÅª¨ú¤@­Ó¦r²Å 
 
 
 		.IF al == "d" || al == "D"
@@ -2532,7 +3264,7 @@ level2_2 ENDP
 level2_2move PROC
 
 	start:
-		call ReadChar  ; å¾žéµç›¤è®€å–ä¸€å€‹å­—ç¬¦ 
+		call ReadChar  ; ±qÁä½LÅª¨ú¤@­Ó¦r²Å 
 
 		.IF al == "d" || al == "D"
 			je colusionr
@@ -3009,7 +3741,7 @@ preface PROC
 	INVOKE Sleep, 2000
 
 	INVOKE GetStdHandle, STD_OUTPUT_HANDLE
-	mov outputHandle, eax	;å› ç‚º GetStdHandle æœƒå­˜æ–¼eaxï¼Œå°‡eaxå…§çš„å€¼å­˜å…¥outputHandle
+	mov outputHandle, eax	;¦]¬° GetStdHandle ·|¦s©óeax¡A±Neax¤ºªº­È¦s¤JoutputHandle
 	call Clrscr
 
 	mov prefacexy.y, 15
@@ -3048,7 +3780,7 @@ preface PROC
 	INVOKE Sleep, 2000
 
 	INVOKE GetStdHandle, STD_OUTPUT_HANDLE
-	mov outputHandle, eax	;å› ç‚º GetStdHandle æœƒå­˜æ–¼eaxï¼Œå°‡eaxå…§çš„å€¼å­˜å…¥outputHandle
+	mov outputHandle, eax	;¦]¬° GetStdHandle ·|¦s©óeax¡A±Neax¤ºªº­È¦s¤JoutputHandle
 	call Clrscr
 
 	mov prefacexy.y, 15
@@ -3131,7 +3863,7 @@ preface PROC
 	INVOKE Sleep, 2000
 
 	INVOKE GetStdHandle, STD_OUTPUT_HANDLE
-	mov outputHandle, eax	;å› ç‚º GetStdHandle æœƒå­˜æ–¼eaxï¼Œå°‡eaxå…§çš„å€¼å­˜å…¥outputHandle
+	mov outputHandle, eax	;¦]¬° GetStdHandle ·|¦s©óeax¡A±Neax¤ºªº­È¦s¤JoutputHandle
 	call Clrscr
 
 	mov prefacexy.y, 15
@@ -3148,7 +3880,7 @@ preface PROC
 	INVOKE Sleep, 2000
 
 	INVOKE GetStdHandle, STD_OUTPUT_HANDLE
-	mov outputHandle, eax	;å› ç‚º GetStdHandle æœƒå­˜æ–¼eaxï¼Œå°‡eaxå…§çš„å€¼å­˜å…¥outputHandle
+	mov outputHandle, eax	;¦]¬° GetStdHandle ·|¦s©óeax¡A±Neax¤ºªº­È¦s¤JoutputHandle
 	call Clrscr
 
 	mov prefacexy.y, 15
@@ -3198,7 +3930,7 @@ preface PROC
 	INVOKE Sleep, 2000
 
 	INVOKE GetStdHandle, STD_OUTPUT_HANDLE
-	mov outputHandle, eax	;å› ç‚º GetStdHandle æœƒå­˜æ–¼eaxï¼Œå°‡eaxå…§çš„å€¼å­˜å…¥outputHandle
+	mov outputHandle, eax	;¦]¬° GetStdHandle ·|¦s©óeax¡A±Neax¤ºªº­È¦s¤JoutputHandle
 	call Clrscr
 
 	mov prefacexy.y, 15
@@ -3226,7 +3958,7 @@ preface PROC
 	INVOKE Sleep, 2000
 
 	INVOKE GetStdHandle, STD_OUTPUT_HANDLE
-	mov outputHandle, eax	;å› ç‚º GetStdHandle æœƒå­˜æ–¼eaxï¼Œå°‡eaxå…§çš„å€¼å­˜å…¥outputHandle
+	mov outputHandle, eax	;¦]¬° GetStdHandle ·|¦s©óeax¡A±Neax¤ºªº­È¦s¤JoutputHandle
 	call Clrscr
 
 	mov prefacexy.y, 15
@@ -3306,7 +4038,7 @@ preface PROC
 
 	playgame:
 
-		call ReadChar  ; å¾žéµç›¤è®€å–ä¸€å€‹å­—ç¬¦ 
+		call ReadChar  ; ±qÁä½LÅª¨ú¤@­Ó¦r²Å 
 
 		.IF al == "p" || al == "P"
 			ret
@@ -3316,10 +4048,10 @@ preface PROC
 
 preface ENDP
 
-;---------------------------------------- é—œå¡ä¸‰ æˆç‚ºè«§éŸ³æ¢—å¤§å¸« PROC -----------------------------------
+;---------------------------------------- Ãö¥d¤T ¦¨¬°¿Ó­µ±ð¤j®v PROC -----------------------------------
 
 be_master PROC
-	;------------------------ draw 3-1 wall & é“å…·æ¬„ ----------------------
+	;------------------------ draw 3-1 wall & ¹D¨ãÄæ ----------------------
 	 
 		INVOKE WriteConsoleOutputCharacter,
 		   outputHandle,	
@@ -3752,7 +4484,7 @@ be_master PROC
 
 	;--------------------------- level 3-2 ----------------------------
 
-	;------------------------ clear  & é“å…·æ¬„ ----------------------
+	;------------------------ clear  & ¹D¨ãÄæ ----------------------
 	
 	clearall: 
 		mov get_tool, 0
@@ -4874,11 +5606,11 @@ printw:
 		ADDR count	
 
 		inc moneyxy.y
-		
 
 		pop ecx
 		Loop printw
-	INVOKE Sleep, 1500
+		
+		INVOKE Sleep, 1500
 	mov moneyxy.y, 3
 
 	mov ecx, 37
@@ -4916,7 +5648,7 @@ printspace:
 	INVOKE Sleep, 2000
 	mov whitebgxy.y, 3
 	mov whitebgxy.x, 4
-	call refresh_bg
-	exit
+
+ret
 level4move ENDP
 END main
