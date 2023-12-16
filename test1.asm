@@ -52,6 +52,34 @@ wallxy COORD <2,2>
 toolBox BYTE "道具欄：",0
 Boxxy COORD <2,42>
 
+;---------------------------------------- 主畫面 -----------------------------------
+mainbg0   BYTE 26 DUP('　'), "浴", 3 DUP('　'), 2 DUP("桌"), 16 DUP('　'), 2 DUP("板"), 16 DUP('　'), 2 DUP("桌"),0  ;loop 4 次
+mainbg1   BYTE 26 DUP('　'), "浴", 3 DUP('　'), 18 DUP("桌"), 2 DUP("板"), 18 DUP("桌"),0  
+mainbg2   BYTE 26 DUP('　'), "浴", 3 DUP('　'), 18 DUP('　'), 2 DUP("板"), 18 DUP('　'), 0 ;2~8 可放名牌
+mainbg3   BYTE 26 DUP('　'), "浴", 3 DUP('　'), 18 DUP('　'), 2 DUP("板"), 18 DUP('　'), 0
+mainbg4   BYTE 26 DUP('　'), "浴", 3 DUP('　'), 18 DUP('　'), 2 DUP("板"), 18 DUP('　'), 0 
+mainbg5   BYTE 26 DUP('　'), "浴", 3 DUP('　'), 18 DUP('　'), 2 DUP("板"), 18 DUP('　'), 0 
+mainbg6   BYTE 26 DUP('　'), "浴", 3 DUP('　'), 18 DUP('　'), 2 DUP("板"), 18 DUP('　'), 0 
+mainbg7   BYTE 26 DUP('　'), "浴", 3 DUP('　'), 18 DUP('　'), 2 DUP("板"), 18 DUP('　'), 0
+mainbg8   BYTE 26 DUP('　'), "浴", 3 DUP('　'), 18 DUP('　'), 2 DUP("板"), 18 DUP('　'), 0
+mainbg10  BYTE 26 DUP('　'), "浴", 41 DUP('　'), 0 ; loop 6次
+mainbg11  BYTE 10 DUP('浴'), "閂", 10 DUP('浴'), 2 DUP("鏡"), 3 DUP('浴'), "浴", 41 DUP('　'), 0
+mainbg12  BYTE 37 DUP('　'), 0 ;loop 5次
+mainbg13  BYTE 30 DUP('　'), 18 DUP('　'), 2 DUP("板"), 18 DUP('　'), 0 ;13~19 可放名牌
+mainbg14  BYTE 30 DUP('　'), 18 DUP('　'), 2 DUP("板"), 18 DUP('　'), 0 
+mainbg15  BYTE 30 DUP('　'), 18 DUP('　'), 2 DUP("板"), 18 DUP('　'), 0 
+mainbg16  BYTE 30 DUP('　'), 18 DUP('　'), 2 DUP("板"), 18 DUP('　'), 0 
+mainbg17  BYTE 30 DUP('　'), 18 DUP('　'), 2 DUP("板"), 18 DUP('　'), 0 
+mainbg18  BYTE 30 DUP('　'), 18 DUP('　'), 2 DUP("板"), 18 DUP('　'),0  
+mainbg19  BYTE 30 DUP('　'), 18 DUP('　'), 2 DUP("板"), 18 DUP('　'), 0 
+mainbg21  BYTE 30 DUP('　'), 18 DUP("桌"), 2 DUP("板"), 18 DUP("桌"),0 
+mainbg22  BYTE 30 DUP('　'), 2 DUP("桌"), 16 DUP('　'), 2 DUP("板"), 16 DUP('　'), 2 DUP("桌"),0  ;loop 4 次
+
+mainbgxy COORD <4, 3>
+
+maindoor BYTE "閂", 0
+maindoorxy COORD <2, 30>
+
 ;------------------------------------------level1--------------------------------------------------------------
 
 level1end BYTE 0
