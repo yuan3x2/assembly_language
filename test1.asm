@@ -97,7 +97,7 @@ menucontent2 BYTE "這裡是浴室 ", 0
 menucontent3 BYTE "怎麼可以偷窺別人洗澡呢 `^′ ", 0
 
 
-menucontent4 BYTE "level1", 0
+menucontent4 BYTE "那裡有貓貓！先走一步掰掰～", 0
 menucontent5 BYTE "level2", 0
 menucontent6 BYTE "level3", 0
 menucontent7 BYTE "還沒醒，不要叫我 @#$%^&*", 0
