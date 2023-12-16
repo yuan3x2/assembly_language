@@ -332,10 +332,10 @@ lv4_con5 BYTE "是去夜市時買東西附贈的線圈、一個無線滑鼠和�
 lv4_con6 BYTE "…啊！這些東西剛好可以組成電磁鐵！",0
 lv4_con8 BYTE "現在不是吃零食的時候了!",0
 lv4_con9 BYTE "這個怎麼在這裡…先拿著好了…",0
-lv4_con10 BYTE "這個好像有什麼用處…",0
+lv4_con10 BYTE "這個裡面的電池應該會有用處…",0
 lv4_con11 BYTE "防盜　　磁釦",0
 lv4_con12 BYTE "終於可以穿上圍巾出門了…欸？！這是什麼東西呀？！！抹布洗！！！！！",0
-lv4_con14 BYTE "你成功獲得鎮寢之寶！！！！！",0
+lv4_con14 BYTE "恭喜通過第四關！你成功獲得「鎮寢之寶」！！！！！",0
 
 lv4_con13 BYTE BoxWidth-2 DUP("▇▇"),0
 lv4pl WORD 0
@@ -4874,11 +4874,11 @@ printw:
 		ADDR count	
 
 		inc moneyxy.y
-		INVOKE Sleep, 50
+		
 
 		pop ecx
 		Loop printw
-	
+	INVOKE Sleep, 1500
 	mov moneyxy.y, 3
 
 	mov ecx, 37
