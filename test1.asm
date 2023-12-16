@@ -9,6 +9,7 @@ space byte "　",0
 space1 byte "　　　",0
 mexy COORD <16,14>
 
+
 ;-----------------------------------------------preface------------------------------------------------------
 preface1 BYTE "「這是哪？我怎麼躺在地上？」",0
 preface2 BYTE "「頭好痛......」",0
@@ -63,7 +64,7 @@ micro_wave3 BYTE  "那就拿去加熱了喔...？",0
 no_get_fries BYTE "阿你是要炸什麼啦？＿？，按任意鍵以繼續破關..."
 fries BYTE "獲得冷掉的大薯一份，按任意鍵以繼續破關..."
 
-whitebg BYTE "　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　      　　　　",0
+whitebg BYTE BoxWidth-4 DUP("　"),0
 cold_fries BYTE  "　＿　　　　＿　　　　＿　　　　＿　　　　＿　",0
 cold_fries1 BYTE "｜　｜　　｜　｜　　｜　｜　　｜　｜　　｜　｜",0
 cold_fries2 BYTE "｜　｜　　｜　｜　　｜　｜　　｜　｜　　｜　｜",0
@@ -171,8 +172,100 @@ tool6 BYTE "/_",0
 tool6get DWORD 0
 tool6xy COORD <38, 17>
 
-tool7 BYTE "＄", 0
+tool7 BYTE "$$", 0
 tool7get DWORD 0
+
+tool8xy COORD <>
+
+tool8 BYTE "線圈", 0
+
+tool9 BYTE "電池",0
+
+tool10 BYTE "電池鐵",0
+
+tool11 BYTE "　　　　　　　　　　",0
+
+toolend BYTE "鎮寢之寶",0
+toolendget DWORD 0
+;---------------------------------------- level 3 by py -----------------------------------
+be_master PROTO
+move_right31 PROTO
+move_left31 PROTO
+move_up31 PROTO
+move_down31 PROTO
+move_right32 PROTO
+move_left32 PROTO
+move_up32 PROTO
+move_down32 PROTO
+
+tool1_3 BYTE " $$ ",0
+tool11_3 BYTE " $  ",0	
+tool2_3 BYTE " 芋圓 ",0
+tool3_3 BYTE " 柚子 ",0
+tool4_3 BYTE " 芋圓柚子 ",0
+tool3_xy COORD <10,42>
+tool3_1xy COORD <14, 42>
+get_tool BYTE 0
+tool5_3 BYTE "一個鵝子",0
+tool6_3 BYTE "兩個鵝子",0
+tool7_3 BYTE "三個鵝子",0
+tool8_3 BYTE "四個鵝子",0
+tool3_2xy COORD <10,42>
+tool_3 BYTE "鐵棒",0
+
+tool_clear BYTE "　　　　　　　　", 0
+toolcxy COORD <10,42>
+
+clearspace BYTE 68 DUP('　')
+clearxy COORD <4, 4>
+ending_clear BYTE 68 DUP('ㄏ')
+
+level3_1 BYTE   "組語期末報告還沒打完，但",0 ;y=8
+level3_1_2 BYTE   "好餓喔OAO",0
+level3_2  BYTE  "去宵夜街買仙草加芋圓吃好了",0
+level3_3  BYTE  "宿舍還有柚子可以配",0
+level3_4  BYTE  "欸欸，你們知道....",0
+level3_5  BYTE  " : 蛤 什麼啦　話不要講一半!!!!",0
+level3_6  BYTE  "----------------------------------",0
+level3_7  BYTE  "任務一： ",0
+level3_8  BYTE  "讓室友繼續講下去.... ",0
+level3_9  BYTE  "-----------(移動以開始)------------",0
+level3_91  BYTE  "你好了啦 不要芋言柚止的 快點講!!",0
+textcount BYTE 0 
+textxy COORD <12,8>
+mexy_3 COORD <12,8>
+
+level3_10 BYTE   "齁好啦",0
+level3_11 BYTE   "你們知道為什麼吃雞肉蛋吐司的時候",0
+level3_12  BYTE  "蛋都會滑下去嗎 ",0
+level3_13  BYTE  "因為時間久了就會蛋掉了: )",0
+level3_14  BYTE  " : 你好了啦閉嘴",0
+level3_15  BYTE  "要拿我們上次去買的鵝子(玩偶)砸你!!!",0
+level3_16  BYTE  "----------------------------------",0
+level3_17  BYTE  "任務二： ",0
+level3_18  BYTE  "讓室友閉嘴(剛剛好就好...)... ",0
+level3_19  BYTE  "-----------(移動以開始)-----------",0
+text2xy COORD <12,8>
+me2xy_3 COORD <12,23>
+
+get_mes1 BYTE  "獲得鵝子一隻", 0
+get_mes2 BYTE  "再多拿一些看看 ?", 0
+get_mes3 BYTE  "還不夠!!", 0
+get_mes4 BYTE  "去試試看吧ouo", 0
+get_mes5 BYTE  "好了啦夠了啦", 0
+get_mes COORD <12, 33>
+
+showresult BYTE   ": 給我適可鵝止啦!!",0
+showresult2 BYTE   "欸這諧音不錯 給過",0
+showresult3 BYTE   ": ??????????????",0
+
+ending1 BYTE  "獲得通關道具「鐵棒」", 0
+ending2 BYTE  "恭喜通過第三關owo", 0
+ending3 BYTE  "雖然你沒有身騎白馬", 0
+ending4 BYTE  "喔對 給你看個可愛的東西", 0
+ending5 BYTE  "是Dora的碗欸", 0
+ending6 BYTE  "A-dora-bowl", 0
+
 ;------------------------------------------startword------------------------------------------------------------
 
 startword BYTE   " _______　　　 　 _______",0
@@ -195,8 +288,33 @@ startword16 BYTE "PRESS     'P'",0
 startcount BYTE 0
 startxy COORD <40,10>	
 ;----------------------------------------------------------------------------------------------------------------
+;=================================lv4=============================
+lv4mexy COORD <26,8>
+lv4contentxy COORD <12, 8>
+lv4compxy COORD <40,11>
+lv4con8xy COORD <90, 8>
+lv4pright BYTE 1
+lv4cxy COORD <30, 18>
+;------------------------level4-------------------------------------------------------------------
+lv4_con1 BYTE "實在是太冷了！我急需買一條圍巾來保暖…",0
+lv4_con2 BYTE "啊…怎麼千辛萬苦買來的圍巾上有防盜磁釦啊！",0
+lv4_con3 BYTE "看來要想辦法把它解開…",0
+lv4_con4 BYTE "欸？桌上好像有一些東西…",0
+lv4_con5 BYTE "是去夜市時買東西附贈的線圈、一個無線滑鼠和一些零食？！",0
+lv4_con6 BYTE "…啊！這些東西剛好可以組成電磁鐵！",0
+lv4_con8 BYTE "現在不是吃零食的時候了!",0
+lv4_con9 BYTE "這個怎麼在這裡…先拿著好了…",0
+lv4_con10 BYTE "這個好像有什麼用處…",0
+lv4_con11 BYTE "防盜　　磁釦",0
+lv4_con12 BYTE "終於可以穿上圍巾出門了…欸？！這是什麼東西呀？！！抹布洗！！！！！",0
+lv4_con14 BYTE "你成功獲得鎮寢之寶！！！！！",0
 
-
+lv4_con13 BYTE BoxWidth-2 DUP("▇▇"),0
+lv4pl WORD 0
+lv4pb WORD 0
+lv4pa WORD 0
+lv4pc WORD 0
+;=================================================lv4over==============================================
 outputHandle DWORD 0
 count DWORD 0
 
@@ -398,7 +516,7 @@ main PROC
 		INVOKE GetStdHandle, STD_OUTPUT_HANDLE
 			mov outputHandle, eax
 			call Clrscr
-		call preface
+	;	call preface
 ;--------------------------------------------------bg--------------------------------------------------------------
 
 	draw_bg:
@@ -451,15 +569,15 @@ main PROC
 	mov mexy.x, 42
 	mov mexy.y, 14
 	INVOKE Sleep, 1000
-	call level1
-	call level1move
+	;call level1
+	;call level1move
 
 	INVOKE Sleep, 2000
 	;-----------------------------------------------level2---------------------------------------------------------------
 	mov mexy.x, 16
 	mov mexy.y, 14
 
-	call level2
+;	call level2
 	INVOKE WriteConsoleOutputCharacter,
 		outputHandle,	
 		ADDR me,	
@@ -467,12 +585,12 @@ main PROC
 		mexy,	
 		ADDR count	
 	
-	call level2move
+	;call level2move
 
 	;-----------------------------------------------level2_2-------------------------------------------------------------
 	INVOKE Sleep, 3000
-	call level2_2
-	call level2_2move
+;	call level2_2
+;	call level2_2move
 
 	;------------------------------------------------l2tol3-------------------------------------------------------------
 	INVOKE Sleep, 2000
@@ -493,7 +611,8 @@ main PROC
 		sizeof l2tol31-1,
 		l2tol3xy,	
 		ADDR count	
-	
+
+	sub Boxxy.x, 1
 	INVOKE WriteConsoleOutputCharacter,
 		outputHandle,	
 		ADDR tool7,	
@@ -534,7 +653,17 @@ main PROC
 
 		pop ecx
 		Loop Lmoneyspace
-
+;-----------------------------------------------level 3-------------------------------------------------------------
+	call be_master
+;-----------------------------------------------level 4-------------------------------------------------------------
+	call level4
+	INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR me,	
+		sizeof me - 1,
+		lv4mexy,	
+		ADDR count
+	call level4move
 
 
 	exit
@@ -704,7 +833,7 @@ L1:
 	INVOKE WriteConsoleOutputCharacter,
 	   outputHandle,	; console output handle
 	   ADDR whitebg,	; pointer to the top box line
-	   sizeof whitebg -1,	; size of box line
+	   sizeof whitebg-1,	; size of box line
 	   whitebgxy,	
 	   ADDR count	; output count
 	   
@@ -2618,7 +2747,7 @@ preface PROC
 
 	   add prefacexy.y, 2
 
-	INVOKE Sleep, 4000
+	INVOKE Sleep, 2000
 
 	INVOKE WriteConsoleOutputCharacter,
 	   outputHandle,	
@@ -2629,7 +2758,7 @@ preface PROC
 
 	   add prefacexy.y, 2
 
-	INVOKE Sleep, 4000
+	INVOKE Sleep, 2000
 
 
 	INVOKE WriteConsoleOutputCharacter,
@@ -2652,7 +2781,7 @@ preface PROC
 
 	   add prefacexy.y, 2
 
-	INVOKE Sleep, 4000
+	INVOKE Sleep, 2000
 
 	INVOKE GetStdHandle, STD_OUTPUT_HANDLE
 	mov outputHandle, eax	;因為 GetStdHandle 會存於eax，將eax內的值存入outputHandle
@@ -2669,7 +2798,7 @@ preface PROC
 
 	   add prefacexy.y, 2
 
-	INVOKE Sleep, 4000
+	INVOKE Sleep, 2000
 
 	INVOKE WriteConsoleOutputCharacter,
 	   outputHandle,	
@@ -2680,7 +2809,7 @@ preface PROC
 
 	   add prefacexy.y, 2
 
-	INVOKE Sleep, 4000
+	INVOKE Sleep, 2000
 
 	INVOKE WriteConsoleOutputCharacter,
 	   outputHandle,	
@@ -2691,7 +2820,7 @@ preface PROC
 
 	   add prefacexy.y, 2
 
-	INVOKE Sleep, 4000
+	INVOKE Sleep, 2000
 
 	INVOKE GetStdHandle, STD_OUTPUT_HANDLE
 	mov outputHandle, eax	;因為 GetStdHandle 會存於eax，將eax內的值存入outputHandle
@@ -2708,7 +2837,7 @@ preface PROC
 
 	   add prefacexy.y, 2
 
-	INVOKE Sleep, 4000
+	INVOKE Sleep, 2000
 
 	INVOKE WriteConsoleOutputCharacter,
 	   outputHandle,	
@@ -2719,7 +2848,7 @@ preface PROC
 
 	   add prefacexy.y, 3
 
-	INVOKE Sleep, 4000
+	INVOKE Sleep, 2000
 
 	INVOKE WriteConsoleOutputCharacter,
 	   outputHandle,	
@@ -2730,7 +2859,7 @@ preface PROC
 
 	   add prefacexy.y, 2
 
-	INVOKE Sleep, 4000
+	INVOKE Sleep, 2000
 
 	INVOKE WriteConsoleOutputCharacter,
 	   outputHandle,	
@@ -2741,7 +2870,7 @@ preface PROC
 
 	   add prefacexy.y, 3
 
-	INVOKE Sleep, 4000
+	INVOKE Sleep, 2000
 
 	INVOKE WriteConsoleOutputCharacter,
 	   outputHandle,	
@@ -2752,7 +2881,7 @@ preface PROC
 
 	   add prefacexy.y, 2
 
-	INVOKE Sleep, 4000
+	INVOKE Sleep, 2000
 
 	INVOKE WriteConsoleOutputCharacter,
 	   outputHandle,	
@@ -2763,7 +2892,7 @@ preface PROC
 
 	   add prefacexy.y, 2
 
-	INVOKE Sleep, 4000
+	INVOKE Sleep, 2000
 
 	INVOKE WriteConsoleOutputCharacter,
 	   outputHandle,	
@@ -2774,7 +2903,7 @@ preface PROC
 
 	   add prefacexy.y, 2
 
-	INVOKE Sleep, 4000
+	INVOKE Sleep, 2000
 
 	INVOKE GetStdHandle, STD_OUTPUT_HANDLE
 	mov outputHandle, eax	;因為 GetStdHandle 會存於eax，將eax內的值存入outputHandle
@@ -2791,7 +2920,7 @@ preface PROC
 
 	   add prefacexy.y, 2
 
-	INVOKE Sleep, 4000
+	INVOKE Sleep, 2000
 
 	INVOKE GetStdHandle, STD_OUTPUT_HANDLE
 	mov outputHandle, eax	;因為 GetStdHandle 會存於eax，將eax內的值存入outputHandle
@@ -2808,7 +2937,7 @@ preface PROC
 
 	   add prefacexy.y, 2
 
-	INVOKE Sleep, 4000
+	INVOKE Sleep, 2000
 
 	INVOKE WriteConsoleOutputCharacter,
 	   outputHandle,	
@@ -2819,7 +2948,7 @@ preface PROC
 
 	   add prefacexy.y, 2
 
-	INVOKE Sleep, 4000
+	INVOKE Sleep, 2000
 
 	INVOKE WriteConsoleOutputCharacter,
 	   outputHandle,	
@@ -2830,7 +2959,7 @@ preface PROC
 
 	   add prefacexy.y, 2
 
-	INVOKE Sleep, 4000
+	INVOKE Sleep, 2000
 
 	INVOKE WriteConsoleOutputCharacter,
 	   outputHandle,	
@@ -2841,7 +2970,7 @@ preface PROC
 
 	   add prefacexy.y, 2
 
-	INVOKE Sleep, 4000
+	INVOKE Sleep, 2000
 
 	INVOKE GetStdHandle, STD_OUTPUT_HANDLE
 	mov outputHandle, eax	;因為 GetStdHandle 會存於eax，將eax內的值存入outputHandle
@@ -2858,7 +2987,7 @@ preface PROC
 
 	   add prefacexy.y, 2
 
-	INVOKE Sleep, 4000
+	INVOKE Sleep, 2000
 
 	INVOKE WriteConsoleOutputCharacter,
 	   outputHandle,	
@@ -2869,7 +2998,7 @@ preface PROC
 
 	   add prefacexy.y, 2
 
-	INVOKE Sleep, 4000
+	INVOKE Sleep, 2000
 
 	INVOKE GetStdHandle, STD_OUTPUT_HANDLE
 	mov outputHandle, eax	;因為 GetStdHandle 會存於eax，將eax內的值存入outputHandle
@@ -2886,7 +3015,7 @@ preface PROC
 
 	   add prefacexy.y, 2
 
-	INVOKE Sleep, 4000
+	INVOKE Sleep, 2000
 
 	INVOKE WriteConsoleOutputCharacter,
 	   outputHandle,	
@@ -2897,7 +3026,7 @@ preface PROC
 
 	   add prefacexy.y, 2
 
-	INVOKE Sleep, 4000
+	INVOKE Sleep, 2000
 
 	INVOKE WriteConsoleOutputCharacter,
 	   outputHandle,	
@@ -2908,7 +3037,7 @@ preface PROC
 
 	   add prefacexy.y, 2
 
-	INVOKE Sleep, 4000
+	INVOKE Sleep, 2000
 
 	INVOKE WriteConsoleOutputCharacter,
 	   outputHandle,	
@@ -2919,7 +3048,7 @@ preface PROC
 
 	   add prefacexy.y, 2
 
-	INVOKE Sleep, 4000
+	INVOKE Sleep, 2000
 
 	INVOKE WriteConsoleOutputCharacter,
 	   outputHandle,	
@@ -2930,7 +3059,7 @@ preface PROC
 
 	   add prefacexy.y, 2
 
-	INVOKE Sleep, 4000
+	INVOKE Sleep, 2000
 
 	INVOKE WriteConsoleOutputCharacter,
 	   outputHandle,	
@@ -2941,7 +3070,7 @@ preface PROC
 
 	   add prefacexy.y, 4
 
-	INVOKE Sleep, 4000
+	INVOKE Sleep, 2000
 
 	INVOKE WriteConsoleOutputCharacter,
 	   outputHandle,	
@@ -2961,4 +3090,1608 @@ preface PROC
 		jmp playgame
 
 preface ENDP
+
+;---------------------------------------- 關卡三 成為諧音梗大師 PROC -----------------------------------
+
+be_master PROC
+	;------------------------ draw 3-1 wall & 道具欄 ----------------------
+	 
+		INVOKE WriteConsoleOutputCharacter,
+		   outputHandle,	
+		   ADDR tool1_3,	
+		   sizeof tool1_3,
+		   tool3_xy,	
+		   ADDR count
+
+	;------------------------ level 3-1 words ----------------------
+	display_1:
+		INVOKE WriteConsoleOutputCharacter,
+		   outputHandle,	; console output handle
+		   ADDR level3_1,	; pointer to the top box line
+		   sizeof level3_1 -1,	; size of box line
+		   textxy,	; coordinates of first char
+		   ADDR count	; output count
+
+		add textxy.x, 24
+		add mexy_3.x, 24
+
+		INVOKE WriteConsoleOutputCharacter,
+			outputHandle,	
+			ADDR me,	
+			sizeof me - 1,	
+			textxy,	
+			ADDR count	
+
+		add textxy.x, 2
+
+		INVOKE WriteConsoleOutputCharacter,
+		   outputHandle,	; console output handle
+		   ADDR level3_1_2,	; pointer to the top box line
+		   sizeof level3_1_2 -1,	; size of box line
+		   textxy,	; coordinates of first char
+		   ADDR count	; output count
+
+		sub textxy.x, 26
+
+		inc textxy.y
+		inc textxy.y
+		inc textxy.y
+
+		mov bl, startcount
+		call ReadChar
+		cmp al, " "
+		je display_2		;next line
+		dec textxy.y
+		dec textxy.y
+		dec textxy.y
+		jne display_1		;again
+
+	display_2:
+		INVOKE WriteConsoleOutputCharacter,
+		   outputHandle,	; console output handle
+		   ADDR level3_2,	; pointer to the top box line
+		   sizeof level3_2 -1,	; size of box line
+		   textxy,	; coordinates of first char
+		   ADDR count	; output count
+
+		inc textxy.y
+		inc textxy.y
+		inc textxy.y
+
+		mov bl, startcount
+		call ReadChar
+		cmp al, " "
+		je display_3		;next line
+		dec textxy.y
+		dec textxy.y
+		dec textxy.y
+		jne display_2		;again
+
+	display_3:
+		INVOKE WriteConsoleOutputCharacter,
+		   outputHandle,	; console output handle
+		   ADDR level3_3,	; pointer to the top box line
+		   sizeof level3_3 -1,	; size of box line
+		   textxy,	; coordinates of first char
+		   ADDR count	; output count
+
+		inc textxy.y
+		inc textxy.y
+		inc textxy.y
+
+		mov bl, startcount
+		call ReadChar
+		cmp al, " "
+		je display_4		;next line
+		dec textxy.y
+		dec textxy.y
+		dec textxy.y
+		jne display_3		;again
+
+	display_4:
+		INVOKE WriteConsoleOutputCharacter,
+		   outputHandle,	; console output handle
+		   ADDR level3_4,	; pointer to the top box line
+		   sizeof level3_4 -1,	; size of box line
+		   textxy,	; coordinates of first char
+		   ADDR count	; output count
+
+		inc textxy.y
+		inc textxy.y
+		inc textxy.y
+
+		mov bl, startcount
+		call ReadChar
+		cmp al, " "
+		je display_5		;next line
+		dec textxy.y
+		dec textxy.y
+		dec textxy.y
+		jne display_4		;again
+
+	display_5:
+		INVOKE WriteConsoleOutputCharacter,
+		   outputHandle,	; console output handle
+		   ADDR level3_5,	; pointer to the top box line
+		   sizeof level3_5 -1,	; size of box line
+		   textxy,	; coordinates of first char
+		   ADDR count	; output count
+
+		inc textxy.y
+		inc textxy.y
+		inc textxy.y
+
+		mov bl, startcount
+		call ReadChar
+		cmp al, " "
+		je display_6		;next line
+		dec textxy.y
+		dec textxy.y
+		dec textxy.y
+		jne display_5		;again
+
+	display_6:
+		INVOKE WriteConsoleOutputCharacter,
+		   outputHandle,	; console output handle
+		   ADDR level3_6,	; pointer to the top box line
+		   sizeof level3_6 -1,	; size of box line
+		   textxy,	; coordinates of first char
+		   ADDR count	; output count
+
+		inc textxy.y
+		inc textxy.y
+
+		mov bl, startcount
+		call ReadChar
+		cmp al, " "
+		je display_7		;next line
+		dec textxy.y
+		dec textxy.y
+		jne display_6		;again
+
+	display_7:
+		INVOKE WriteConsoleOutputCharacter,
+		   outputHandle,	; console output handle
+		   ADDR level3_7,	; pointer to the top box line
+		   sizeof level3_7 -1,	; size of box line
+		   textxy,	; coordinates of first char
+		   ADDR count	; output count
+
+		inc textxy.y
+		inc textxy.y
+
+		mov bl, startcount
+		call ReadChar
+		cmp al, " "
+		je display_8		;next line
+		dec textxy.y
+		dec textxy.y
+		jne display_7		;again
+
+	display_8:
+		INVOKE WriteConsoleOutputCharacter,
+		   outputHandle,	; console output handle
+		   ADDR level3_8,	; pointer to the top box line
+		   sizeof level3_8 -1,	; size of box line
+		   textxy,	; coordinates of first char
+		   ADDR count	; output count
+
+		inc textxy.y
+		inc textxy.y
+
+		mov bl, startcount
+		call ReadChar
+		cmp al, " "
+		je display_9		;next line
+		dec textxy.y
+		dec textxy.y
+		jne display_8		;again
+
+	display_9:
+		INVOKE WriteConsoleOutputCharacter,
+		   outputHandle,	; console output handle
+		   ADDR level3_9,	; pointer to the top box line
+		   sizeof level3_9 -1,	; size of box line
+		   textxy,	; coordinates of first char
+		   ADDR count	; output count
+
+		inc textxy.y
+		inc textxy.y
+
+		mov bl, startcount
+		call ReadChar
+		cmp al, " "
+		dec textxy.y
+		dec textxy.y
+		jmp level3_1_start		;next line
+		jne display_9		;again
+
+	;--------------------------- move me 3_1 -------------------------
+	
+	level3_1_start:
+		INVOKE WriteConsoleOutputCharacter,
+			outputHandle,	
+			ADDR me,	
+			sizeof me - 1,	
+			mexy_3,	
+			ADDR count
+
+		call ReadChar
+
+		.IF ax == 1177h ;w up
+			sub mexy_3.y, 1
+			jmp check_up
+		.ENDIF
+		.IF ax == 1E61h ;a left
+			sub mexy_3.x, 2
+			jmp check_left
+		.ENDIF
+		.IF ax == 1F73h ;s down
+			add mexy_3.y, 1
+			jmp check_down
+		.ENDIF
+		.IF ax == 2064h ;d right
+			add mexy_3.x, 2
+			jmp check_right
+		.ENDIF
+
+		.IF ax == 1265h && mexy_3.x == 30 && (mexy_3.y == 10 || mexy_3.y == 12);space get
+			.IF get_tool == 2
+				jmp level3_1_start
+			.ENDIF
+			.IF get_tool == 1
+				INVOKE WriteConsoleOutputCharacter,
+				   outputHandle,	
+				   ADDR tool4_3,	
+				   sizeof tool4_3,
+				   tool3_xy,	
+				   ADDR count
+				mov get_tool, 2
+				jmp level3_1_start
+			.ENDIF
+
+			INVOKE WriteConsoleOutputCharacter,
+				   outputHandle,	
+				   ADDR tool11_3,	
+				   sizeof tool11_3,
+				   tool3_xy,	
+				   ADDR count
+			INVOKE WriteConsoleOutputCharacter,
+			   outputHandle,	
+			   ADDR tool2_3,	
+			   sizeof tool2_3,
+			   tool3_1xy,	
+			   ADDR count
+			mov get_tool, 1
+		.ENDIF
+
+		.IF ax == 1265h && mexy_3.x == 22 && (mexy_3.y == 13 || mexy_3.y == 15);e use
+			.IF get_tool == 2
+				jmp level3_1_start
+			.ENDIF
+			.IF get_tool == 1
+				INVOKE WriteConsoleOutputCharacter,
+				   outputHandle,	
+				   ADDR tool4_3,	
+				   sizeof tool4_3,
+				   tool3_xy,	
+				   ADDR count
+				mov get_tool, 2
+				jmp level3_1_start
+			.ENDIF
+
+			INVOKE WriteConsoleOutputCharacter,
+				   outputHandle,	
+				   ADDR tool11_3,	
+				   sizeof tool11_3,
+				   tool3_xy,	
+				   ADDR count
+			INVOKE WriteConsoleOutputCharacter,
+			   outputHandle,	
+			   ADDR tool3_3,	
+			   sizeof tool3_3,
+			   tool3_1xy,	
+			   ADDR count
+			mov get_tool, 1
+		.ENDIF
+
+		.IF ax == 1265h && mexy_3.x == 30 && (mexy_3.y == 19 || mexy_3.y == 21) && get_tool == 2 ;e use
+			inc textxy.y
+			inc textxy.y
+			INVOKE WriteConsoleOutputCharacter,
+			   outputHandle,	; console output handle
+			   ADDR level3_91,	; pointer to the top box line
+			   sizeof level3_91 -1,	; size of box line
+			   textxy,	; coordinates of first char
+			   ADDR count	; output count
+			mov get_tool, 3
+		.ENDIF
+
+		.IF get_tool == 3
+			INVOKE Sleep, 1800
+			mov ecx, 30
+			jmp clearall
+		.ENDIF
+
+
+		jmp level3_1_start
+
+
+;------------------------------------- collision 3_1 -----------------------------------
+	check_up:
+
+		.IF mexy_3.y == 2d ;y lowerbound ;wall
+			add mexy_3.y,1
+			jmp level3_1_start
+		.ENDIF
+
+		.IF (mexy_3.y == 8 && (mexy_3.x >= 12 && mexy_3.x <= 46)) || (mexy_3.y == 11 && (mexy_3.x >= 12 && mexy_3.x <= 37)) || (mexy_3.y == 14 && (mexy_3.x >= 12 && mexy_3.x <= 29));word
+			add mexy_3.y,1
+			jmp level3_1_start
+		.ENDIF
+
+		.IF (mexy_3.y == 17 && (mexy_3.x >= 12 && mexy_3.x <= 29)) || (mexy_3.y == 20 && (mexy_3.x >= 12 && mexy_3.x <= 40)) || (mexy_3.y == 23 && (mexy_3.x >= 12 && mexy_3.x <= 45));word
+			add mexy_3.y,1
+			jmp level3_1_start
+		.ENDIF
+
+		.IF (mexy_3.y == 25 && (mexy_3.x >= 12 && mexy_3.x <= 20)) || (mexy_3.y == 27 && (mexy_3.x >= 12 && mexy_3.x <= 32)) || (mexy_3.y == 29 && (mexy_3.x >= 12 && mexy_3.x <= 46));word
+			add mexy_3.y,1
+			jmp level3_1_start
+		.ENDIF
+
+		call move_up31
+		jmp level3_1_start
+	
+	check_left:
+
+		.IF mexy_3.x == 2d ;x lowerbound ;wall
+			add mexy_3.x,2
+			jmp level3_1_start
+		.ENDIF
+
+		.IF (mexy_3.y == 8 && (mexy_3.x >= 12 && mexy_3.x <= 46)) || (mexy_3.y == 11 && (mexy_3.x >= 12 && mexy_3.x <= 37)) || (mexy_3.y == 14 && (mexy_3.x >= 12 && mexy_3.x <= 29));word
+			add mexy_3.x,2
+			jmp level3_1_start
+		.ENDIF
+
+		.IF (mexy_3.y == 17 && (mexy_3.x >= 12 && mexy_3.x <= 29)) || (mexy_3.y == 20 && (mexy_3.x >= 12 && mexy_3.x <= 40)) || (mexy_3.y == 23 && (mexy_3.x >= 12 && mexy_3.x <= 45));word
+			add mexy_3.x,2
+			jmp level3_1_start
+		.ENDIF
+
+		.IF (mexy_3.y == 25 && (mexy_3.x >= 12 && mexy_3.x <= 20)) || (mexy_3.y == 27 && (mexy_3.x >= 12 && mexy_3.x <= 32)) || (mexy_3.y == 29 && (mexy_3.x >= 12 && mexy_3.x <= 46));word
+			add mexy_3.x,2
+			jmp level3_1_start
+		.ENDIF
+
+		call move_left31
+		jmp level3_1_start
+
+	check_down:
+
+		mov ax,BoxHeight
+		add ax, 1d
+		.IF mexy_3.y == ax ;y upperbound ;wall
+			sub mexy_3.y,1
+			jmp level3_1_start
+		.ENDIF
+
+		.IF (mexy_3.y == 8 && (mexy_3.x >= 12 && mexy_3.x <= 46)) || (mexy_3.y == 11 && (mexy_3.x >= 12 && mexy_3.x <= 37)) || (mexy_3.y == 14 && (mexy_3.x >= 12 && mexy_3.x <= 29));word
+			sub mexy_3.y,1
+			jmp level3_1_start
+		.ENDIF
+
+		.IF (mexy_3.y == 17 && (mexy_3.x >= 12 && mexy_3.x <= 29)) || (mexy_3.y == 20 && (mexy_3.x >= 12 && mexy_3.x <= 40)) || (mexy_3.y == 23 && (mexy_3.x >= 12 && mexy_3.x <= 45));word
+			sub mexy_3.y,1
+			jmp level3_1_start
+		.ENDIF
+
+		.IF (mexy_3.y == 25 && (mexy_3.x >= 12 && mexy_3.x <= 20)) || (mexy_3.y == 27 && (mexy_3.x >= 12 && mexy_3.x <= 32)) || (mexy_3.y == 29 && (mexy_3.x >= 12 && mexy_3.x <= 46));word
+			sub mexy_3.y,1
+			jmp level3_1_start
+		.ENDIF
+
+		call move_down31
+		jmp level3_1_start
+		
+	check_right:
+
+		mov ax,BoxWidth
+		shl ax, 1
+		.IF mexy_3.x == ax ;x upperbound ;wall
+			sub mexy_3.x,2
+			jmp level3_1_start
+		.ENDIF
+
+		.IF (mexy_3.y == 8 && (mexy_3.x >= 12 && mexy_3.x <= 46)) || (mexy_3.y == 11 && (mexy_3.x >= 12 && mexy_3.x <= 37)) || (mexy_3.y == 14 && (mexy_3.x >= 12 && mexy_3.x <= 29));word
+			sub mexy_3.x,2
+			jmp level3_1_start
+		.ENDIF
+
+		.IF (mexy_3.y == 17 && (mexy_3.x >= 12 && mexy_3.x <= 29)) || (mexy_3.y == 20 && (mexy_3.x >= 12 && mexy_3.x <= 40)) || (mexy_3.y == 23 && (mexy_3.x >= 12 && mexy_3.x <= 45));word
+			sub mexy_3.x,2
+			jmp level3_1_start
+		.ENDIF
+
+		.IF (mexy_3.y == 25 && (mexy_3.x >= 12 && mexy_3.x <= 20)) || (mexy_3.y == 27 && (mexy_3.x >= 12 && mexy_3.x <= 32)) || (mexy_3.y == 29 && (mexy_3.x >= 12 && mexy_3.x <= 46));word
+			sub mexy_3.x,2
+			jmp level3_1_start
+		.ENDIF
+
+
+		call move_right31
+		jmp level3_1_start
+		
+
+
+	;--------------------------- level 3-2 ----------------------------
+
+	;------------------------ clear  & 道具欄 ----------------------
+	
+	clearall: 
+		mov get_tool, 0
+		push ecx
+		INVOKE WriteConsoleOutputCharacter,
+			outputHandle,	
+			ADDR clearspace,	
+			sizeof clearspace,
+			clearxy,	
+			ADDR count	
+
+		inc clearxy.y
+		pop ecx
+		Loop clearall
+
+	
+	sub clearxy.y, 30
+
+	INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR toolBox,	
+		sizeof toolBox,
+		boxxy,	
+		ADDR count
+
+	INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR tool_clear,	
+		sizeof tool_clear,
+		toolcxy,	
+		ADDR count
+	jmp display_12
+	
+
+	;------------------------ level 3-2 words ----------------------
+	display_12:
+		INVOKE WriteConsoleOutputCharacter,
+		   outputHandle,	; console output handle
+		   ADDR level3_10,	; pointer to the top box line
+		   sizeof level3_10 -1,	; size of box line
+		   text2xy,	; coordinates of first char
+		   ADDR count	; output count
+
+		inc text2xy.y
+		inc text2xy.y
+		inc text2xy.y
+
+		mov bl, startcount
+		call ReadChar
+		cmp al, " "
+		je display_22		;next line
+		dec text2xy.y
+		dec text2xy.y
+		dec text2xy.y
+		jne display_12	;again
+
+	display_22:
+		INVOKE WriteConsoleOutputCharacter,
+		   outputHandle,	; console output handle
+		   ADDR level3_11,	; pointer to the top box line
+		   sizeof level3_11 -1,	; size of box line
+		   text2xy,	; coordinates of first char
+		   ADDR count	; output count
+
+		inc text2xy.y
+		inc text2xy.y
+		inc text2xy.y
+
+		mov bl, startcount
+		call ReadChar
+		cmp al, " "
+		je display_32		;next line
+		dec text2xy.y
+		dec text2xy.y
+		dec text2xy.y
+		jne display_22		;again
+
+	display_32:
+		INVOKE WriteConsoleOutputCharacter,
+		   outputHandle,	; console output handle
+		   ADDR level3_12,	; pointer to the top box line
+		   sizeof level3_12 -1,	; size of box line
+		   text2xy,	; coordinates of first char
+		   ADDR count	; output count
+
+		inc text2xy.y
+		inc text2xy.y
+		inc text2xy.y
+
+		mov bl, startcount
+		call ReadChar
+		cmp al, " "
+		je display_42		;next line
+		dec text2xy.y
+		dec text2xy.y
+		dec text2xy.y
+		jne display_32		;again
+
+	display_42:
+		INVOKE WriteConsoleOutputCharacter,
+		   outputHandle,	; console output handle
+		   ADDR level3_13,	; pointer to the top box line
+		   sizeof level3_13 -1,	; size of box line
+		   text2xy,	; coordinates of first char
+		   ADDR count	; output count
+
+		inc text2xy.y
+		inc text2xy.y
+		inc text2xy.y
+
+		mov bl, startcount
+		call ReadChar
+		cmp al, " "
+		je display_52		;next line
+		dec text2xy.y
+		dec text2xy.y
+		dec text2xy.y
+		jne display_42		;again
+
+	display_52:
+		INVOKE WriteConsoleOutputCharacter,
+		   outputHandle,	; console output handle
+		   ADDR level3_14,	; pointer to the top box line
+		   sizeof level3_14 -1,	; size of box line
+		   text2xy,	; coordinates of first char
+		   ADDR count	; output count
+
+		inc text2xy.y
+		inc text2xy.y
+		inc text2xy.y
+
+		mov bl, startcount
+		call ReadChar
+		cmp al, " "
+		je display_62		;next line
+		dec text2xy.y
+		dec text2xy.y
+		dec text2xy.y
+		jne display_52		;again
+
+	display_62:
+		INVOKE WriteConsoleOutputCharacter,
+			outputHandle,	
+			ADDR me,	
+			sizeof me - 1,	
+			text2xy,	
+			ADDR count	
+
+		add text2xy.x, 2
+
+		INVOKE WriteConsoleOutputCharacter,
+		   outputHandle,	; console output handle
+		   ADDR level3_15,	; pointer to the top box line
+		   sizeof level3_15 -1,	; size of box line
+		   text2xy,	; coordinates of first char
+		   ADDR count	; output count
+
+		sub text2xy.x, 2
+		
+		inc text2xy.y
+		inc text2xy.y
+
+		mov bl, startcount
+		call ReadChar
+		cmp al, " "
+		je display_72		;next line
+		dec text2xy.y
+		dec text2xy.y
+		jne display_62		;again
+
+	display_72:
+		INVOKE WriteConsoleOutputCharacter,
+		   outputHandle,	; console output handle
+		   ADDR level3_16,	; pointer to the top box line
+		   sizeof level3_16 -1,	; size of box line
+		   text2xy,	; coordinates of first char
+		   ADDR count	; output count
+
+		inc text2xy.y
+		inc text2xy.y
+
+		mov bl, startcount
+		call ReadChar
+		cmp al, " "
+		je display_82		;next line
+		dec text2xy.y
+		dec text2xy.y
+		jne display_72		;again
+
+	display_82:
+		INVOKE WriteConsoleOutputCharacter,
+		   outputHandle,	; console output handle
+		   ADDR level3_17,	; pointer to the top box line
+		   sizeof level3_17 -1,	; size of box line
+		   text2xy,	; coordinates of first char
+		   ADDR count	; output count
+
+		inc text2xy.y
+		inc text2xy.y
+
+		mov bl, startcount
+		call ReadChar
+		cmp al, " "
+		je display_92		;next line
+		dec text2xy.y
+		dec text2xy.y
+		jne display_82		;again
+
+	display_92:
+		INVOKE WriteConsoleOutputCharacter,
+		   outputHandle,	; console output handle
+		   ADDR level3_18,	; pointer to the top box line
+		   sizeof level3_18 -1,	; size of box line
+		   text2xy,	; coordinates of first char
+		   ADDR count	; output count
+
+		inc text2xy.y
+		inc text2xy.y
+
+		mov bl, startcount
+		call ReadChar
+		cmp al, " "
+		je display_102		;next line
+		dec text2xy.y
+		dec text2xy.y
+		jne display_92		;again
+
+	display_102:
+		INVOKE WriteConsoleOutputCharacter,
+		   outputHandle,	; console output handle
+		   ADDR level3_19,	; pointer to the top box line
+		   sizeof level3_19 -1,	; size of box line
+		   text2xy,	; coordinates of first char
+		   ADDR count	; output count
+
+		inc text2xy.y
+		inc text2xy.y
+
+		mov bl, startcount
+		call ReadChar
+		cmp al, " "
+		dec text2xy.y
+		dec text2xy.y
+		jmp level3_2_start		;next line
+		jne display_102		;again
+
+;--------------------------- move me 3_2 -------------------------
+	level3_2_start:
+		INVOKE WriteConsoleOutputCharacter,
+			outputHandle,	
+			ADDR me,	
+			sizeof me - 1,	
+			me2xy_3,	
+			ADDR count
+
+		call ReadChar
+
+		.IF ax == 1177h ;w up
+			sub me2xy_3.y, 1
+			jmp check_up2
+		.ENDIF
+		.IF ax == 1E61h ;a left
+			sub me2xy_3.x, 2
+			jmp check_left2
+		.ENDIF
+		.IF ax == 1F73h ;s down
+			add me2xy_3.y, 1
+			jmp check_down2
+		.ENDIF
+		.IF ax == 2064h ;d right
+			add me2xy_3.x, 2
+			jmp check_right2
+		.ENDIF
+
+		.IF ax == 3920h && me2xy_3.x == 34 && (me2xy_3.y == 22 || me2xy_3.y == 24) ;space get
+			.IF get_tool == 4
+				INVOKE WriteConsoleOutputCharacter,
+						outputHandle,	
+						ADDR get_mes5,	
+						sizeof get_mes5,
+						get_mes,	
+						ADDR count
+					INVOKE Sleep, 1000
+					INVOKE WriteConsoleOutputCharacter,
+						outputHandle,	
+						ADDR tool_clear,	
+						sizeof tool_clear,
+						get_mes,	
+						ADDR count
+				jmp level3_2_start
+			.ENDIF
+
+			.IF get_tool == 0
+				INVOKE WriteConsoleOutputCharacter,
+					   outputHandle,	
+					   ADDR tool5_3,	
+					   sizeof tool5_3,
+					   tool3_2xy,	
+					   ADDR count
+				mov get_tool, 1
+
+				INVOKE WriteConsoleOutputCharacter,
+					   outputHandle,	
+					   ADDR get_mes1,	
+					   sizeof get_mes1,
+					   get_mes,	
+					   ADDR count
+				INVOKE Sleep, 1000
+				INVOKE WriteConsoleOutputCharacter,
+					   outputHandle,	
+					   ADDR tool_clear,	
+					   sizeof tool_clear,
+					   get_mes,	
+					   ADDR count
+
+				jmp level3_2_start
+			.ENDIF
+
+			.IF get_tool == 1
+				INVOKE WriteConsoleOutputCharacter,
+					   outputHandle,	
+					   ADDR tool6_3,	
+					   sizeof tool6_3,
+					   tool3_2xy,	
+					   ADDR count
+				mov get_tool, 2
+
+				INVOKE WriteConsoleOutputCharacter,
+					   outputHandle,	
+					   ADDR get_mes2,	
+					   sizeof get_mes2,
+					   get_mes,	
+					   ADDR count
+				INVOKE Sleep, 1000
+				INVOKE WriteConsoleOutputCharacter,
+					   outputHandle,	
+					   ADDR tool_clear,	
+					   sizeof tool_clear,
+					   get_mes,	
+					   ADDR count
+				jmp level3_2_start
+			.ENDIF
+
+			.IF get_tool == 2
+				INVOKE WriteConsoleOutputCharacter,
+					   outputHandle,	
+					   ADDR tool7_3,	
+					   sizeof tool7_3,
+					   tool3_2xy,	
+					   ADDR count
+				mov get_tool, 3
+
+				INVOKE WriteConsoleOutputCharacter,
+					   outputHandle,	
+					   ADDR get_mes3,	
+					   sizeof get_mes3,
+					   get_mes,	
+					   ADDR count
+				INVOKE Sleep, 1000
+				INVOKE WriteConsoleOutputCharacter,
+					   outputHandle,	
+					   ADDR tool_clear,	
+					   sizeof tool_clear,
+					   get_mes,	
+					   ADDR count
+				jmp level3_2_start
+			.ENDIF
+
+			.IF get_tool == 3
+				INVOKE WriteConsoleOutputCharacter,
+					   outputHandle,	
+					   ADDR tool8_3,	
+					   sizeof tool8_3,
+					   tool3_2xy,	
+					   ADDR count
+				mov get_tool, 4
+
+				INVOKE WriteConsoleOutputCharacter,
+					   outputHandle,	
+					   ADDR get_mes4,	
+					   sizeof get_mes4,
+					   get_mes,	
+					   ADDR count
+				INVOKE Sleep, 1000
+				INVOKE WriteConsoleOutputCharacter,
+					   outputHandle,	
+					   ADDR tool_clear,	
+					   sizeof tool_clear,
+					   get_mes,	
+					   ADDR count
+				jmp level3_2_start
+			.ENDIF
+		.ENDIF
+
+		.IF ax == 1265h && me2xy_3.x == 16 && (me2xy_3.y == 28 || me2xy_3.y == 30) && get_tool == 4 ;e use
+			inc text2xy.y
+			inc text2xy.y
+			INVOKE WriteConsoleOutputCharacter,
+				   outputHandle,	
+				   ADDR showresult,	
+				   sizeof showresult,
+				   text2xy,	
+				   ADDR count
+
+			INVOKE Sleep, 1500
+			inc text2xy.y
+			inc text2xy.y
+			INVOKE WriteConsoleOutputCharacter,
+				   outputHandle,	
+				   ADDR showresult2,	
+				   sizeof showresult2,
+				   text2xy,	
+				   ADDR count
+
+			INVOKE Sleep, 1500
+			inc text2xy.y
+			inc text2xy.y
+			INVOKE WriteConsoleOutputCharacter,
+				   outputHandle,	
+				   ADDR showresult3,	
+				   sizeof showresult3,
+				   text2xy,	
+				   ADDR count
+			INVOKE Sleep, 1000
+			mov ecx, 35
+			jmp clearend
+		.ENDIF
+
+		jmp level3_2_start
+;------------------------------------- collision 3_2 -----------------------------------
+	check_up2:
+
+		.IF me2xy_3.y == 2d ;y lowerbound ;wall
+			add me2xy_3.y,1
+			jmp level3_2_start
+		.ENDIF
+
+		.IF (me2xy_3.y == 8 && (me2xy_3.x >= 12 && me2xy_3.x <= 17)) || (me2xy_3.y == 11 && (me2xy_3.x >= 12 && me2xy_3.x <= 43)) || (me2xy_3.y == 14 && (me2xy_3.x >= 12 && me2xy_3.x <= 25));word
+			add me2xy_3.y,1
+			jmp level3_2_start
+		.ENDIF
+
+		.IF (me2xy_3.y == 17 && (me2xy_3.x >= 12 && me2xy_3.x <= 36)) || (me2xy_3.y == 20 && (me2xy_3.x >= 12 && me2xy_3.x <= 26)) || (me2xy_3.y == 23 && (me2xy_3.x >= 12 && me2xy_3.x <= 48));word
+			add me2xy_3.y,1
+			jmp level3_2_start
+		.ENDIF
+
+		.IF (me2xy_3.y == 25 && (me2xy_3.x >= 12 && me2xy_3.x <= 45)) || (me2xy_3.y == 27 && (me2xy_3.x >= 12 && me2xy_3.x <= 20)) || (me2xy_3.y == 29 && (me2xy_3.x >= 12 && me2xy_3.x <= 39)) || (me2xy_3.y == 31 && (me2xy_3.x >= 12 && me2xy_3.x <= 45));word
+			add me2xy_3.y,1
+			jmp level3_2_start
+		.ENDIF
+
+		call move_up32
+		jmp level3_2_start
+	
+	check_left2:
+
+		.IF me2xy_3.x == 2d ;x lowerbound ;wall
+			add me2xy_3.x,2
+			jmp level3_2_start
+		.ENDIF
+
+		.IF (me2xy_3.y == 8 && (me2xy_3.x >= 12 && me2xy_3.x <= 17)) || (me2xy_3.y == 11 && (me2xy_3.x >= 12 && me2xy_3.x <= 43)) || (me2xy_3.y == 14 && (me2xy_3.x >= 12 && me2xy_3.x <= 25));word
+			add me2xy_3.x,2
+			jmp level3_2_start
+		.ENDIF
+
+		.IF (me2xy_3.y == 17 && (me2xy_3.x >= 12 && me2xy_3.x <= 36)) || (me2xy_3.y == 20 && (me2xy_3.x >= 12 && me2xy_3.x <= 26)) || (me2xy_3.y == 23 && (me2xy_3.x >= 12 && me2xy_3.x <= 48));word
+			add me2xy_3.x,2
+			jmp level3_2_start
+		.ENDIF
+
+		.IF (me2xy_3.y == 25 && (me2xy_3.x >= 12 && me2xy_3.x <= 45)) || (me2xy_3.y == 27 && (me2xy_3.x >= 12 && me2xy_3.x <= 20)) || (me2xy_3.y == 29 && (me2xy_3.x >= 12 && me2xy_3.x <= 39)) || (me2xy_3.y == 31 && (me2xy_3.x >= 12 && me2xy_3.x <= 45));word
+			add me2xy_3.x,2
+			jmp level3_2_start
+		.ENDIF
+
+		call move_left32
+		jmp level3_2_start
+
+	check_down2:
+
+		mov ax,BoxHeight
+		add ax, 1d
+		.IF me2xy_3.y == ax ;y upperbound ;wall
+			sub me2xy_3.y,1
+			jmp level3_2_start
+		.ENDIF
+
+		.IF (me2xy_3.y == 8 && (me2xy_3.x >= 12 && me2xy_3.x <= 17)) || (me2xy_3.y == 11 && (me2xy_3.x >= 12 && me2xy_3.x <= 43)) || (me2xy_3.y == 14 && (me2xy_3.x >= 12 && me2xy_3.x <= 25));word
+			sub me2xy_3.y,1
+			jmp level3_2_start
+		.ENDIF
+
+		.IF (me2xy_3.y == 17 && (me2xy_3.x >= 12 && me2xy_3.x <= 36)) || (me2xy_3.y == 20 && (me2xy_3.x >= 12 && me2xy_3.x <= 26)) || (me2xy_3.y == 23 && (me2xy_3.x >= 12 && me2xy_3.x <= 48));word
+			sub me2xy_3.y,1
+			jmp level3_2_start
+		.ENDIF
+
+		.IF (me2xy_3.y == 25 && (me2xy_3.x >= 12 && me2xy_3.x <= 45)) || (me2xy_3.y == 27 && (me2xy_3.x >= 12 && me2xy_3.x <= 20)) || (me2xy_3.y == 29 && (me2xy_3.x >= 12 && me2xy_3.x <= 39)) || (me2xy_3.y == 31 && (me2xy_3.x >= 12 && me2xy_3.x <= 45));word
+			sub me2xy_3.y,1
+			jmp level3_2_start
+		.ENDIF
+
+		call move_down32
+		jmp level3_2_start
+		
+	check_right2:
+
+		mov ax,BoxWidth
+		shl ax, 1
+		.IF me2xy_3.x == ax ;x upperbound ;wall
+			sub me2xy_3.x,2
+			jmp level3_2_start
+		.ENDIF
+
+		.IF (me2xy_3.y == 8 && (me2xy_3.x >= 12 && me2xy_3.x <= 17)) || (me2xy_3.y == 11 && (me2xy_3.x >= 12 && me2xy_3.x <= 43)) || (me2xy_3.y == 14 && (me2xy_3.x >= 12 && me2xy_3.x <= 25));word
+			sub me2xy_3.x,2
+			jmp level3_2_start
+		.ENDIF
+
+		.IF (me2xy_3.y == 17 && (me2xy_3.x >= 12 && me2xy_3.x <= 36)) || (me2xy_3.y == 20 && (me2xy_3.x >= 12 && me2xy_3.x <= 26)) || (me2xy_3.y == 23 && (me2xy_3.x >= 12 && me2xy_3.x <= 48));word
+			sub me2xy_3.x,2
+			jmp level3_2_start
+		.ENDIF
+
+		.IF (me2xy_3.y == 25 && (me2xy_3.x >= 12 && me2xy_3.x <= 45)) || (me2xy_3.y == 27 && (me2xy_3.x >= 12 && me2xy_3.x <= 20)) || (me2xy_3.y == 29 && (me2xy_3.x >= 12 && me2xy_3.x <= 39)) || (me2xy_3.y == 31 && (me2xy_3.x >= 12 && me2xy_3.x <= 45));word
+			sub me2xy_3.x,2
+			jmp level3_2_start
+		.ENDIF
+
+
+		call move_right32
+		jmp level3_2_start
+
+;------------------------------------- level3 end -----------------------------------
+	
+	clearend: 
+		push ecx
+		INVOKE WriteConsoleOutputCharacter,
+			outputHandle,	
+			ADDR clearspace,	
+			sizeof clearspace,
+			clearxy,	
+			ADDR count	
+
+		inc clearxy.y
+		pop ecx
+		Loop clearend
+
+	sub clearxy.y, 35
+	INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR toolBox,	
+		sizeof toolBox,
+		boxxy,	
+		ADDR count
+
+	INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR tool_clear,	
+		sizeof tool_clear,
+		toolcxy,	
+		ADDR count
+
+	level3_ending:
+		sub text2xy.y, 19
+		INVOKE WriteConsoleOutputCharacter,
+			outputHandle,	
+			ADDR ending1,	
+			sizeof ending1,
+			text2xy,	
+			ADDR count
+		inc text2xy.y
+		inc text2xy.y
+
+		INVOKE WriteConsoleOutputCharacter,
+			outputHandle,	
+			ADDR tool_3,	
+			sizeof tool_3,
+			toolcxy,	
+			ADDR count
+
+		INVOKE Sleep, 1000
+		INVOKE WriteConsoleOutputCharacter,
+			outputHandle,	
+			ADDR ending2,	
+			sizeof ending2,
+			text2xy,	
+			ADDR count
+		inc text2xy.y
+		inc text2xy.y
+
+		INVOKE Sleep, 1000
+		INVOKE WriteConsoleOutputCharacter,
+			outputHandle,	
+			ADDR ending3,	
+			sizeof ending3,
+			text2xy,	
+			ADDR count
+		inc text2xy.y
+		inc text2xy.y
+
+		INVOKE Sleep, 1000
+		INVOKE WriteConsoleOutputCharacter,
+			outputHandle,	
+			ADDR ending4,	
+			sizeof ending4,
+			text2xy,	
+			ADDR count
+		inc text2xy.y
+		inc text2xy.y
+
+		INVOKE Sleep, 1000
+		INVOKE WriteConsoleOutputCharacter,
+			outputHandle,	
+			ADDR ending5,	
+			sizeof ending5,
+			text2xy,	
+			ADDR count
+		inc text2xy.y
+		inc text2xy.y
+
+		INVOKE Sleep, 1000
+		INVOKE WriteConsoleOutputCharacter,
+			outputHandle,	
+			ADDR ending6,	
+			sizeof ending6,
+			text2xy,	
+			ADDR count
+		inc text2xy.y
+		inc text2xy.y
+		INVOKE Sleep, 500
+
+	sub clearxy.y, 1
+	mov ecx, 37
+	last_clear: 
+		push ecx
+		INVOKE WriteConsoleOutputCharacter,
+			outputHandle,	
+			ADDR ending_clear,	
+			sizeof ending_clear,
+			clearxy,	
+			ADDR count	
+
+		inc clearxy.y
+		INVOKE Sleep, 30
+		pop ecx
+		Loop last_clear
+	sub clearxy.y, 37
+
+	mov ecx, 37
+	clearwhole: 
+		push ecx
+		INVOKE WriteConsoleOutputCharacter,
+			outputHandle,	
+			ADDR clearspace,	
+			sizeof clearspace,
+			clearxy,	
+			ADDR count	
+
+		inc clearxy.y
+		INVOKE Sleep, 30
+		pop ecx
+		Loop clearwhole
+
+	sub clearxy.y, 37
+
+
+be_master ENDP
+	
+
+;---------------------------------------- collision PROC 3-1 -----------------------------------
+move_right31 PROC
+	
+	sub mexy_3.x, 2
+	INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR space,	
+		sizeof space-1,	
+		mexy_3,
+		ADDR count
+
+	add mexy_3.x, 2
+	ret
+move_right31 ENDP
+
+move_left31 PROC
+
+	add mexy_3.x, 2
+	INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR space,	
+		sizeof space-1,	
+		mexy_3,	
+		ADDR count	
+
+	sub mexy_3.x, 2
+	ret
+move_left31 ENDP
+
+move_up31 PROC
+
+	add mexy_3.y, 1
+	INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR space,
+		sizeof space-1,
+		mexy_3,	
+		ADDR count	
+
+	sub mexy_3.y, 1
+	ret
+move_up31 ENDP
+
+move_down31 PROC
+
+	sub mexy_3.y, 1
+	INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR space,	
+		sizeof space-1,	
+		mexy_3,	
+		ADDR count
+
+	add mexy_3.y, 1
+	ret
+move_down31 ENDP
+
+;---------------------------------------- collision PROC 3-2 -----------------------------------
+move_right32 PROC
+	
+	sub me2xy_3.x, 2
+	INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR space,	
+		sizeof space-1,	
+		me2xy_3,
+		ADDR count
+
+	add me2xy_3.x, 2
+	ret
+move_right32 ENDP
+
+move_left32 PROC
+
+	add me2xy_3.x, 2
+	INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR space,	
+		sizeof space-1,	
+		me2xy_3,	
+		ADDR count	
+
+	sub me2xy_3.x, 2
+	ret
+move_left32 ENDP
+
+move_up32 PROC
+
+	add me2xy_3.y, 1
+	INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR space,
+		sizeof space-1,
+		me2xy_3,	
+		ADDR count	
+
+	sub me2xy_3.y, 1
+	ret
+move_up32 ENDP
+
+move_down32 PROC
+
+	sub me2xy_3.y, 1
+	INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR space,	
+		sizeof space-1,	
+		me2xy_3,	
+		ADDR count
+
+	add me2xy_3.y, 1
+	ret
+move_down32 ENDP
+;====================================================================startlv4================================
+level4 PROC
+	mov al, "q"
+	INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR lv4_con1,	
+		sizeof lv4_con1-1,
+		lv4contentxy,	
+		ADDR count
+		mov bx, 0
+	add lv4contentxy.y, 3
+
+	start:
+
+	call ReadChar
+	.IF ax == 3920h
+		inc bx
+	.ENDIF
+	.IF bx == 1
+		INVOKE WriteConsoleOutputCharacter,
+			outputHandle,	
+			ADDR lv4_con2,	
+			sizeof lv4_con2-1,
+			lv4contentxy,	
+			ADDR count
+		add lv4contentxy.y, 3
+	.ENDIF
+	.IF bx == 2
+		INVOKE WriteConsoleOutputCharacter,
+			outputHandle,	
+			ADDR lv4_con3,	
+			sizeof lv4_con3-1,
+			lv4contentxy,	
+			ADDR count
+		add lv4contentxy.y, 3
+	.ENDIF
+	.IF bx == 3
+		INVOKE WriteConsoleOutputCharacter,
+			outputHandle,	
+			ADDR lv4_con4,	
+			sizeof lv4_con4-1,
+			lv4contentxy,	
+			ADDR count
+		add lv4contentxy.y, 3
+		jmp endlv4
+	.ENDIF
+	jmp start
+	endlv4:
+			ret
+
+level4 ENDP
+
+;----------------------------------------------------level4move--------------------------------------------------------------------------
+level4move PROC
+Lback:
+	call ReadChar
+	
+	.IF al == "a" 
+
+		.IF (lv4mexy.x!=4)&&!(lv4mexy.y ==8 && (lv4mexy.x==26 || lv4mexy.x==50))&&!(lv4mexy.y ==11 && (lv4mexy.x==54))&&!(lv4mexy.y ==14 && (lv4mexy.x==34))&&!(lv4mexy.y ==17 && (lv4mexy.x==36))
+			INVOKE WriteConsoleOutputCharacter,
+			outputHandle,	
+			ADDR space,	
+			sizeof space - 1,
+			lv4mexy,	
+			ADDR count
+			sub lv4mexy.x, 2
+		.ENDIF
+	.ENDIF
+
+	.IF al == "s"
+		.IF (lv4mexy.y!=39)&&!(lv4mexy.y ==7 && (lv4mexy.x>=12 && lv4mexy.x<=24))&&(!(lv4mexy.y ==7 && (lv4mexy.x>=28 && lv4mexy.x<=48)))&&(!(lv4mexy.y ==10 && (lv4mexy.x>=12 && lv4mexy.x<=52)))
+			.IF !(lv4mexy.y ==16 && (lv4mexy.x>=12 && lv4mexy.x<=34))&&(!(lv4mexy.y ==13 && (lv4mexy.x>=12 && lv4mexy.x<=32)))
+				INVOKE WriteConsoleOutputCharacter,
+				outputHandle,	
+				ADDR space,	
+				sizeof space - 1,
+				lv4mexy,	
+				ADDR count
+				add lv4mexy.y, 1
+			.ENDIF
+		.ENDIF
+	.ENDIF
+	.IF al == "w"
+		.IF (lv4mexy.y!=3)&&!(lv4mexy.y ==9 && (lv4mexy.x>=12 && lv4mexy.x<=24))&&(!(lv4mexy.y ==9 && (lv4mexy.x>=28 && lv4mexy.x<=48)))&&(!(lv4mexy.y ==12 && (lv4mexy.x>=12 && lv4mexy.x<=52)))
+			.IF !(lv4mexy.y ==18 && (lv4mexy.x>=12 && lv4mexy.x<=34))&&(!(lv4mexy.y ==15 && (lv4mexy.x>=12 && lv4mexy.x<=32)))
+				INVOKE WriteConsoleOutputCharacter,
+				outputHandle,	
+				ADDR space,	
+				sizeof space - 1,
+				lv4mexy,	
+				ADDR count
+				sub lv4mexy.y, 1
+			.ENDIF
+		.ENDIF
+	.ENDIF
+
+	.IF al == "d"
+		.IF (lv4mexy.x!=138)&&!(lv4mexy.y ==8 && (lv4mexy.x==26 || lv4mexy.x==10))&&!(lv4mexy.y ==11 && (lv4mexy.x==10))&&!(lv4mexy.y ==14 && (lv4mexy.x==10))&&!(lv4mexy.y ==17 && (lv4mexy.x==10))
+			INVOKE WriteConsoleOutputCharacter,
+			outputHandle,	
+			ADDR space,	
+			sizeof space - 1,
+			lv4mexy,	
+			ADDR count
+			add lv4mexy.x, 2
+		.ENDIF
+	.ENDIF
+
+	.IF al==" "
+	.IF (lv4mexy.x==16 &&(lv4mexy.y==18||lv4mexy.y==16))
+			jmp finddesk
+		.ENDIF
+	.ENDIF
+	INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR me,	
+		sizeof me - 1,
+		lv4mexy,	
+		ADDR count
+	jmp Lback
+
+
+finddesk:
+	INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR lv4_con5,	
+		sizeof lv4_con5-1,
+		lv4contentxy,	
+		ADDR count
+		add lv4contentxy.y, 3
+	
+
+
+desk:
+		call ReadChar
+	
+	.IF al == "a" 
+		.IF !(lv4mexy.y == 20 && (lv4mexy.x==66))
+		.IF (lv4mexy.x!=4)&&!(lv4mexy.y ==8 && (lv4mexy.x==26 || lv4mexy.x==50))&&!(lv4mexy.y ==11 && (lv4mexy.x==54))&&!(lv4mexy.y ==14 && (lv4mexy.x==34))&&!(lv4mexy.y ==17 && (lv4mexy.x==36))
+			INVOKE WriteConsoleOutputCharacter,
+			outputHandle,	
+			ADDR space,	
+			sizeof space - 1,
+			lv4mexy,	
+			ADDR count
+			sub lv4mexy.x, 2
+		.ENDIF
+		.ENDIF
+	.ENDIF
+
+	.IF al == "s"
+		.IF (!(lv4mexy.y ==19 && (lv4mexy.x>=12 && lv4mexy.x<=64)))
+		.IF (lv4mexy.y!=39)&&!(lv4mexy.y ==7 && (lv4mexy.x>=12 && lv4mexy.x<=24))&&(!(lv4mexy.y ==7 && (lv4mexy.x>=28 && lv4mexy.x<=48)))&&(!(lv4mexy.y ==10 && (lv4mexy.x>=12 && lv4mexy.x<=52)))
+			.IF !(lv4mexy.y ==16 && (lv4mexy.x>=12 && lv4mexy.x<=34))&&(!(lv4mexy.y ==13 && (lv4mexy.x>=12 && lv4mexy.x<=32)))
+				INVOKE WriteConsoleOutputCharacter,
+				outputHandle,	
+				ADDR space,	
+				sizeof space - 1,
+				lv4mexy,	
+				ADDR count
+				add lv4mexy.y, 1
+			.ENDIF
+		.ENDIF
+		.ENDIF
+	.ENDIF
+	.IF al == "w"
+		.IF (!(lv4mexy.y ==21 && (lv4mexy.x>=12 && lv4mexy.x<=64)))
+		.IF (lv4mexy.y!=3)&&!(lv4mexy.y ==9 && (lv4mexy.x>=12 && lv4mexy.x<=24))&&(!(lv4mexy.y ==9 && (lv4mexy.x>=28 && lv4mexy.x<=48)))&&(!(lv4mexy.y ==12 && (lv4mexy.x>=12 && lv4mexy.x<=52)))
+			.IF !(lv4mexy.y ==18 && (lv4mexy.x>=12 && lv4mexy.x<=34))&&(!(lv4mexy.y ==15 && (lv4mexy.x>=12 && lv4mexy.x<=32)))
+				INVOKE WriteConsoleOutputCharacter,
+				outputHandle,	
+				ADDR space,	
+				sizeof space - 1,
+				lv4mexy,	
+				ADDR count
+				sub lv4mexy.y, 1
+			.ENDIF
+		.ENDIF
+		.ENDIF
+	.ENDIF
+
+	.IF al == "d"
+		.IF !(lv4mexy.y == 20 && (lv4mexy.x==10))
+		.IF (lv4mexy.x!=138)&&!(lv4mexy.y ==8 && (lv4mexy.x==26 || lv4mexy.x==10))&&!(lv4mexy.y ==11 && (lv4mexy.x==10))&&!(lv4mexy.y ==14 && (lv4mexy.x==10))&&!(lv4mexy.y ==17 && (lv4mexy.x==10))
+			INVOKE WriteConsoleOutputCharacter,
+			outputHandle,	
+			ADDR space,	
+			sizeof space - 1,
+			lv4mexy,	
+			ADDR count
+			add lv4mexy.x, 2
+		.ENDIF
+		.ENDIF
+	.ENDIF
+	.IF al==" "
+		.IF (((lv4mexy.x==58 || lv4mexy.x==60 ) &&(lv4mexy.y==19 || lv4mexy.y==21))&&lv4pc==0)
+			INVOKE WriteConsoleOutputCharacter,
+			outputHandle,	
+			ADDR lv4_con8,	
+			sizeof lv4_con8-1,
+			lv4con8xy,	
+			ADDR count
+			add lv4con8xy.y, 3
+			inc lv4pc
+		.ENDIF
+		.IF (((lv4mexy.x==34 || lv4mexy.x==36 ) &&(lv4mexy.y==19 || lv4mexy.y==21))&&lv4pl==0)
+			INVOKE WriteConsoleOutputCharacter,
+			outputHandle,	
+			ADDR lv4_con9,	
+			sizeof lv4_con9-1,
+			lv4con8xy,	
+			ADDR count
+			add lv4con8xy.y, 3
+			inc lv4pl
+
+			add toolcxy.x, 6
+			INVOKE WriteConsoleOutputCharacter,
+				outputHandle,	
+				ADDR tool8,	
+				sizeof tool8-1,
+				toolcxy,	
+				ADDR count
+
+		.ENDIF
+		.IF ((lv4mexy.x>=44 && lv4mexy.x<=50 ) &&(lv4mexy.y==19 || lv4mexy.y==21))&&lv4pb==0
+			inc lv4pb
+			INVOKE WriteConsoleOutputCharacter,
+			outputHandle,	
+			ADDR lv4_con10,	
+			sizeof lv4_con10-1,
+			lv4con8xy,	
+			ADDR count
+			add lv4con8xy.y, 3
+
+			add toolcxy.x, 6
+			INVOKE WriteConsoleOutputCharacter,
+				outputHandle,	
+				ADDR tool9,	
+				sizeof tool9-1,
+				toolcxy,	
+				ADDR count
+
+		.ENDIF
+		.IF (lv4pb==1&&lv4pl==1&&lv4pa==0)
+			jmp findall
+		.ENDIF
+	.ENDIF
+	.IF al=="e"
+		.IF (lv4pa==1) && ((lv4mexy.x>=42 && lv4mexy.x<=48 ) &&(lv4mexy.y==10 || lv4mexy.y==12))
+
+		INVOKE WriteConsoleOutputCharacter,
+			outputHandle,	
+			ADDR lv4_con11,	
+			sizeof lv4_con11-1,
+			lv4compxy,	
+			ADDR count
+			add lv4compxy.y, 3
+
+			mov toolcxy.x, 10
+			INVOKE WriteConsoleOutputCharacter,
+				outputHandle,	
+				ADDR tool11,	
+				sizeof tool11-1,
+				toolcxy,	
+				ADDR count
+
+			INVOKE Sleep, 1000
+			jmp complv4
+
+		.ENDIF
+	.ENDIF
+
+	INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR me,	
+		sizeof me - 1,
+		lv4mexy,	
+		ADDR count
+	jmp desk
+
+findall:
+	INVOKE Sleep, 1300
+	INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR lv4_con6,	
+		sizeof lv4_con6-1,
+		lv4con8xy,	
+		ADDR count
+		add lv4con8xy.y, 3
+	inc lv4pa
+
+	mov toolcxy.x, 10
+	INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR tool11,	
+		sizeof tool11-1,
+		toolcxy,	
+		ADDR count
+
+	INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR tool10,	
+		sizeof tool10-1,
+		toolcxy,	
+		ADDR count
+
+	jmp desk
+
+complv4:
+	
+	mov whitebgxy.y, 3
+	mov whitebgxy.x, 4
+	call refresh_bg
+	
+	INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR lv4_con12,	
+		sizeof lv4_con12,
+		lv4cxy,	
+		ADDR count
+		
+	INVOKE Sleep ,1500
+
+	mov ecx, 37
+	mov moneyxy.y, 3 
+printw: 
+		push ecx
+		INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR lv4_con13,	
+		sizeof lv4_con13-1,
+		moneyxy,	
+		ADDR count	
+
+		inc moneyxy.y
+		INVOKE Sleep, 50
+
+		pop ecx
+		Loop printw
+	
+	mov moneyxy.y, 3
+
+	mov ecx, 37
+printspace: 
+		push ecx
+		INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR moneyspace,	
+		sizeof moneyspace,
+		moneyxy,	
+		ADDR count	
+
+		inc moneyxy.y
+		INVOKE Sleep, 50
+
+		pop ecx
+		Loop printspace
+
+	INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR lv4_con14,	
+		sizeof lv4_con14-1,
+		lv4cxy,	
+		ADDR count
+
+	INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR toolend,	
+		sizeof toolend-1,
+		toolcxy,	
+		ADDR count
+	
+	inc toolendget
+
+	INVOKE Sleep, 2000
+	mov whitebgxy.y, 3
+	mov whitebgxy.x, 4
+	call refresh_bg
+	exit
+level4move ENDP
 END main
