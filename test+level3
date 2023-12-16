@@ -3322,6 +3322,9 @@ be_master PROC
 		.ENDIF
 
 		.IF ax == 1265h && mexy_3.x == 30 && (mexy_3.y == 10 || mexy_3.y == 12);space get
+			.IF get_tool == 2
+				jmp level3_1_start
+			.ENDIF
 			.IF get_tool == 1
 				INVOKE WriteConsoleOutputCharacter,
 				   outputHandle,	
@@ -3349,6 +3352,9 @@ be_master PROC
 		.ENDIF
 
 		.IF ax == 1265h && mexy_3.x == 22 && (mexy_3.y == 13 || mexy_3.y == 15);e use
+			.IF get_tool == 2
+				jmp level3_1_start
+			.ENDIF
 			.IF get_tool == 1
 				INVOKE WriteConsoleOutputCharacter,
 				   outputHandle,	
