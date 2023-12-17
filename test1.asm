@@ -1,5 +1,5 @@
 ;修了一些小bug和加結尾動畫
-;增加的PROC叫endinganime, 變數在15行, PROC在744行, call在1688
+;增加的PROC叫endinganime, 變數在15行, PROC在814行, call在2037
 
 INCLUDE Irvine32.inc
 
@@ -14,29 +14,61 @@ mexy COORD <90,25>
 
 ;====================================endinganime=======================
 endcxy COORD <40, 15>
-endpxy COORD <60, 10>
+endpxy COORD <40, 10>
+end_listxy COORD <50,50>
 
-endc1 BYTE "「你騙我！到底要怎樣才可以出去這個鬼地方」",0
-endc2 BYTE "「嗚嗚嗚線代考試嗚嗚嗚嗚嗚」",0
 
-endp1 BYTE "啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊",0
-endp2 BYTE "啊　　　　　　　　　　　　　　啊",0
-endp3 BYTE "啊　　１　　　０　　　３　　　啊",0
-endp6 BYTE "啊　　　　　　　　　　　　　　啊",0
-endp7 BYTE "啊　　　　　　　　　　　　　　啊",0
-endp8 BYTE "啊　　啊啊　　　　　　　　　　啊",0
-endp9 BYTE "啊　　啊啊　　　　　　　　　　啊",0
-endp10 BYTE "啊　　　　　　　　　　　　　　啊",0
-endp11 BYTE "門　　　　　　　　　　　　　　啊",0
-endp12 BYTE "門　　　　　　　　　　　　　　啊",0
-endp13 BYTE "門　　　　　　　　　　　　　　啊",0
-endp14 BYTE "門　　　　　　　　　　　　　　啊",0
-endp15 BYTE "啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊",0
-endp16 BYTE "製作名單：ＡＡＡ",0
-endp17 BYTE "　　　　　ＢＢＢ",0
-endp18 BYTE "　　　　　ＣＣＣ",0
-endp19 BYTE "　　　　　ＤＤＤ",0
-endp20 BYTE "感謝遊玩此遊戲！",0
+ending_word BYTE "「門的另一邊，就會是自由嗎？」",0
+
+
+
+end_door BYTE "啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊",0
+end_door1 BYTE "啊　　　　　　　　　　　　　　　　　　　啊",0
+end_door2 BYTE "啊　啊啊　　　　　　　　　　　　　　　　啊",0
+end_door3 BYTE "啊　啊啊　　　　　　　　　　　　　　　　啊",0
+end_door4 BYTE "啊　　　　　　　　啊啊啊　　　　　　　　啊",0
+end_door5 BYTE "啊　　　　　　　啊啊啊啊　　　　　　　　啊",0
+end_door6 BYTE "啊　　　　　　　　啊啊　　　　　　　　　啊",0
+end_door7 BYTE "啊　　　　　　　啊啊啊啊　　　　　　　　啊",0
+end_door8 BYTE "啊　　　　　　啊啊啊啊啊啊　　　　　　　啊",0
+end_door9 BYTE "啊　　　　　　啊啊啊啊啊啊　　　　　　　啊",0
+end_door10 BYTE "啊　　　　　　啊啊啊啊啊啊　　　　　　　啊",0
+end_door11 BYTE "啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊",0
+
+ending_word1 BYTE "（轉開喇叭鎖）",0
+
+end_you BYTE "一一一一一一一一一一一一我我我我我我我我一一一一一一一一一一一",0
+end_you1 BYTE "一一一一一一一一一一我我我我我我我我我我我我一一一一一一一一一一",0
+end_you2 BYTE "一一一一一一一一一一我我我我我我我我我我我我我一一一一一一一一",0
+end_you3 BYTE "一一一一一一一一一一一一一一我我我我我我我我我我一一一一一一一",0
+end_you4 BYTE "一一一一一一一一一一一一一一一一一一一一我我我我一一一一一一一",0
+end_you5 BYTE "一一一一一一一一一一一一一鼻一一一一一我我我耳耳一一一一一一一",0
+end_you6 BYTE "一一一一一一一一一一一一一鼻一一一一一我我我耳耳一一一一一一一",0
+end_you7 BYTE "一一一一一一一一一我我我我我我我我我我我我我我我一一一一一一一一",0
+end_you8 BYTE "一一一一一一一一一一我我我口口我我我我我我我我一一一一一一一一",0
+end_you9 BYTE "一一一一一一一一一一我我我口口我我我我我我一一一一一一一一一一一",0
+end_you10 BYTE "一一一一一一一一一一一一頸頸頸頸頸頸頸頸一一一一一一一一一一一一一",0
+end_you11 BYTE "一一一一一一一一一一衣衣衣衣衣衣衣衣衣衣衣衣一一一一一一一一一",0
+end_you12 BYTE "一一一一一一一一一衣衣衣衣衣衣衣衣衣衣衣衣衣衣一一一一一一一一一",0
+end_you13 BYTE "一一一一一一一一衣衣衣衣衣衣衣衣衣衣衣衣衣衣衣衣一一一一一一一一一",0
+end_you14 BYTE "一一一一一一一衣衣衣衣衣衣衣衣衣衣衣衣衣衣衣衣衣衣一一一一一一一一一",0
+ending_word2 BYTE "「好亮。我記得我沒去過新北撒旦城阿」",0
+ending_word3 BYTE "「難道是我光明的未來嗎？」",0
+
+ending_word4 BYTE "「等等...現在幾點！幹啊啊啊啊啊啊」",0
+ending_word5 BYTE "「我還是錯過了線代考試嗚嗚嗚嗚嗚」",0
+
+ending_word6 BYTE "恭喜完成組語期末專案報告",0
+ending_word7 BYTE "自由之門將在一月十三日開啟＞＿︿",0
+
+
+endlist BYTE "　　　　　　　　製作名單　　　　　",0
+endlist1 BYTE "　關主一　　　　　　　　　　黃詠綺 aka walawala大粉頭",0
+endlist2 BYTE "　關主二　　　　　　　　　　邱郁安 aka 髮質破壞者",0
+endlist3 BYTE "　關主三　　　　　　　　　　曹佩怡 aka47 ",0
+endlist4 BYTE "　關主四　　　　　　　　　　鍾羽綾 aka 鍾羽綾淋雨中",0
+
+ending_saying BYTE "　　　　　　感謝遊玩此遊戲！",0
 
 ;-----------------------------------------------preface------------------------------------------------------
 preface1 BYTE "「這是哪？我怎麼躺在地上？」",0
@@ -127,14 +159,14 @@ menucontent3 BYTE "怎麼可以偷窺別人洗澡呢 `^′ ", 0
 
 menucontent4 BYTE "那裡有貓貓！先走一步掰掰～", 0
 menucontent5 BYTE "正在染髮還沒回來", 0
-menucontent6 BYTE "欸欸欸，前面還沒解完想幹嘛", 0
+menucontent6 BYTE "沒有眼睛的鹿......No eye-deer", 0
 menucontent7 BYTE "還沒醒，不要叫我 @#$%^&*", 0
 
 menucontent10 BYTE "恭喜您成功利用鎮寢之寶鎮壓住大家的怨氣", 0
 menucontent10_1 BYTE "幫助大家實現願望", 0
 menucontent10_2 BYTE "大家都很感謝你唷~下次見！", 0
-menucontent11 BYTE "別急別急，馬上就能出去了", 0
 
+menucontent11 BYTE "別急別急，馬上就能出去了", 0
 menucontent12 BYTE "啊，今晚的月色真~美~", 0
 
 menucontent15 BYTE "門被拴住了打不開", 0
@@ -169,6 +201,30 @@ oil_pot3 BYTE "｜　　　　　　　　　　　　　　　　　　　　　　　　　｜",0
 oil_pot4 BYTE  "＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿",0
 nofries BYTE "　　　　　　　　　　　　　　　　　　　　　　　　　　　",0
 
+cat BYTE "　　貓　　　　　　　　　　　　　　　　貓　",0
+cat1 BYTE "　貓貓貓　　　　　　　　　　　　　　貓貓貓",0
+cat2 BYTE "貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓",0
+cat3 BYTE "貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓",0
+cat4 BYTE "貓貓貓　　貓貓貓貓貓貓貓貓　　貓貓貓貓貓貓",0
+cat5 BYTE "貓貓貓　　貓貓貓貓貓貓貓貓　　貓貓貓貓貓貓",0
+cat6 BYTE "貓貓貓貓貓貓貓　　　貓貓貓貓貓貓貓貓貓貓貓",0
+cat7 BYTE "貓貓貓貓貓貓貓貓　貓貓貓貓貓貓貓貓貓貓貓貓",0
+cat8 BYTE "貓一一一貓貓　貓　貓　貓貓貓貓一一一貓貓貓",0
+cat9 BYTE "貓一一一貓貓貓　貓　貓貓貓貓貓一一一貓貓貓",0
+cat10 BYTE "貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓",0
+cat11 BYTE "貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓",0
+cat12 BYTE "貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓",0
+cat13 BYTE "貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓",0
+cat14 BYTE "貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓",0
+cat15 BYTE "貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓",0
+
+cat_close_eye BYTE "貓貓貓閉眼貓貓貓貓貓貓貓貓閉眼貓貓貓貓貓貓",0
+cat_saying BYTE "你知道把ｂｉｎｏｍｉａｌ推導到ｐｏｉｓｓｏｎ會出現喵桑嗎？",0
+cat_clear BYTE "　　　　　　　　　　　　　　　　　　　　　　　　　　　　　",0
+cat_saying1 BYTE "　　　－入　　　　　入　　　　",0
+cat_saying2 BYTE "（＝　ｅ　　入　　ｅ　　＝　）",0
+cat_saying3 BYTE "我只說一次！！！",0
+
 fried_fries BYTE "　　　　一一一一一　　　　　　一一一一一　　　　　　一一一一一　　　　　",0
 fried_fries1 BYTE "　　　　一一一一一　　　　　　一一當當當　　一一一一一　　　　　",0
 fried_fries2 BYTE "　　一　　　當　　　　　　　　一　當當當　　一　　一一一　　　　",0
@@ -198,18 +254,23 @@ fried_french_fries_announce BYTE "恭喜你幫me炸完薯條!獲得菜刀一把",0
 fried_french_fries_announce1 BYTE "帶著他去找尋下一關吧",0
 fried_french_fries_announce2 BYTE "按下空白鍵結束(ˊ~ˋ)881",0
 
+
 cold_friesxy COORD <43,12>
 oil_potxy COORD <40,20>
 friesxy COORD <40, 30>
 friedfriesxy COORD <30, 4>
 nofriesxy COORD <43,10>
 whitebgxy COORD <7,3>
+catxy COORD <86,10>
+cat_sayingxy COORD <75, 30>
 
 cellsWritten DWORD ?
 
 get_cold_fries BYTE "大薯",0
 get_cold_friesspace BYTE "　　",0
 whether_get_cold_fries BYTE 0
+move_step BYTE 0
+cat_say_time BYTE 0
 
 ;------------------------------------------level2--------------------------------------------------------------
 l2tol3 BYTE "恭喜你通過第二關", 0 
@@ -272,7 +333,7 @@ tool8 BYTE "線圈", 0
 
 tool9 BYTE "電池",0
 
-tool10 BYTE "電池鐵",0
+tool10 BYTE "電磁鐵",0
 
 tool11 BYTE "　　　　　　　　　　",0
 
@@ -759,56 +820,37 @@ endinganime PROC
 		mov outputHandle, eax
 		call Clrscr
 	
-	
+	;-------------------------- 獨白----------------------------------
 	INVOKE WriteConsoleOutputCharacter,
 		outputHandle,	
-		ADDR endc1,	
-		sizeof endc1 -1,	
+		ADDR ending_word,	
+		sizeof ending_word -1,	
 		endcxy,	
 		ADDR count
 	add endcxy.y, 3
 	INVOKE Sleep ,2000
 
-	INVOKE WriteConsoleOutputCharacter,
-		outputHandle,	
-		ADDR endc2,	
-		sizeof endc2 -1,	
-		endcxy,	
-		ADDR count
-	INVOKE Sleep ,2000
 	
+	
+	;------------------------------- the door------------------------
 	INVOKE GetStdHandle, STD_OUTPUT_HANDLE
 		mov outputHandle, eax
 		call Clrscr
 
 	INVOKE WriteConsoleOutputCharacter,
 		outputHandle,	
-		ADDR endp1,	
-		sizeof endp1 -1,	
+		ADDR end_door,	
+		sizeof end_door -1,	
 		endpxy,	
 		ADDR count
 	inc endpxy.y
-	mov ecx, 6
-	INVOKE WriteConsoleOutputCharacter,
-		outputHandle,	
-		ADDR endp2,	
-		sizeof endp2 -1,	
-		endpxy,	
-		ADDR count
-	inc endpxy.y
-	INVOKE WriteConsoleOutputCharacter,
-		outputHandle,	
-		ADDR endp3,	
-		sizeof endp3 -1,	
-		endpxy,	
-		ADDR count
-	inc endpxy.y
+	mov ecx, 10
 L:
 	push ecx
 	INVOKE WriteConsoleOutputCharacter,
 		outputHandle,	
-		ADDR endp2,	
-		sizeof endp2 -1,	
+		ADDR end_door1,	
+		sizeof end_door1 -1,	
 		endpxy,	
 		ADDR count
 	inc endpxy.y
@@ -817,116 +859,410 @@ L:
 
 	INVOKE WriteConsoleOutputCharacter,
 		outputHandle,	
-		ADDR endp6,	
-		sizeof endp6 -1,	
+		ADDR end_door2,	
+		sizeof end_door2 -1,	
 		endpxy,	
 		ADDR count
 	inc endpxy.y
 	INVOKE WriteConsoleOutputCharacter,
 		outputHandle,	
-		ADDR endp7,	
-		sizeof endp7 -1,	
+		ADDR end_door3,	
+		sizeof end_door3 -1,	
 		endpxy,	
 		ADDR count
 	inc endpxy.y
 	INVOKE WriteConsoleOutputCharacter,
 		outputHandle,	
-		ADDR endp8,	
-		sizeof endp8 -1,	
+		ADDR end_door4,	
+		sizeof end_door4 -1,	
 		endpxy,	
 		ADDR count
 	inc endpxy.y
 	INVOKE WriteConsoleOutputCharacter,
 		outputHandle,	
-		ADDR endp9,	
-		sizeof endp9 -1,	
+		ADDR end_door5,	
+		sizeof end_door5 -1,	
 		endpxy,	
 		ADDR count
 	inc endpxy.y
 	INVOKE WriteConsoleOutputCharacter,
 		outputHandle,	
-		ADDR endp10,	
-		sizeof endp10 -1,	
+		ADDR end_door6,	
+		sizeof end_door6 -1,	
 		endpxy,	
 		ADDR count
 	inc endpxy.y
 	INVOKE WriteConsoleOutputCharacter,
 		outputHandle,	
-		ADDR endp11,	
-		sizeof endp11 -1,	
+		ADDR end_door7,	
+		sizeof end_door7 -1,	
 		endpxy,	
 		ADDR count
 	inc endpxy.y
 	INVOKE WriteConsoleOutputCharacter,
 		outputHandle,	
-		ADDR endp12,	
-		sizeof endp12 -1,	
+		ADDR end_door8,	
+		sizeof end_door8 -1,	
 		endpxy,	
 		ADDR count
 	inc endpxy.y
 	INVOKE WriteConsoleOutputCharacter,
 		outputHandle,	
-		ADDR endp13,	
-		sizeof endp13 -1,	
+		ADDR end_door9,	
+		sizeof end_door9 -1,	
 		endpxy,	
 		ADDR count
 	inc endpxy.y
 	INVOKE WriteConsoleOutputCharacter,
 		outputHandle,	
-		ADDR endp14,	
-		sizeof endp14 -1,	
+		ADDR end_door10,	
+		sizeof end_door10 -1,	
 		endpxy,	
 		ADDR count
-	inc endpxy.y
-	sub endpxy.x, 18
+	
 	INVOKE WriteConsoleOutputCharacter,
 		outputHandle,	
-		ADDR endp15,
-		sizeof endp15-1,	
+		ADDR end_door11,
+		sizeof end_door11-1,	
 		endpxy,	
 		ADDR count
+
+
+	INVOKE Sleep, 4000
+
 	add endpxy.y,2
 	add endpxy.x, 30
-	INVOKE WriteConsoleOutputCharacter,
-		outputHandle,	
-		ADDR endp16,
-		sizeof endp16-1,	
-		endpxy,	
-		ADDR count
-	inc endpxy.y
+
+
+	;--------------------------------------獨白--------------------
+	INVOKE GetStdHandle, STD_OUTPUT_HANDLE
+		mov outputHandle, eax
+		call Clrscr
+
+	mov endcxy.x, 40
+	mov endcxy.y, 15
 
 	INVOKE WriteConsoleOutputCharacter,
 		outputHandle,	
-		ADDR endp17,
-		sizeof endp17-1,	
-		endpxy,	
+		ADDR ending_word1,	
+		sizeof ending_word1 -1,	
+		endcxy,	
 		ADDR count
-	inc endpxy.y
-	INVOKE WriteConsoleOutputCharacter,
-		outputHandle,	
-		ADDR endp18,
-		sizeof endp18-1,	
-		endpxy,	
-		ADDR count
-	inc endpxy.y
-	INVOKE WriteConsoleOutputCharacter,
-		outputHandle,	
-		ADDR endp19,
-		sizeof endp19-1,	
-		endpxy,	
-		ADDR count
-	inc endpxy.y
-	INVOKE WriteConsoleOutputCharacter,
-		outputHandle,	
-		ADDR endp20,
-		sizeof endp20-1,	
-		endpxy,	
-		ADDR count
-	inc endpxy.y
-	INVOKE Sleep, 10000
+	INVOKE Sleep ,4000
 
+	;------------------------閃蝦---------------------------
+	INVOKE GetStdHandle, STD_OUTPUT_HANDLE
+		mov outputHandle, eax
+		call Clrscr
+
+	mov endpxy.x, 40
+	mov endpxy.y, 10
+
+	INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR end_you,
+		sizeof end_you-1,	
+		endpxy,	
+		ADDR count
+	inc endpxy.y
+	INVOKE Sleep, 200
+
+	INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR end_you1,
+		sizeof end_you1-1,	
+		endpxy,	
+		ADDR count
+	inc endpxy.y
+	INVOKE Sleep, 200
+
+	INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR end_you2,
+		sizeof end_you2-1,	
+		endpxy,	
+		ADDR count
+	inc endpxy.y
+	INVOKE Sleep, 200
+
+	INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR end_you3,
+		sizeof end_you3-1,	
+		endpxy,	
+		ADDR count
+	inc endpxy.y
+	INVOKE Sleep, 200
+
+	INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR end_you4,
+		sizeof end_you4-1,	
+		endpxy,	
+		ADDR count
+	inc endpxy.y
+	INVOKE Sleep, 200
+
+	INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR end_you5,
+		sizeof end_you5-1,	
+		endpxy,	
+		ADDR count
+	inc endpxy.y
+	INVOKE Sleep, 200
+
+	INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR end_you6,
+		sizeof end_you6-1,	
+		endpxy,	
+		ADDR count
+	inc endpxy.y
+	INVOKE Sleep, 200
+
+	INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR end_you7,
+		sizeof end_you7-1,	
+		endpxy,	
+		ADDR count
+	inc endpxy.y
+	INVOKE Sleep, 200
+
+	INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR end_you8,
+		sizeof end_you8-1,	
+		endpxy,	
+		ADDR count
+	inc endpxy.y
+	INVOKE Sleep, 200
+
+	INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR end_you9,
+		sizeof end_you9-1,	
+		endpxy,	
+		ADDR count
+	inc endpxy.y
+	INVOKE Sleep, 200
+
+	INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR end_you10,
+		sizeof end_you10-1,	
+		endpxy,	
+		ADDR count
+	inc endpxy.y
+	INVOKE Sleep, 200
+
+	INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR end_you11,
+		sizeof end_you11-1,	
+		endpxy,	
+		ADDR count
+	inc endpxy.y
+	INVOKE Sleep, 200
+
+	INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR end_you12,
+		sizeof end_you12-1,	
+		endpxy,	
+		ADDR count
+	inc endpxy.y
+	INVOKE Sleep, 200
+
+	INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR end_you13,
+		sizeof end_you13-1,	
+		endpxy,	
+		ADDR count
+	inc endpxy.y
+	INVOKE Sleep, 200
+
+	INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR end_you14,
+		sizeof end_you14-1,	
+		endpxy,	
+		ADDR count
+	inc endpxy.y
+	INVOKE Sleep, 200
+
+	INVOKE Sleep, 4000
+
+	;---------------------------獨白-----------------------------
+	INVOKE GetStdHandle, STD_OUTPUT_HANDLE
+		mov outputHandle, eax
+		call Clrscr
+
+	mov endcxy.x, 40
+	mov endcxy.y, 15
+	
+
+	INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR ending_word2,
+		sizeof ending_word2-1,	
+		endcxy,	
+		ADDR count
+	inc endcxy.y
+	INVOKE Sleep, 1000
+
+	INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR ending_word3,
+		sizeof ending_word3-1,	
+		endcxy,	
+		ADDR count
+	inc endcxy.y
+	INVOKE Sleep, 2000
+
+	INVOKE GetStdHandle, STD_OUTPUT_HANDLE
+		mov outputHandle, eax
+		call Clrscr
+
+	mov endcxy.x, 40
+	mov endcxy.y, 15
+	
+
+	INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR ending_word4,
+		sizeof ending_word4-1,	
+		endcxy,	
+		ADDR count
+	inc endcxy.y
+	INVOKE Sleep, 2000
+
+	INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR ending_word5,
+		sizeof ending_word5-1,	
+		endcxy,	
+		ADDR count
+	inc endcxy.y
+	INVOKE Sleep, 4000
+
+	;------------------------------------遊戲廣播---------------------------
+	INVOKE GetStdHandle, STD_OUTPUT_HANDLE
+		mov outputHandle, eax
+		call Clrscr
+
+	mov endcxy.x, 40
+	mov endcxy.y, 15
+	
+
+	INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR ending_word6,
+		sizeof ending_word6-1,	
+		endcxy,	
+		ADDR count
+	inc endcxy.y
+	INVOKE Sleep, 1000
+
+	INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR ending_word7,
+		sizeof ending_word7-1,	
+		endcxy,	
+		ADDR count
+	inc endcxy.y
+	INVOKE Sleep, 2000
+
+	;---------------------------------工作名單-------------------------------
+	INVOKE GetStdHandle, STD_OUTPUT_HANDLE
+		mov outputHandle, eax
+		call Clrscr
+
+	
+		mov end_listxy.x, 40
+		mov end_listxy.y, 10
+		
+		
+		INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR endlist,
+		sizeof endlist-1,	
+		end_listxy,	
+		ADDR count
+		inc end_listxy.y
+		inc end_listxy.y
+		inc end_listxy.y
+
+		INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR endlist1,
+		sizeof endlist1-1,	
+		end_listxy,	
+		ADDR count
+		inc end_listxy.y
+		inc end_listxy.y
+		inc end_listxy.y
+
+		INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR endlist2,
+		sizeof endlist2-1,	
+		end_listxy,	
+		ADDR count
+		inc end_listxy.y
+		inc end_listxy.y
+		inc end_listxy.y
+
+		INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR endlist3,
+		sizeof endlist3-1,	
+		end_listxy,	
+		ADDR count
+		inc end_listxy.y
+		inc end_listxy.y
+		inc end_listxy.y
+
+		INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR endlist4,
+		sizeof endlist4-1,	
+		end_listxy,	
+		ADDR count
+		inc end_listxy.y
+
+		INVOKE Sleep, 5000
+
+
+
+	;-------------------------------------------感謝遊玩-------------------
+
+	INVOKE GetStdHandle, STD_OUTPUT_HANDLE
+		mov outputHandle, eax
+		call Clrscr
+
+	mov endcxy.x, 40
+	mov endcxy.y, 15
+	
+
+	INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR ending_saying,
+		sizeof ending_saying-1,	
+		endcxy,	
+		ADDR count
+	inc endcxy.y
+	INVOKE Sleep, 3000
+
+
+	leaving:
 	ret
 endinganime ENDP
+
+
+
 ;---------------------------------------- 主畫面 main_menu PROC -----------------------------------
 main_menu PROC
 
@@ -1411,7 +1747,6 @@ menu_move PROC
 			.ENDIF
 
 		.ENDIF
-
 		;77
 			.IF mexy.x == 78 && mexy.y >9 && mexy.y <13
 				.IF level1finish == 1
@@ -1770,7 +2105,7 @@ menu_move PROC
 					sizeof menucontent10 - 1,	
 					menucontentxy,	
 					ADDR count
-
+				
 				add menucontentxy.y ,2
 
 				INVOKE WriteConsoleOutputCharacter,
@@ -1989,6 +2324,7 @@ level1 PROC
 	   ADDR count	; output count
 
 	   add contentxy.y, 3
+	   
 	
 	start:
 		call ReadChar
@@ -2039,7 +2375,8 @@ level1 PROC
 	   ADDR count	; output count
 
 
-	   ; 更新座標回原本的//////////////////////////////
+	   call draw_cat
+
 
 	ret
 
@@ -2053,14 +2390,14 @@ refresh_bg PROC
 		mov ecx, 37
 		mov whitebgxy.x, 4
 		mov whitebgxy.y, 3
-L1:	
 
+L1:	
 	push ecx	; save counter
 
 	INVOKE WriteConsoleOutputCharacter,
 	   outputHandle,	; console output handle
 	   ADDR whitebg,	; pointer to the top box line
-	   sizeof whitebg-1,	; size of box line
+	   sizeof whitebg -1,	; size of box line
 	   whitebgxy,	
 	   ADDR count	; output count
 	   
@@ -2072,6 +2409,205 @@ L1:
 
 		ret
 refresh_bg ENDP
+
+;----------------------------------------------------level1 draw_close_eye_cat -----------------------------------------------------
+draw_close_eye_cat PROC
+	mov catxy.x, 86
+	mov catxy.y, 14
+
+	INVOKE WriteConsoleOutputCharacter,
+	   outputHandle,	; console output handle
+	   ADDR cat_close_eye,	; pointer to the top box line
+	   sizeof cat_close_eye -1,	; size of box line
+	   catxy,	
+	   ADDR count	; output count
+	   inc catxy.y
+	   INVOKE Sleep, 200
+
+	   INVOKE WriteConsoleOutputCharacter,
+	   outputHandle,	; console output handle
+	   ADDR cat_close_eye,	; pointer to the top box line
+	   sizeof cat_close_eye -1,	; size of box line
+	   catxy,	
+	   ADDR count	; output count
+	   INVOKE Sleep, 200
+
+	    
+		
+
+	   INVOKE WriteConsoleOutputCharacter,
+	   outputHandle,	; console output handle
+	   ADDR cat4,	; pointer to the top box line
+	   sizeof cat4 -1,	; size of box line
+	   catxy,	
+	   ADDR count	; output count
+	   INVOKE Sleep, 200
+
+	   mov catxy.y, 14
+
+	   INVOKE WriteConsoleOutputCharacter,
+	   outputHandle,	; console output handle
+	   ADDR cat5,	; pointer to the top box line
+	   sizeof cat5 -1,	; size of box line
+	   catxy,	
+	   ADDR count	; output count
+	   inc catxy.y
+
+	   ret
+
+draw_close_eye_cat ENDP
+
+;----------------------------------------------------level1 draw_cat -----------------------------------------------------
+draw_cat PROC
+	mov catxy.x, 86
+	mov catxy.y, 10
+	INVOKE WriteConsoleOutputCharacter,
+	   outputHandle,	; console output handle
+	   ADDR cat,	; pointer to the top box line
+	   sizeof cat -1,	; size of box line
+	   catxy,	
+	   ADDR count	; output count
+	   inc catxy.y
+	   INVOKE Sleep, 150
+
+	   INVOKE WriteConsoleOutputCharacter,
+	   outputHandle,	; console output handle
+	   ADDR cat1,	; pointer to the top box line
+	   sizeof cat1 -1,	; size of box line
+	   catxy,	
+	   ADDR count	; output count
+	   inc catxy.y
+	   INVOKE Sleep, 150
+
+	   INVOKE WriteConsoleOutputCharacter,
+	   outputHandle,	; console output handle
+	   ADDR cat2,	; pointer to the top box line
+	   sizeof cat2 -1,	; size of box line
+	   catxy,	
+	   ADDR count	; output count
+	   inc catxy.y
+	   INVOKE Sleep, 150
+
+	   INVOKE WriteConsoleOutputCharacter,
+	   outputHandle,	; console output handle
+	   ADDR cat3,	; pointer to the top box line
+	   sizeof cat3 -1,	; size of box line
+	   catxy,	
+	   ADDR count	; output count
+	   inc catxy.y
+	   INVOKE Sleep, 150
+
+	   INVOKE WriteConsoleOutputCharacter,
+	   outputHandle,	; console output handle
+	   ADDR cat4,	; pointer to the top box line
+	   sizeof cat4 -1,	; size of box line
+	   catxy,	
+	   ADDR count	; output count
+	   inc catxy.y
+	   INVOKE Sleep, 150
+
+	   INVOKE WriteConsoleOutputCharacter,
+	   outputHandle,	; console output handle
+	   ADDR cat5,	; pointer to the top box line
+	   sizeof cat5 -1,	; size of box line
+	   catxy,	
+	   ADDR count	; output count
+	   inc catxy.y
+	   INVOKE Sleep, 150
+
+	   INVOKE WriteConsoleOutputCharacter,
+	   outputHandle,	; console output handle
+	   ADDR cat6,	; pointer to the top box line
+	   sizeof cat6 -1,	; size of box line
+	   catxy,	
+	   ADDR count	; output count
+	   inc catxy.y
+	   INVOKE Sleep, 150
+
+	   INVOKE WriteConsoleOutputCharacter,
+	   outputHandle,	; console output handle
+	   ADDR cat7,	; pointer to the top box line
+	   sizeof cat7 -1,	; size of box line
+	   catxy,	
+	   ADDR count	; output count
+	   inc catxy.y
+	   INVOKE Sleep, 150
+
+	   INVOKE WriteConsoleOutputCharacter,
+	   outputHandle,	; console output handle
+	   ADDR cat8,	; pointer to the top box line
+	   sizeof cat8 -1,	; size of box line
+	   catxy,	
+	   ADDR count	; output count
+	   inc catxy.y
+	   INVOKE Sleep, 150
+
+	   INVOKE WriteConsoleOutputCharacter,
+	   outputHandle,	; console output handle
+	   ADDR cat9,	; pointer to the top box line
+	   sizeof cat9 -1,	; size of box line
+	   catxy,	
+	   ADDR count	; output count
+	   inc catxy.y
+	   INVOKE Sleep, 150
+
+	   INVOKE WriteConsoleOutputCharacter,
+	   outputHandle,	; console output handle
+	   ADDR cat10,	; pointer to the top box line
+	   sizeof cat10 -1,	; size of box line
+	   catxy,	
+	   ADDR count	; output count
+	   inc catxy.y
+	   INVOKE Sleep, 150
+
+	   INVOKE WriteConsoleOutputCharacter,
+	   outputHandle,	; console output handle
+	   ADDR cat11,	; pointer to the top box line
+	   sizeof cat11 -1,	; size of box line
+	   catxy,	
+	   ADDR count	; output count
+	   inc catxy.y
+	   INVOKE Sleep, 150
+
+	   INVOKE WriteConsoleOutputCharacter,
+	   outputHandle,	; console output handle
+	   ADDR cat12,	; pointer to the top box line
+	   sizeof cat12 -1,	; size of box line
+	   catxy,	
+	   ADDR count	; output count
+	   inc catxy.y
+	   INVOKE Sleep, 150
+
+	   INVOKE WriteConsoleOutputCharacter,
+	   outputHandle,	; console output handle
+	   ADDR cat13,	; pointer to the top box line
+	   sizeof cat13 -1,	; size of box line
+	   catxy,	
+	   ADDR count	; output count
+	   inc catxy.y
+	   INVOKE Sleep, 150
+
+	   INVOKE WriteConsoleOutputCharacter,
+	   outputHandle,	; console output handle
+	   ADDR cat14,	; pointer to the top box line
+	   sizeof cat14 -1,	; size of box line
+	   catxy,	
+	   ADDR count	; output count
+	   inc catxy.y
+	   INVOKE Sleep, 150
+
+	   INVOKE WriteConsoleOutputCharacter,
+	   outputHandle,	; console output handle
+	   ADDR cat15,	; pointer to the top box line
+	   sizeof cat15 -1,	; size of box line
+	   catxy,	
+	   ADDR count	; output count
+	   inc catxy.y
+	   INVOKE Sleep, 150
+
+	   ret ;沒有ret就會直接執行 draw_touch_fries
+
+draw_cat ENDP
 
 ;----------------------------------------------------level1 draw_touch_fries -----------------------------------------------------
 
@@ -2595,6 +3131,92 @@ draw_oil_pot PROC
 
 draw_oil_pot ENDP
 
+;----------------------------------------------level1 whether_touch_cat ----------------------------------------------------
+whether_touch_cat PROC
+		
+		mov ax, mexy.x
+		.IF ax==84
+			mov ax, mexy.y
+			.IF ax>=10
+				.IF ax<=10+15
+					jmp print_notice
+				.ENDIF
+			.ENDIF
+			
+		.ENDIF
+		jmp leaving
+
+	print_notice:
+		
+		mov cat_sayingxy.y, 30
+		.IF cat_say_time == 0
+			mov cat_sayingxy.x, 75
+			INVOKE WriteConsoleOutputCharacter,
+			outputHandle,	; console output handle
+			ADDR cat_saying,	; pointer to the top box line
+			sizeof cat_saying -1,	; size of box line
+			cat_sayingxy,	
+			ADDR count	; output count
+		.ENDIF
+
+		.IF cat_say_time == 1
+			mov cat_sayingxy.x, 90
+			INVOKE WriteConsoleOutputCharacter,
+			outputHandle,	; console output handle
+			ADDR cat_saying1,	; pointer to the top box line
+			sizeof cat_saying1 -1,	; size of box line
+			cat_sayingxy,	
+			ADDR count	; output count
+			inc cat_sayingxy.y
+			INVOKE Sleep, 500
+
+			INVOKE WriteConsoleOutputCharacter,
+			outputHandle,	; console output handle
+			ADDR cat_saying2,	; pointer to the top box line
+			sizeof cat_saying2 -1,	; size of box line
+			cat_sayingxy,	
+			ADDR count	; output count
+		.ENDIF
+
+		.IF cat_say_time >= 2
+			mov cat_sayingxy.x, 90
+			INVOKE WriteConsoleOutputCharacter,
+			outputHandle,	; console output handle
+			ADDR cat_saying3,	; pointer to the top box line
+			sizeof cat_saying3 -1,	; size of box line
+			cat_sayingxy,	
+			ADDR count	; output count
+		.ENDIF
+		
+		inc cat_say_time
+	
+	clear:
+		mov cat_sayingxy.x, 75
+		INVOKE Sleep, 2000
+		mov cat_sayingxy.y, 30
+
+		INVOKE WriteConsoleOutputCharacter,
+			outputHandle,
+			ADDR cat_clear,	
+			sizeof cat_clear -1,	
+			cat_sayingxy,	
+			ADDR count	
+		inc cat_sayingxy.y
+
+		INVOKE WriteConsoleOutputCharacter,
+			outputHandle,
+			ADDR cat_clear,	
+			sizeof cat_clear -1,	
+			cat_sayingxy,	
+			ADDR count	; output count
+
+	leaving:
+		ret
+
+
+whether_touch_cat ENDP
+
+
 ;------------------------------------------------level1 whether_touch_fries---------------------------------------
 
 whether_touch_fries PROC
@@ -2670,9 +3292,47 @@ whether_touch_oil PROC
 
 whether_touch_oil ENDP
 
+;----------------------------------------------level1 whether_touch_oil_nofries ----------------------------------------------------
+
+whether_touch_oil_nofries PROC
+		mov ax, mexy.x
+		cmp ax, 66
+		je sameX
+		cmp ax, 68
+		je sameX
+		jmp nontouch
+
+		sameX:
+			mov ax, mexy.y
+			cmp ax, 9
+			je touch
+			cmp ax, 7
+			je touch
+			jmp nontouch
+
+		touch:
+			.IF whether_get_cold_fries == 0
+				call draw_you_do_not_have_fries
+			.ENDIF
+
+			jmp leaving
+
+		nontouch:
+			jmp leaving
+
+
+		leaving:
+		ret
+
+whether_touch_oil_nofries ENDP
 ;-----------------------------------------------level1move------------------------------------------------------
 level1move PROC
 start:
+
+draw_close_eyes_cat:
+		call draw_close_eye_cat
+
+moving:
 		
 		.IF level1end == 1
 			ret
@@ -2695,16 +3355,34 @@ start:
 		cmp al, " "
 		je push_space
 
+		cmp al, "e"
+		je use_tool
+
 
 		jmp continue
 
-	push_space:
-		
-		call whether_touch_fries
+	use_tool:
 		call whether_touch_oil
+
+	push_space:
+		call whether_touch_cat
+		call whether_touch_oil_nofries
+		call whether_touch_fries
 		jmp continue
 
 	colusionr:
+		mov ax, mexy.y
+		.IF ax>=10
+			.IF ax<=10+15
+				mov ax, mexy.x
+				.IF ax<=84+40
+					.IF ax>=84
+						jmp continue
+					.ENDIF
+				.ENDIF
+			.ENDIF
+		.ENDIF
+
 		mov ax, mexy.x
 		cmp ax, 138
 		je continue
@@ -2756,11 +3434,24 @@ start:
 
 
 	colusionl:
+		mov ax, mexy.y
+		.IF ax>=10
+			.IF ax<=10+15
+				mov ax, mexy.x
+				.IF ax<=84+44
+					.IF ax>=86
+						jmp continue
+					.ENDIF
+				.ENDIF
+			.ENDIF
+		.ENDIF
+
 		mov ax, mexy.x
 		cmp al, 4
 		je continue
 	
 		mov ax, mexy.y
+		
 		cmp al, 8
 		je line_0_l
 		cmp al, 11
@@ -2813,6 +3504,17 @@ start:
 			jmp movel
 	
 	colusionu:
+		mov ax, mexy.x
+		.IF ax>=86
+			.IF ax<=86+40
+				mov ax, mexy.y
+				.IF ax<=10+15+1
+					.IF ax>=10
+						jmp continue
+					.ENDIF
+				.ENDIF
+			.ENDIF
+		.ENDIF
 
 		mov ax, mexy.y
 		cmp al, 3
@@ -2860,6 +3562,18 @@ start:
 			jmp continue
 
 	colusiond:
+		mov ax, mexy.x
+		.IF ax>=86
+			.IF ax<=86+40
+				mov ax, mexy.y
+				.IF ax>=10
+					.IF ax<=10+15
+						jmp continue
+					.ENDIF
+					
+				.ENDIF
+			.ENDIF
+		.ENDIF
 
 		mov ax, mexy.y
 		cmp al, 39
@@ -2923,7 +3637,17 @@ start:
 			jmp continue
 
 	continue:
-	   jmp start
+		inc move_step
+		.IF move_step > 31
+			mov move_step, 0
+		.ENDIF
+
+		.IF move_step == 30
+			jmp draw_close_eyes_cat
+		.ENDIF
+
+		jmp moving
+	   
 
 level1move ENDP
 ;-----------------------------------------------level2 bg---------------------------------------------------------------------
@@ -5029,7 +5753,7 @@ be_master PROC
 			jmp check_right2
 		.ENDIF
 
-		.IF ax == 3920h && me2xy_3.x == 32 && (me2xy_3.y == 22 || me2xy_3.y == 24) ;space get
+		.IF ax == 3920h && me2xy_3.x == 34 && (me2xy_3.y == 22 || me2xy_3.y == 24) ;space get
 			.IF get_tool == 4
 				INVOKE WriteConsoleOutputCharacter,
 						outputHandle,	
