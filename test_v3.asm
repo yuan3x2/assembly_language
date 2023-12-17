@@ -1,15 +1,15 @@
-;�פF�@�Ǥpbug�M�[�����ʵe
-;�W�[��PROC�sendinganime, �ܼƦb15��, PROC�b814��, call�b2037
+;修了一些小bug和加結尾動畫
+;增加的PROC叫endinganime, 變數在15行, PROC在814行, call在2037
 
 INCLUDE Irvine32.inc
 
-BoxWidth = 70d	;�]�w�e
-BoxHeight = 39d	;�]�w��
+BoxWidth = 70d	;設定寬
+BoxHeight = 39d	;設定長
 
 .data
-me byte "��", 0
-space byte "�@",0
-space1 byte "�@�@�@",0
+me byte "我", 0
+space byte "　",0
+space1 byte "　　　",0
 mexy COORD <90,25>
 
 ;====================================endinganime=======================
@@ -18,152 +18,152 @@ endpxy COORD <40, 10>
 end_listxy COORD <50,50>
 
 
-ending_word BYTE "�u�����t�@��A�N�|�O�ۥѶܡH�v",0
+ending_word BYTE "「門的另一邊，就會是自由嗎？」",0
 
 
 
-end_door BYTE "�ڰڰڰڰڰڰڰڰڰڰڰڰڰڰڰڰڰڰڰڰ�",0
-end_door1 BYTE "�ڡ@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@��",0
-end_door2 BYTE "�ڡ@�ڰڡ@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@��",0
-end_door3 BYTE "�ڡ@�ڰڡ@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@��",0
-end_door4 BYTE "�ڡ@�@�@�@�@�@�@�@�ڰڰڡ@�@�@�@�@�@�@�@��",0
-end_door5 BYTE "�ڡ@�@�@�@�@�@�@�ڰڰڰڡ@�@�@�@�@�@�@�@��",0
-end_door6 BYTE "�ڡ@�@�@�@�@�@�@�@�ڰڡ@�@�@�@�@�@�@�@�@��",0
-end_door7 BYTE "�ڡ@�@�@�@�@�@�@�ڰڰڰڡ@�@�@�@�@�@�@�@��",0
-end_door8 BYTE "�ڡ@�@�@�@�@�@�ڰڰڰڰڰڡ@�@�@�@�@�@�@��",0
-end_door9 BYTE "�ڡ@�@�@�@�@�@�ڰڰڰڰڰڡ@�@�@�@�@�@�@��",0
-end_door10 BYTE "�ڡ@�@�@�@�@�@�ڰڰڰڰڰڡ@�@�@�@�@�@�@��",0
-end_door11 BYTE "�ڰڰڰڰڰڰڰڰڰڰڰڰڰڰڰڰڰڰڰڰ�",0
+end_door BYTE "啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊",0
+end_door1 BYTE "啊　　　　　　　　　　　　　　　　　　　啊",0
+end_door2 BYTE "啊　啊啊　　　　　　　　　　　　　　　　啊",0
+end_door3 BYTE "啊　啊啊　　　　　　　　　　　　　　　　啊",0
+end_door4 BYTE "啊　　　　　　　　啊啊啊　　　　　　　　啊",0
+end_door5 BYTE "啊　　　　　　　啊啊啊啊　　　　　　　　啊",0
+end_door6 BYTE "啊　　　　　　　　啊啊　　　　　　　　　啊",0
+end_door7 BYTE "啊　　　　　　　啊啊啊啊　　　　　　　　啊",0
+end_door8 BYTE "啊　　　　　　啊啊啊啊啊啊　　　　　　　啊",0
+end_door9 BYTE "啊　　　　　　啊啊啊啊啊啊　　　　　　　啊",0
+end_door10 BYTE "啊　　　　　　啊啊啊啊啊啊　　　　　　　啊",0
+end_door11 BYTE "啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊",0
 
-ending_word1 BYTE "�]��}��z��^",0
+ending_word1 BYTE "（轉開喇叭鎖）",0
 
-end_you BYTE "�@�@�@�@�@�@�@�@�@�@�@�@�ڧڧڧڧڧڧڧڤ@�@�@�@�@�@�@�@�@�@�@",0
-end_you1 BYTE "�@�@�@�@�@�@�@�@�@�@�ڧڧڧڧڧڧڧڧڧڧڧڤ@�@�@�@�@�@�@�@�@�@",0
-end_you2 BYTE "�@�@�@�@�@�@�@�@�@�@�ڧڧڧڧڧڧڧڧڧڧڧڧڤ@�@�@�@�@�@�@�@",0
-end_you3 BYTE "�@�@�@�@�@�@�@�@�@�@�@�@�@�@�ڧڧڧڧڧڧڧڧڧڤ@�@�@�@�@�@�@",0
-end_you4 BYTE "�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�ڧڧڧڤ@�@�@�@�@�@�@",0
-end_you5 BYTE "�@�@�@�@�@�@�@�@�@�@�@�@�@��@�@�@�@�@�ڧڧڦզդ@�@�@�@�@�@�@",0
-end_you6 BYTE "�@�@�@�@�@�@�@�@�@�@�@�@�@��@�@�@�@�@�ڧڧڦզդ@�@�@�@�@�@�@",0
-end_you7 BYTE "�@�@�@�@�@�@�@�@�@�ڧڧڧڧڧڧڧڧڧڧڧڧڧڧڤ@�@�@�@�@�@�@�@",0
-end_you8 BYTE "�@�@�@�@�@�@�@�@�@�@�ڧڧڤf�f�ڧڧڧڧڧڧڧڤ@�@�@�@�@�@�@�@",0
-end_you9 BYTE "�@�@�@�@�@�@�@�@�@�@�ڧڧڤf�f�ڧڧڧڧڧڤ@�@�@�@�@�@�@�@�@�@�@",0
-end_you10 BYTE "�@�@�@�@�@�@�@�@�@�@�@�@�V�V�V�V�V�V�V�V�@�@�@�@�@�@�@�@�@�@�@�@�@",0
-end_you11 BYTE "�@�@�@�@�@�@�@�@�@�@�������������@�@�@�@�@�@�@�@�@",0
-end_you12 BYTE "�@�@�@�@�@�@�@�@�@���������������@�@�@�@�@�@�@�@�@",0
-end_you13 BYTE "�@�@�@�@�@�@�@�@�����������������@�@�@�@�@�@�@�@�@",0
-end_you14 BYTE "�@�@�@�@�@�@�@�������������������@�@�@�@�@�@�@�@�@",0
-ending_word2 BYTE "�u�n�G�C�ڰO�o�ڨS�h�L�s�_���������v",0
-ending_word3 BYTE "�u���D�O�ڥ��������ӶܡH�v",0
+end_you BYTE "一一一一一一一一一一一一我我我我我我我我一一一一一一一一一一一",0
+end_you1 BYTE "一一一一一一一一一一我我我我我我我我我我我我一一一一一一一一一一",0
+end_you2 BYTE "一一一一一一一一一一我我我我我我我我我我我我我一一一一一一一一",0
+end_you3 BYTE "一一一一一一一一一一一一一一我我我我我我我我我我一一一一一一一",0
+end_you4 BYTE "一一一一一一一一一一一一一一一一一一一一我我我我一一一一一一一",0
+end_you5 BYTE "一一一一一一一一一一一一一鼻一一一一一我我我耳耳一一一一一一一",0
+end_you6 BYTE "一一一一一一一一一一一一一鼻一一一一一我我我耳耳一一一一一一一",0
+end_you7 BYTE "一一一一一一一一一我我我我我我我我我我我我我我我一一一一一一一一",0
+end_you8 BYTE "一一一一一一一一一一我我我口口我我我我我我我我一一一一一一一一",0
+end_you9 BYTE "一一一一一一一一一一我我我口口我我我我我我一一一一一一一一一一一",0
+end_you10 BYTE "一一一一一一一一一一一一頸頸頸頸頸頸頸頸一一一一一一一一一一一一一",0
+end_you11 BYTE "一一一一一一一一一一衣衣衣衣衣衣衣衣衣衣衣衣一一一一一一一一一",0
+end_you12 BYTE "一一一一一一一一一衣衣衣衣衣衣衣衣衣衣衣衣衣衣一一一一一一一一一",0
+end_you13 BYTE "一一一一一一一一衣衣衣衣衣衣衣衣衣衣衣衣衣衣衣衣一一一一一一一一一",0
+end_you14 BYTE "一一一一一一一衣衣衣衣衣衣衣衣衣衣衣衣衣衣衣衣衣衣一一一一一一一一一",0
+ending_word2 BYTE "「好亮。我記得我沒去過新北撒旦城阿」",0
+ending_word3 BYTE "「難道是我光明的未來嗎？」",0
 
-ending_word4 BYTE "�u�A�F�ڡI�쩳�n��ˤ~�i�H�X�h�o�Ӱ��a��v",0
-ending_word5 BYTE "�u����u�N�Ҹն�����v",0
+ending_word4 BYTE "「你騙我！到底要怎樣才可以出去這個鬼地方」",0
+ending_word5 BYTE "「嗚嗚嗚線代考試嗚嗚嗚嗚嗚」",0
 
-ending_word6 BYTE "���ߧ����ջy�����M�׳��i",0
-ending_word7 BYTE "�ۥѤ����N�b�@��Q�T��}�ҡ֡ġs",0
+ending_word6 BYTE "恭喜完成組語期末專案報告",0
+ending_word7 BYTE "自由之門將在一月十三日開啟＞＿︿",0
 
 
-endlist BYTE "�@�@�@�@�@�@�@�s�@�W��@�@�@�@�@",0
-endlist1 BYTE "���D�@�@�@�@�@�@�@�@�@�@�@������",0
-endlist2 BYTE "���D�G�@�@�@�@�@�@�@�@�@�@�����w",0
-endlist3 BYTE "���D�T�@�@�@�@�@�@�@�@�@�@��ة�",0
-endlist4 BYTE "���D�|�@�@�@�@�@�@�@�@�@�@��к�",0
+endlist BYTE "　　　　　　　製作名單　　　　　",0
+endlist1 BYTE "關主一　　　　　　　　　　黃詠綺",0
+endlist2 BYTE "關主二　　　　　　　　　　邱郁安",0
+endlist3 BYTE "關主三　　　　　　　　　　曹佩怡",0
+endlist4 BYTE "關主四　　　　　　　　　　鍾羽綾",0
 
-ending_saying BYTE "�P�¹C�����C���I",0
+ending_saying BYTE "感謝遊玩此遊戲！",0
 
 ;-----------------------------------------------preface------------------------------------------------------
-preface1 BYTE "�u�o�O���H�ګ����b�a�W�H�v",0
-preface2 BYTE "�u�Y�n�h......�v",0
-preface3 BYTE "�A���ḣ�@�ǨӰ}�}�k�h�A���U�|�P�o�o�{�o�̬O�@�ӭ��ͪ��ж�",0
-preface4 BYTE "�uFUCK�A�L�����o�̨쩳�O�� ?�v",0
-preface5 BYTE "���ۧA������f�o�{�@�����A�����@��......",0
-preface6 BYTE "�u�o���}�����M�����}�I���٭n�h�Ҭf���u�N�A�o���S�h�ڥ����L�ðڰڰڰګx���M��H�v",0
-preface7 BYTE "�o�ɡA�A�o�{�a�W���@�Ӥ�O��",0
-preface8 BYTE "�A���}��O�����Ĥ@���A�o�{�W���g��",0
-preface9 BYTE "�y�ڦn���......�ߤߩ������F��~�M�N���F�A���ڧ�ߴH�F��    BY�u�D____�D�v�z",0
-preface10 BYTE "�A½��U�@��",0
-preface11 BYTE "�y�ڪ��Y�v�ڰڰڡA�ڤ��Q�ܪݤ񫽫�QAQ    BY �C�C�C�C�C�z",0
-preface12 BYTE "�A�A½��U�@��",0
-preface13 BYTE "�y�ݨӥs��O�������|���a�x  ���u�j lol  BY py not piyan�z",0
-preface14 BYTE "�y�ڦn�N�ڡC�C�C�ݨӭn�R�@�ǫO�x���F��F   BY �ڤ��O�B�z",0
-preface15 BYTE "�u�o�Ǩ쩳�O����ڡA�u�_�ǡC�v",0
-preface16 BYTE "�A½���O���̫�@��",0
-preface17 BYTE "�y�˷R���D�Ԫ̱z�n���w��z�Ө�m�զXyuan--��r�C���j�_�I�n",0
-preface18 BYTE "�۫H�z�@�w�D�`���ݮi�}�_�I�F��a !�z",0
-preface19 BYTE "�u......�v",0
-preface20 BYTE "�y�z�@�w�ܦn�_������A�b�o�̹�a�A���״N�O......�S����]�I�z",0
-preface22 BYTE "�u�F�v",0
-preface23 BYTE "�y�z�ݭn�b�o���ж�����M�u���k��A",0
-preface24 BYTE "���U�i�ť���j�ɥi�H�d�ݪ��~�A",0
-preface25 BYTE "���U�iE�j�ɡA�i�H�ϥιD���椺���D��A",0
-preface26 BYTE "���U�iW/S/A/D�j�ɤ��O�O�W/�U/��/�k���ʡA�H�W�N�O�C���W�h�C",0
-preface27 BYTE "���z����B�ΦU�ءu��r�v���޿����A���Q�k�X�ͤѡI",0
-preface28 BYTE "To be or not to be continue�z",0
-preface29 BYTE "�i�Ы�P�}�l�C���j",0
+preface1 BYTE "「這是哪？我怎麼躺在地上？」",0
+preface2 BYTE "「頭好痛......」",0
+preface3 BYTE "你的後腦杓傳來陣陣疼痛，環顧四周卻發現這裡是一個陌生的房間",0
+preface4 BYTE "「FUCK，他媽的這裡到底是哪 ?」",0
+preface5 BYTE "接著你走到門口發現一扇門，輕輕一推......",0
+preface6 BYTE "「這扇破門竟然打不開！我還要去考柏齊線代，這次沒去我必死無疑啊啊啊啊咦嗚誒喔？」",0
+preface7 BYTE "這時，你發現地上有一個日記本",0
+preface8 BYTE "你打開日記本的第一頁，發現上面寫著",0
+preface9 BYTE "『我好恨啊......心心念念的東西居然冷掉了，讓我更心寒了啊    BY「．____．」』",0
+preface10 BYTE "你翻到下一頁",0
+preface11 BYTE "『我的頭髮啊啊啊，我不想變芭比娃娃QAQ    BY 。。。。。』",0
+preface12 BYTE "你再翻到下一頁",0
+preface13 BYTE "『看來叫李O赫的都會拿冠軍  李真強 lol  BY py not piyan』",0
+preface14 BYTE "『我好冷啊。。。看來要買一些保暖的東西了   BY 我不淋雨』",0
+preface15 BYTE "「這些到底是什麼啊，真奇怪。」",0
+preface16 BYTE "你翻到日記本最後一頁",0
+preface17 BYTE "『親愛的挑戰者您好～歡迎您來到《組合yuan--文字遊戲大冒險》",0
+preface18 BYTE "相信您一定非常期待展開冒險了對吧 !』",0
+preface19 BYTE "「......」",0
+preface20 BYTE "『您一定很好奇為什麼你在這裡對吧，答案就是......沒有原因！』",0
+preface22 BYTE "「幹」",0
+preface23 BYTE "『您需要在這間房間內找尋線索逃脫，",0
+preface24 BYTE "按下【空白鍵】時可以查看物品，",0
+preface25 BYTE "按下【E】時，可以使用道具欄內的道具，",0
+preface26 BYTE "按下【W/S/A/D】時分別是上/下/左/右移動，以上就是遊戲規則。",0
+preface27 BYTE "祝您能夠運用各種「文字」的邏輯思維，順利逃出生天！",0
+preface28 BYTE "To be or not to be continue』",0
+preface29 BYTE "【請按P開始遊戲】",0
 
 
 prefacexy COORD <40, 15>
 ;-----------------------------------------------bg------------------------------------------------------------
 
-boxTop    BYTE BoxWidth DUP("��")
-boxBody   BYTE "��", (BoxWidth - 2) DUP('�@'), "��"		
-boxBottom BYTE BoxWidth DUP("��")
+boxTop    BYTE BoxWidth DUP("牆")
+boxBody   BYTE "牆", (BoxWidth - 2) DUP('　'), "窗"		
+boxBottom BYTE BoxWidth DUP("牆")
 wallxy COORD <2,2>	
 
-toolBox BYTE "�D����G",0
+toolBox BYTE "道具欄：",0
 Boxxy COORD <2,42>
 
-;---------------------------------------- �D�e�� -----------------------------------
+;---------------------------------------- 主畫面 -----------------------------------
 
-mainbg0   BYTE 26 DUP('�@'), "�D", 3 DUP('�@'), 2 DUP("��"), 16 DUP('�@'), 2 DUP("�O"), 16 DUP('�@'), 2 DUP("��"),0  ;loop 4 ��
-mainbg1   BYTE 26 DUP('�@'), "�D", 3 DUP('�@'), 18 DUP("��"), 2 DUP("�O"), 18 DUP("��"),0  
-mainbg2   BYTE 26 DUP('�@'), "�D", 3 DUP('�@'), 18 DUP('�@'), 2 DUP("�O"), 18 DUP('�@'), 0 ;2~8 �i��W�P
-mainbg3   BYTE 26 DUP('�@'), "�D", 3 DUP('�@'), 18 DUP('�@'), 2 DUP("�O"), 18 DUP('�@'), 0
-mainbg4   BYTE 26 DUP('�@'), "�D", 3 DUP('�@'), 8 DUP('�@'), " ---- ", 7 DUP('�@'), 2 DUP("�O"), 8 DUP('�@'),  " ---- ", 0 
-mainbg5   BYTE 26 DUP('�@'), "�D", 3 DUP('�@'), 8 DUP('�@'), "|����|", 7 DUP('�@'), 2 DUP("�O"), 8 DUP('�@'),  "|�O�B|", 0 
-mainbg6   BYTE 26 DUP('�@'), "�D", 3 DUP('�@'), 8 DUP('�@'), " ---- ", 7 DUP('�@'), 2 DUP("�O"), 8 DUP('�@'),  " ---- ", 0 
-mainbg7   BYTE 26 DUP('�@'), "�D", 3 DUP('�@'), 18 DUP('�@'), 2 DUP("�O"), 18 DUP('�@'), 0
-mainbg8   BYTE 26 DUP('�@'), "�D", 3 DUP('�@'), 18 DUP('�@'), 2 DUP("�O"), 18 DUP('�@'), 0
-mainbg10  BYTE 26 DUP('�@'), "�D", 41 DUP('�@'), 0 ; loop 6��
-mainbg11  BYTE 10 DUP('�D'), "��", 10 DUP('�D'), 2 DUP("��"), 3 DUP('�D'), "�D", 41 DUP('�@'), 0
-mainbg12  BYTE 37 DUP('�@'), 0 ;loop 5��
-mainbg13  BYTE 30 DUP('�@'), 18 DUP('�@'), 2 DUP("�O"), 18 DUP('�@'), 0 ;13~19 �i��W�P
-mainbg14  BYTE 30 DUP('�@'), 18 DUP('�@'), 2 DUP("�O"), 18 DUP('�@'), 0 
-mainbg15  BYTE 30 DUP('�@'), 8 DUP('�@'), " ---- ", 7 DUP('�@'), 2 DUP("�O"), 8 DUP('�@'),  " ---- ", 0 
-mainbg16  BYTE 30 DUP('�@'), 8 DUP('�@'), "| �� |", 7 DUP('�@'), 2 DUP("�O"), 8 DUP('�@'),  "|�ޢ�|", 0 
-mainbg17  BYTE 30 DUP('�@'), 8 DUP('�@'), " ---- ", 7 DUP('�@'), 2 DUP("�O"), 8 DUP('�@'),  " ---- ", 0 
-mainbg18  BYTE 30 DUP('�@'), 18 DUP('�@'), 2 DUP("�O"), 18 DUP('�@'),0  
-mainbg19  BYTE 30 DUP('�@'), 18 DUP('�@'), 2 DUP("�O"), 18 DUP('�@'), 0 
-mainbg21  BYTE 30 DUP('�@'), 18 DUP("��"), 2 DUP("�O"), 18 DUP("��"),0 
-mainbg22  BYTE 30 DUP('�@'), 2 DUP("��"), 16 DUP('�@'), 2 DUP("�O"), 16 DUP('�@'), 2 DUP("��"),0  ;loop 4 ��
+mainbg0   BYTE 26 DUP('　'), "浴", 3 DUP('　'), 2 DUP("桌"), 16 DUP('　'), 2 DUP("板"), 16 DUP('　'), 2 DUP("桌"),0  ;loop 4 次
+mainbg1   BYTE 26 DUP('　'), "浴", 3 DUP('　'), 18 DUP("桌"), 2 DUP("板"), 18 DUP("桌"),0  
+mainbg2   BYTE 26 DUP('　'), "浴", 3 DUP('　'), 18 DUP('　'), 2 DUP("板"), 18 DUP('　'), 0 ;2~8 可放名牌
+mainbg3   BYTE 26 DUP('　'), "浴", 3 DUP('　'), 18 DUP('　'), 2 DUP("板"), 18 DUP('　'), 0
+mainbg4   BYTE 26 DUP('　'), "浴", 3 DUP('　'), 8 DUP('　'), " ---- ", 7 DUP('　'), 2 DUP("板"), 8 DUP('　'),  " ---- ", 0 
+mainbg5   BYTE 26 DUP('　'), "浴", 3 DUP('　'), 8 DUP('　'), "|７７|", 7 DUP('　'), 2 DUP("板"), 8 DUP('　'),  "|淋雨|", 0 
+mainbg6   BYTE 26 DUP('　'), "浴", 3 DUP('　'), 8 DUP('　'), " ---- ", 7 DUP('　'), 2 DUP("板"), 8 DUP('　'),  " ---- ", 0 
+mainbg7   BYTE 26 DUP('　'), "浴", 3 DUP('　'), 18 DUP('　'), 2 DUP("板"), 18 DUP('　'), 0
+mainbg8   BYTE 26 DUP('　'), "浴", 3 DUP('　'), 18 DUP('　'), 2 DUP("板"), 18 DUP('　'), 0
+mainbg10  BYTE 26 DUP('　'), "浴", 41 DUP('　'), 0 ; loop 6次
+mainbg11  BYTE 10 DUP('浴'), "閂", 10 DUP('浴'), 2 DUP("鏡"), 3 DUP('浴'), "浴", 41 DUP('　'), 0
+mainbg12  BYTE 37 DUP('　'), 0 ;loop 5次
+mainbg13  BYTE 30 DUP('　'), 18 DUP('　'), 2 DUP("板"), 18 DUP('　'), 0 ;13~19 可放名牌
+mainbg14  BYTE 30 DUP('　'), 18 DUP('　'), 2 DUP("板"), 18 DUP('　'), 0 
+mainbg15  BYTE 30 DUP('　'), 8 DUP('　'), " ---- ", 7 DUP('　'), 2 DUP("板"), 8 DUP('　'),  " ---- ", 0 
+mainbg16  BYTE 30 DUP('　'), 8 DUP('　'), "| 圓 |", 7 DUP('　'), 2 DUP("板"), 8 DUP('　'),  "|ＰＹ|", 0 
+mainbg17  BYTE 30 DUP('　'), 8 DUP('　'), " ---- ", 7 DUP('　'), 2 DUP("板"), 8 DUP('　'),  " ---- ", 0 
+mainbg18  BYTE 30 DUP('　'), 18 DUP('　'), 2 DUP("板"), 18 DUP('　'),0  
+mainbg19  BYTE 30 DUP('　'), 18 DUP('　'), 2 DUP("板"), 18 DUP('　'), 0 
+mainbg21  BYTE 30 DUP('　'), 18 DUP("桌"), 2 DUP("板"), 18 DUP("桌"),0 
+mainbg22  BYTE 30 DUP('　'), 2 DUP("桌"), 16 DUP('　'), 2 DUP("板"), 16 DUP('　'), 2 DUP("桌"),0  ;loop 4 次
 
 mainbgxy COORD <4, 3>
 
-maindoor BYTE "��", 0
+maindoor BYTE "閂", 0
 maindoorxy COORD <2, 30>
 
-maindoor1 BYTE "��", 0
+maindoor1 BYTE "門", 0
 
-mirror BYTE "����", 0
+mirror BYTE "鏡鏡", 0
 mirror1xy COORD <46, 21>
 mirror2xy COORD <48, 21>
 
 
-menucontentspace BYTE 26 DUP("�@")
+menucontentspace BYTE 26 DUP("　")
 menucontentspacexy COORD <4, 3>
 
-menucontent0 BYTE "�S�^��̪쪺�_�I", 0
-menucontent1 BYTE "�b�b�a���b��l�e", 0
-menucontent2 BYTE "�o�̬O�D�� ", 0
-menucontent3 BYTE "���i�H���s�O�H�~���O `^�� ", 0
+menucontent0 BYTE "又回到最初的起點", 0
+menucontent1 BYTE "呆呆地站在鏡子前", 0
+menucontent2 BYTE "這裡是浴室 ", 0
+menucontent3 BYTE "怎麼可以偷窺別人洗澡呢 `^′ ", 0
 
 
 menucontent4 BYTE "level1", 0
 menucontent5 BYTE "level2", 0
-menucontent6 BYTE "level3", 0
-menucontent7 BYTE "�٨S���A���n�s�� @#$%^&*", 0
+menucontent6 BYTE "欸欸欸，前面還沒解完想幹嘛", 0
+menucontent7 BYTE "還沒醒，不要叫我 @#$%^&*", 0
 
-menucontent10 BYTE "���߱z���\�k�X�ͤѡI", 0
-menucontent11 BYTE "�O��O��A���W�N��X�h�F", 0
+menucontent10 BYTE "恭喜您成功逃出生天！", 0
+menucontent11 BYTE "別急別急，馬上就能出去了", 0
 
 menucontentxyinitial COORD <14, 9>
 menucontentxy COORD <14, 9>
@@ -171,81 +171,81 @@ menucontentxy COORD <14, 9>
 
 level1end BYTE 0
 
-micro_wave BYTE   "�n�N��A�̪�����Ҧ��R�@�e�@�M�A�b�H�N���V�ѦY�W��X�o�窺�j���֩w�W���֪��ԡI",0
-micro_wave1 BYTE  "��...����W���w�g�n���F�����A",0
-micro_wave2 BYTE  "�쥻�Q���j�����[���A���Ǥͫ�ĳ�ڥi�H���L�i�l�C�A",0
-micro_wave3 BYTE  "���N���h�[���F��...�H",0
+micro_wave BYTE   "好冷喔，最近麥當勞有買一送一誒，在寒冷的冬天吃上剛出油鍋的大薯肯定超幸福的拉！",0
+micro_wave1 BYTE  "啊...怎麼桌上的已經軟掉了ㄚㄚ，",0
+micro_wave2 BYTE  "原本想拿吹風機加熱，但室友建議我可以放到微波爐耶，",0
+micro_wave3 BYTE  "那就拿去加熱了喔...？",0
 
-no_get_fries BYTE "���A�O�n������աH�ġH�A�����N��H�~��}��..."
-fries BYTE "��o�N�����j���@���A�����N��H�~��}��..."
+no_get_fries BYTE "阿你是要炸什麼啦？＿？，按任意鍵以繼續破關..."
+fries BYTE "獲得冷掉的大薯一份，按任意鍵以繼續破關..."
 
-whitebg BYTE "�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@      �@�@�@�@",0
-cold_fries BYTE  "�@�ġ@�@�@�@�ġ@�@�@�@�ġ@�@�@�@�ġ@�@�@�@�ġ@",0
-cold_fries1 BYTE "�U�@�U�@�@�U�@�U�@�@�U�@�U�@�@�U�@�U�@�@�U�@�U",0
-cold_fries2 BYTE "�U�@�U�@�@�U�@�U�@�@�U�@�U�@�@�U�@�U�@�@�U�@�U",0
-cold_fries3 BYTE "�U�@�U�@�@�U�@�U�@�@�U�@�U�@�@�U�@�U�@�@�U�@�U",0
-cold_fries4 BYTE "�U�@�U�@�@�U�@�U�@�@�U�@�U�@�@�U�@�U�@�@�U�@�U",0
-cold_fries5 BYTE "�U�@�U�@�@�U�@�U�@�@�U�@�U�@�@�U�@�U�@�@�U�@�U",0
-cold_fries6 BYTE "�@�ġ@�@�@�@�ġ@�@�@�@�ġ@�@�@�@�ġ@�@�@�@�ġ@",0
-oil_pot BYTE "�U�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�U",0
-oil_pot1 BYTE "�U��������������������������U",0
-oil_pot2 BYTE "�U�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�U",0
-oil_pot3 BYTE "�U�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�U",0
-oil_pot4 BYTE  "�ġġġġġġġġġġġġġġġġġġġġġġġġġġ�",0
-nofries BYTE "�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@",0
+whitebg BYTE "　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　      　　　　",0
+cold_fries BYTE  "　＿　　　　＿　　　　＿　　　　＿　　　　＿　",0
+cold_fries1 BYTE "｜　｜　　｜　｜　　｜　｜　　｜　｜　　｜　｜",0
+cold_fries2 BYTE "｜　｜　　｜　｜　　｜　｜　　｜　｜　　｜　｜",0
+cold_fries3 BYTE "｜　｜　　｜　｜　　｜　｜　　｜　｜　　｜　｜",0
+cold_fries4 BYTE "｜　｜　　｜　｜　　｜　｜　　｜　｜　　｜　｜",0
+cold_fries5 BYTE "｜　｜　　｜　｜　　｜　｜　　｜　｜　　｜　｜",0
+cold_fries6 BYTE "　＿　　　　＿　　　　＿　　　　＿　　　　＿　",0
+oil_pot BYTE "｜　　　　　　　　　　　　　　　　　　　　　　　　　｜",0
+oil_pot1 BYTE "｜～～～～～～～～～～～～～～～～～～～～～～～～～｜",0
+oil_pot2 BYTE "｜　　　　　　　　　　　　　　　　　　　　　　　　　｜",0
+oil_pot3 BYTE "｜　　　　　　　　　　　　　　　　　　　　　　　　　｜",0
+oil_pot4 BYTE  "＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿",0
+nofries BYTE "　　　　　　　　　　　　　　　　　　　　　　　　　　　",0
 
-cat BYTE "�@�@�ߡ@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�ߡ@",0
-cat1 BYTE "�@�߿߿ߡ@�@�@�@�@�@�@�@�@�@�@�@�@�@�߿߿�",0
-cat2 BYTE "�߿߿߿߿߿߿߿߿߿߿߿߿߿߿߿߿߿߿߿߿�",0
-cat3 BYTE "�߿߿߿߿߿߿߿߿߿߿߿߿߿߿߿߿߿߿߿߿�",0
-cat4 BYTE "�߿߿ߡ@�@�߿߿߿߿߿߿߿ߡ@�@�߿߿߿߿߿�",0
-cat5 BYTE "�߿߿ߡ@�@�߿߿߿߿߿߿߿ߡ@�@�߿߿߿߿߿�",0
-cat6 BYTE "�߿߿߿߿߿߿ߡ@�@�@�߿߿߿߿߿߿߿߿߿߿�",0
-cat7 BYTE "�߿߿߿߿߿߿߿ߡ@�߿߿߿߿߿߿߿߿߿߿߿�",0
-cat8 BYTE "�ߤ@�@�@�߿ߡ@�ߡ@�ߡ@�߿߿߿ߤ@�@�@�߿߿�",0
-cat9 BYTE "�ߤ@�@�@�߿߿ߡ@�ߡ@�߿߿߿߿ߤ@�@�@�߿߿�",0
-cat10 BYTE "�߿߿߿߿߿߿߿߿߿߿߿߿߿߿߿߿߿߿߿߿�",0
-cat11 BYTE "�߿߿߿߿߿߿߿߿߿߿߿߿߿߿߿߿߿߿߿߿�",0
-cat12 BYTE "�߿߿߿߿߿߿߿߿߿߿߿߿߿߿߿߿߿߿߿߿�",0
-cat13 BYTE "�߿߿߿߿߿߿߿߿߿߿߿߿߿߿߿߿߿߿߿߿�",0
-cat14 BYTE "�߿߿߿߿߿߿߿߿߿߿߿߿߿߿߿߿߿߿߿߿�",0
-cat15 BYTE "�߿߿߿߿߿߿߿߿߿߿߿߿߿߿߿߿߿߿߿߿�",0
+cat BYTE "　　貓　　　　　　　　　　　　　　　　貓　",0
+cat1 BYTE "　貓貓貓　　　　　　　　　　　　　　貓貓貓",0
+cat2 BYTE "貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓",0
+cat3 BYTE "貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓",0
+cat4 BYTE "貓貓貓　　貓貓貓貓貓貓貓貓　　貓貓貓貓貓貓",0
+cat5 BYTE "貓貓貓　　貓貓貓貓貓貓貓貓　　貓貓貓貓貓貓",0
+cat6 BYTE "貓貓貓貓貓貓貓　　　貓貓貓貓貓貓貓貓貓貓貓",0
+cat7 BYTE "貓貓貓貓貓貓貓貓　貓貓貓貓貓貓貓貓貓貓貓貓",0
+cat8 BYTE "貓一一一貓貓　貓　貓　貓貓貓貓一一一貓貓貓",0
+cat9 BYTE "貓一一一貓貓貓　貓　貓貓貓貓貓一一一貓貓貓",0
+cat10 BYTE "貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓",0
+cat11 BYTE "貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓",0
+cat12 BYTE "貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓",0
+cat13 BYTE "貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓",0
+cat14 BYTE "貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓",0
+cat15 BYTE "貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓貓",0
 
-cat_close_eye BYTE "�߿߿߳����߿߿߿߿߿߿߿߳����߿߿߿߿߿�",0
-cat_saying BYTE "�A���D����������������ɨ��������������|�X�{�p��ܡH",0
-cat_clear BYTE "�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@",0
-cat_saying1 BYTE "�@�@�@�ФJ�@�@�@�@�@�J�@�@�@�@",0
-cat_saying2 BYTE "�]�ס@���@�@�J�@�@���@�@�ס@�^",0
-cat_saying3 BYTE "�ڥu���@���I�I�I",0
+cat_close_eye BYTE "貓貓貓閉眼貓貓貓貓貓貓貓貓閉眼貓貓貓貓貓貓",0
+cat_saying BYTE "你知道把ｂｉｎｏｍｉａｌ推導到ｐｏｉｓｓｏｎ會出現喵桑嗎？",0
+cat_clear BYTE "　　　　　　　　　　　　　　　　　　　　　　　　　　　　　",0
+cat_saying1 BYTE "　　　－入　　　　　入　　　　",0
+cat_saying2 BYTE "（＝　ｅ　　入　　ｅ　　＝　）",0
+cat_saying3 BYTE "我只說一次！！！",0
 
-fried_fries BYTE "�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@",0
-fried_fries1 BYTE "�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�������@�@�@�@�@�@�@�@�@�@�@�@",0
-fried_fries2 BYTE "�@�@�@�@�@�@���@�@�@�@�@�@�@�@�@�@�������@�@�@�@�@�@�@�@�@�@�@�@",0
-fried_fries3 BYTE "�@�@�@�@�@�@���@�@���@�@�@�@�@�@�@�������@�@���������@�@�@�������@�@�@�@�@",0
-fried_fries4 BYTE "�@�@�@�@�@�@���@�@�����@�@�������@�����@�@�@���������@�@�@���������@�@�@�@",0
-fried_fries5 BYTE "�@�@�@�@�@�@���@�@�����@�@�������@�����@�@�@���������@�@���������@�@�@�@",0
-fried_fries6 BYTE "�@�@�@�@�@�@���@�@�����@�@�������@�������@�@���������@�@���������@�@�@�@�@",0
-fried_fries7 BYTE "�@�@�@�@�@�@���@�@�����@�@�������@�������@�@�������@�@���������@�@�@�@�@",0
-fried_fries8 BYTE "�@�@�@�@�@�@���@�@�����@�@�������@�������@�@�������@�@�������@�@�@�@�@�@",0
-fried_fries9 BYTE "�@�@�@�@�@�@�����@�����@�@�����@�@�������@�@�������@�@�������@�@�@�@�@�@",0
-fried_fries10 BYTE "�@�@�@�@�@�����������������������������������������������������@�@�@�@�@",0
-fried_fries11 BYTE "�@�@�@�@�@�@���������������������������������������������������@�@�@�@�@",0
-fried_fries12 BYTE "�@�@�@�@�@�@���������������������������������������������������@�@�@�@�@",0
-fried_fries13 BYTE "�@�@�@�@�@�@���������������@�@�@���@�������@�@���������������@�@�@�@�@�@",0
-fried_fries14 BYTE "�@�@�@�@�@�@�@�������������@�@�����@�@�@�@���@�@�������������@�@�@�@�@�@",0
-fried_fries15 BYTE "�@�@�@�@�@�@�@�������������@�@�������@�@�����@�@�������������@�@�@�@�@�@",0
-fried_fries16 BYTE "�@�@�@�@�@�@�@�������������@�@�������@�@�����@�@�����������@�@�@�@�@�@�@",0
-fried_fries17 BYTE "�@�@�@�@�@�@�@�@�����������@�@�������@�@�����@�@�����������@�@�@�@�@�@�@",0
-fried_fries18 BYTE "�@�@�@�@�@�@�@�@�����������@�@�������@�@�����@�@�����������@�@�@�@�@�@�@",0
-fried_fries19 BYTE "�@�@�@�@�@�@�@�@�@���������������������������������������@�@�@�@�@�@�@�@",0
-fried_fries20 BYTE "�@�@�@�@�@�@�@�@�@���������������������������������������@�@�@�@�@�@�@�@",0
-fried_fries21 BYTE "�@�@�@�@�@�@�@�@�@���������������������������������������@�@�@�@�@�@�@�@",0
-fried_fries22 BYTE "�@�@�@�@�@�@�@�@�@�������������������������������������@�@�@�@�@�@�@",0
-fried_fries23 BYTE "�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@",0
+fried_fries BYTE "　　　　一一一一一　　　　　　一一一一一　　　　　　一一一一一　　　　　",0
+fried_fries1 BYTE "　　　　一一一一一　　　　　　一一當當當　　一一一一一　　　　　",0
+fried_fries2 BYTE "　　一　　　當　　　　　　　　一　當當當　　一　　一一一　　　　",0
+fried_fries3 BYTE "一一一　　　當　　當　　一　　　　當當當　　當當當當　一　當當當　　一一一",0
+fried_fries4 BYTE "一一一　　　當　　當當　　當當當　當當　　　當當當當　　　當當當當　一一一",0
+fried_fries5 BYTE "　　　　　　當　　當當　　當當當　當當　　　當當當當　　當當當當　　　　",0
+fried_fries6 BYTE "　　　　　　當　　當當　　當當當　當當當　　當當當當　　當當當當　一　　　",0
+fried_fries7 BYTE "　　　　　　當　　當當　　當當當　當當當　　當當當　　當當當當　　　　　",0
+fried_fries8 BYTE "一一一一一　當　　當當　　當當當　當當當　　當當當　　當當當　　一一一一",0
+fried_fries9 BYTE "一一一一　　當當　當當　　當當　　當當當　　當當當　　當當當　一一一一一",0
+fried_fries10 BYTE "一一一一一麥麥麥麥麥麥麥麥麥麥麥麥麥麥麥麥麥麥麥麥麥麥麥麥麥麥　一一一一",0
+fried_fries11 BYTE "　　　　一　麥麥麥麥麥麥麥麥麥麥麥麥麥麥麥麥麥麥麥麥麥麥麥麥麥　　　　　",0
+fried_fries12 BYTE "　　　　一　麥麥麥麥麥麥麥麥麥麥麥麥麥麥麥麥麥麥麥麥麥麥麥麥麥一　　　　",0
+fried_fries13 BYTE "　　　　一一麥麥麥麥麥麥麥　　　麥　麥麥麥　　麥麥麥麥麥麥麥　　　　　　",0
+fried_fries14 BYTE "一一一一　　　麥麥麥麥麥麥一一麥麥　一一　麥　　麥麥麥麥麥麥　一一一一一",0
+fried_fries15 BYTE "一一一一　　　麥麥麥麥麥麥　一麥麥麥一　麥麥　　麥麥麥麥麥麥　　一一一一",0
+fried_fries16 BYTE "一一一一　　一麥麥麥麥麥麥一一麥麥麥一　麥麥　　麥麥麥麥麥　　　一一一一",0
+fried_fries17 BYTE "　　　　一一一　麥麥麥麥麥一一麥麥麥一　麥麥　　麥麥麥麥麥　一一　　　　",0
+fried_fries18 BYTE "　　　　一一一　麥麥麥麥麥　　麥麥麥　　麥麥　　麥麥麥麥麥一一一　　　　",0
+fried_fries19 BYTE "一一一一　　　一　麥麥麥麥麥麥麥麥麥麥麥麥麥麥麥麥麥麥麥　　　　一一一一",0
+fried_fries20 BYTE "一一一一　　　　　麥麥麥麥麥麥麥麥麥麥麥麥麥麥麥麥麥麥麥　　　　一一一一",0
+fried_fries21 BYTE "一一一一　　　　　麥麥麥麥麥麥麥麥麥麥麥麥麥麥麥麥麥麥麥一　　　一一一一",0
+fried_fries22 BYTE "　　　　一一一一一麥麥麥麥麥麥麥麥麥麥麥麥麥麥麥麥麥麥　一一一一　　",0
+fried_fries23 BYTE "　　　　一一一一一　　　　　　一一一一一一　　　　　一一一一一　　",0
 
-fried_french_fries_announce BYTE "���ߧA��me��������!��o��M�@��",0
-fried_french_fries_announce1 BYTE "�a�ۥL�h��M�U�@���a",0
-fried_french_fries_announce2 BYTE "���U�ť��䵲��(��~��)881",0
+fried_french_fries_announce BYTE "恭喜你幫me炸完薯條!獲得菜刀一把",0
+fried_french_fries_announce1 BYTE "帶著他去找尋下一關吧",0
+fried_french_fries_announce2 BYTE "按下空白鍵結束(ˊ~ˋ)881",0
 
 
 cold_friesxy COORD <43,12>
@@ -259,57 +259,57 @@ cat_sayingxy COORD <75, 30>
 
 cellsWritten DWORD ?
 
-get_cold_fries BYTE "�j��",0
-get_cold_friesspace BYTE "�@�@",0
+get_cold_fries BYTE "大薯",0
+get_cold_friesspace BYTE "　　",0
 whether_get_cold_fries BYTE 0
 move_step BYTE 0
 cat_say_time BYTE 0
 
 ;------------------------------------------level2--------------------------------------------------------------
-l2tol3 BYTE "���ߧA�q�L�ĤG��", 0 
-l2tol31 BYTE "��o�q�����y�G����٤U�����C", 0
-money BYTE 68 DUP('�C')
-change BYTE 136 DUP('�h')
-moneyspace BYTE 68 DUP('�@')
+l2tol3 BYTE "恭喜你通過第二關", 0 
+l2tol31 BYTE "獲得通關獎勵：砍價省下的錢＄", 0
+money BYTE 68 DUP('＄')
+change BYTE 136 DUP('▇')
+moneyspace BYTE 68 DUP('　')
 l2tol3xy COORD <50, 15>
 moneyxy COORD <4,3>
 
-content BYTE "�ƨ�ig�W�@��v�Y���ɬV�v�@�~",0
-content1 BYTE "�n�n�ݡA�n�Q�h�V��", 0
-content2 BYTE "�p�G�گ���֦��@�Y�}�G���L���⺥�h�Y�@�w�ܴΡI", 0
-content3 BYTE "��......", 0
-content4 BYTE "����ܦ��å����F�I�Y�s�ġs�Y", 0
-content5 BYTE "�Y�v�ש��ܦ��n�ݪ����h����F", 0
-content6 BYTE "�]�w���@�ݥ����f�b", 0
-content7 BYTE "�z�a�A�o�O����L�}�v�Y�A�V���Y�v���M�n�o��Q�I", 0
-content8 BYTE "���]�n���_�F�A���i��n�E�d��A���", 0
+content BYTE "滑到ig上一堆髮廊分享染髮作品",0
+content1 BYTE "好好看，好想去染唷", 0
+content2 BYTE "如果我能夠擁有一頭漂亮的淺粉色漸層頭一定很棒！", 0
+content3 BYTE "啊......", 0
+content4 BYTE "怎麼變成螢光粉了！凸︿＿︿凸", 0
+content5 BYTE "頭髮終於變成好看的漸層粉色了", 0
+content6 BYTE "（定睛一看目瞪口呆", 0
+content7 BYTE "哇靠，這是什麼無良髮廊，染個頭髮竟然要這麼貴！", 0
+content8 BYTE "錢包要哭泣了，怎麼可能要九千圓，嗚嗚", 0
 contentxy COORD <12, 8>
 contentcount BYTE 0
 
-toolcontent BYTE "�O�i�H���C��}�ժ��}�դ��C", 0
-toolcontent1 BYTE "�z�ɡI�ܦn�ݤF�I�ӷP�ʤF��", 0
-toolcontent2 BYTE "�h���F�A�o�ӡu��v�������", 0
-toolcontent3 BYTE "�٤U�F�@�j�����C�C�C", 0
+toolcontent BYTE "是可以把顏色漂白的漂白水耶", 0
+toolcontent1 BYTE "哇賽！變好看了！太感動了～", 0
+toolcontent2 BYTE "多虧了你這個「砍」價高手～", 0
+toolcontent3 BYTE "省下了一大筆錢＄＄＄", 0
 
-tool0 BYTE "�M", 0
+tool0 BYTE "刀", 0
 tool0get DWORD 0
 
-tool1 BYTE "�}�դ�", 0
+tool1 BYTE "漂白水", 0
 tool1get DWORD 0
 
-tool2 BYTE "��",0
+tool2 BYTE "虫",0
 tool2get DWORD 0
 tool2xy COORD <28, 17>
 
-tool3 BYTE "�a",0
+tool3 BYTE "兀",0
 tool3get DWORD 0
 tool3xy COORD <30, 17>
 
-tool4 BYTE "�Q",0
+tool4 BYTE "十",0
 tool4get DWORD 0
 tool4xy COORD <38, 17>
 
-tool5 BYTE "�@",0
+tool5 BYTE "一",0
 tool5get DWORD 0
 tool5xy COORD <38, 17>
 
@@ -322,15 +322,15 @@ tool7get DWORD 0
 
 tool8xy COORD <>
 
-tool8 BYTE "�u��", 0
+tool8 BYTE "線圈", 0
 
-tool9 BYTE "�q��",0
+tool9 BYTE "電池",0
 
-tool10 BYTE "�q���K",0
+tool10 BYTE "電池鐵",0
 
-tool11 BYTE "�@�@�@�@�@�@�@�@�@�@",0
+tool11 BYTE "　　　　　　　　　　",0
 
-toolend BYTE "���줧�_",0
+toolend BYTE "鎮寢之寶",0
 toolendget DWORD 0
 ;---------------------------------------- level 3 by py -----------------------------------
 be_master PROTO
@@ -345,87 +345,87 @@ move_down32 PROTO
 
 tool1_3 BYTE " $$ ",0
 tool11_3 BYTE " $  ",0	
-tool2_3 BYTE " ���� ",0
-tool3_3 BYTE " �c�l ",0
-tool4_3 BYTE " ����c�l ",0
+tool2_3 BYTE " 芋圓 ",0
+tool3_3 BYTE " 柚子 ",0
+tool4_3 BYTE " 芋圓柚子 ",0
 tool3_xy COORD <10,42>
 tool3_1xy COORD <14, 42>
 get_tool BYTE 0
-tool5_3 BYTE "�@���Z�l",0
-tool6_3 BYTE "����Z�l",0
-tool7_3 BYTE "�T���Z�l",0
-tool8_3 BYTE "�|���Z�l",0
+tool5_3 BYTE "一個鵝子",0
+tool6_3 BYTE "兩個鵝子",0
+tool7_3 BYTE "三個鵝子",0
+tool8_3 BYTE "四個鵝子",0
 tool3_2xy COORD <10,42>
-tool_3 BYTE "�K��",0
+tool_3 BYTE "鐵棒",0
 
-tool_clear BYTE "�@�@�@�@�@�@�@�@", 0
+tool_clear BYTE "　　　　　　　　", 0
 toolcxy COORD <10,42>
 
-clearspace BYTE 68 DUP('�@')
+clearspace BYTE 68 DUP('　')
 clearxy COORD <4, 4>
-ending_clear BYTE 68 DUP('�~')
+ending_clear BYTE 68 DUP('ㄏ')
 
-level3_1 BYTE   "�ջy�������i�٨S�����A��",0 ;y=8
-level3_1_2 BYTE   "�n�j��OAO",0
-level3_2  BYTE  "�h�d�]��R�P��[����Y�n�F",0
-level3_3  BYTE  "�J���٦��c�l�i�H�t",0
-level3_4  BYTE  "���١A�A�̪��D....",0
-level3_5  BYTE  " : �� ����ա@�ܤ��n���@�b!!!!",0
+level3_1 BYTE   "組語期末報告還沒打完，但",0 ;y=8
+level3_1_2 BYTE   "好餓喔OAO",0
+level3_2  BYTE  "去宵夜街買仙草加芋圓吃好了",0
+level3_3  BYTE  "宿舍還有柚子可以配",0
+level3_4  BYTE  "欸欸，你們知道....",0
+level3_5  BYTE  " : 蛤 什麼啦　話不要講一半!!!!",0
 level3_6  BYTE  "----------------------------------",0
-level3_7  BYTE  "���Ȥ@�G ",0
-level3_8  BYTE  "���Ǥ��~�����U�h.... ",0
-level3_9  BYTE  "-----------(���ʥH�}�l)------------",0
-level3_91  BYTE  "�A�n�F�� ���n�����c� ���I��!!",0
+level3_7  BYTE  "任務一： ",0
+level3_8  BYTE  "讓室友繼續講下去.... ",0
+level3_9  BYTE  "-----------(移動以開始)------------",0
+level3_91  BYTE  "你好了啦 不要芋言柚止的 快點講!!",0
 textcount BYTE 0 
 textxy COORD <12,8>
 mexy_3 COORD <12,8>
 
-level3_10 BYTE   "���n��",0
-level3_11 BYTE   "�A�̪��D������Y���׳J�R�q���ɭ�",0
-level3_12  BYTE  "�J���|�ƤU�h�� ",0
-level3_13  BYTE  "�]���ɶ��[�F�N�|�J���F: )",0
-level3_14  BYTE  " : �A�n�F�ճ��L",0
-level3_15  BYTE  "�n���ڭ̤W���h�R���Z�l(����)�{�A!!!",0
+level3_10 BYTE   "齁好啦",0
+level3_11 BYTE   "你們知道為什麼吃雞肉蛋吐司的時候",0
+level3_12  BYTE  "蛋都會滑下去嗎 ",0
+level3_13  BYTE  "因為時間久了就會蛋掉了: )",0
+level3_14  BYTE  " : 你好了啦閉嘴",0
+level3_15  BYTE  "要拿我們上次去買的鵝子(玩偶)砸你!!!",0
 level3_16  BYTE  "----------------------------------",0
-level3_17  BYTE  "���ȤG�G ",0
-level3_18  BYTE  "���Ǥͳ��L(���n�N�n...)... ",0
-level3_19  BYTE  "-----------(���ʥH�}�l)-----------",0
+level3_17  BYTE  "任務二： ",0
+level3_18  BYTE  "讓室友閉嘴(剛剛好就好...)... ",0
+level3_19  BYTE  "-----------(移動以開始)-----------",0
 text2xy COORD <12,8>
 me2xy_3 COORD <12,23>
 
-get_mes1 BYTE  "��o�Z�l�@��", 0
-get_mes2 BYTE  "�A�h���@�Ǭݬ� ?", 0
-get_mes3 BYTE  "�٤���!!", 0
-get_mes4 BYTE  "�h�ոլݧaouo", 0
-get_mes5 BYTE  "�n�F�հ��F��", 0
+get_mes1 BYTE  "獲得鵝子一隻", 0
+get_mes2 BYTE  "再多拿一些看看 ?", 0
+get_mes3 BYTE  "還不夠!!", 0
+get_mes4 BYTE  "去試試看吧ouo", 0
+get_mes5 BYTE  "好了啦夠了啦", 0
 get_mes COORD <12, 33>
 
-showresult BYTE   ": ���ھA�i�Z���!!",0
-showresult2 BYTE   "�ٳo�ӭ����� ���L",0
+showresult BYTE   ": 給我適可鵝止啦!!",0
+showresult2 BYTE   "欸這諧音不錯 給過",0
 showresult3 BYTE   ": ??????????????",0
 
-ending1 BYTE  "��o�q���D��u�K�Ρv", 0
-ending2 BYTE  "���߳q�L�ĤT��owo", 0
-ending3 BYTE  "���M�A�S�����M�հ�", 0
-ending4 BYTE  "��� ���A�ݭӥi�R���F��", 0
-ending5 BYTE  "�ODora���J��", 0
+ending1 BYTE  "獲得通關道具「鐵棒」", 0
+ending2 BYTE  "恭喜通過第三關owo", 0
+ending3 BYTE  "雖然你沒有身騎白馬", 0
+ending4 BYTE  "喔對 給你看個可愛的東西", 0
+ending5 BYTE  "是Dora的碗欸", 0
 ending6 BYTE  "A-dora-bowl", 0
 
 ;------------------------------------------startword------------------------------------------------------------
 
-startword BYTE   " _______�@�@�@ �@ _______",0
-startword1 BYTE  "|�@�@�@ | �@�@�@ |�@�@ �@|",0
-startword2 BYTE  "|�@�@�@ |�@�@�@  |�@�@�@ |�@�@�@�@�@�@/�@�@�@�@�@�@ �@/",0
-startword3 BYTE  " _______�@�@�@�@  _______�@�@�@�@�@�@/�@     �@�@�@�@/",0
-startword4 BYTE  "|�@�@�@ |�@�@�@  |�@�@�@ |�@�@�@�@�@/�@�@\�@�@�@�@�@/",0
-startword5 BYTE  "|�@�@�@ |�@�@�@  |�@�@�@ |�@�@�@�@ /�@�@�@\�@�@�@�@/�@�@�@�@�@�@\",0
-startword6 BYTE  " _______�@�@�@�@  _______�@�@�@�@ __________�@�@�@�@____________",0
-startword7 BYTE  "|�@�@�@�@�@�@�@�@ �@�@�@ |�@�@�@�@ \�@�@�@/",0
-startword8 BYTE  "|�@ �@�@ ________�@�@�@�@|�@�@�@�@�@\�@�@/�@�@�@�@  ____________",0
-startword9 BYTE  "|�@�@ �@ |�@�@ | �@�@�@�@|�@�@�@�@�@ \�@/�@�@�@�@�@|�@�@�@�@�@�@|",0
-startword10 BYTE "|�@ _____|___��|______   |�@�@�@�@�@�@ /�@�@�@�@�@ |�@�@�@�@�@�@|",0
-startword11 BYTE "|�@�@ �@ |�@�@ |�@�@�@�@ |�@�@�@�@�@�@/ \�@�@�@�@�@|�@�@�@�@�@�@|",0
-startword12 BYTE "|�@�@�@  |�@�@ |�@�@�@�@ |�@�@�@�@�@�@�@�@�@�@�@�@ |____________|", 0
+startword BYTE   " _______　　　 　 _______",0
+startword1 BYTE  "|　　　 | 　　　 |　　 　|",0
+startword2 BYTE  "|　　　 |　　　  |　　　 |　　　　　　/　　　　　　 　/",0
+startword3 BYTE  " _______　　　　  _______　　　　　　/　     　　　　/",0
+startword4 BYTE  "|　　　 |　　　  |　　　 |　　　　　/　　\　　　　　/",0
+startword5 BYTE  "|　　　 |　　　  |　　　 |　　　　 /　　　\　　　　/　　　　　　\",0
+startword6 BYTE  " _______　　　　  _______　　　　 __________　　　　____________",0
+startword7 BYTE  "|　　　　　　　　 　　　 |　　　　 \　　　/",0
+startword8 BYTE  "|　 　　 ________　　　　|　　　　　\　　/　　　　  ____________",0
+startword9 BYTE  "|　　 　 |　　 | 　　　　|　　　　　 \　/　　　　　|　　　　　　|",0
+startword10 BYTE "|　 _____|___＿|______   |　　　　　　 /　　　　　 |　　　　　　|",0
+startword11 BYTE "|　　 　 |　　 |　　　　 |　　　　　　/ \　　　　　|　　　　　　|",0
+startword12 BYTE "|　　　  |　　 |　　　　 |　　　　　　　　　　　　 |____________|", 0
 startword13 BYTE "        PRESS              P            TO              PLAY",0
 startword14 BYTE "        PRESS             'P'         MOTHER           FUCKER",0
 startword15 BYTE "  I       SAID        PRESS         'P'         YOU           BITXH",0
@@ -441,20 +441,20 @@ lv4con8xy COORD <90, 8>
 lv4pright BYTE 1
 lv4cxy COORD <30, 18>
 ;------------------------level4-------------------------------------------------------------------
-lv4_con1 BYTE "��b�O�ӧN�F�I�ګ�ݶR�@����y�ӫO�x�K",0
-lv4_con2 BYTE "�ڡK���d���U�W�R�Ӫ���y�W�����s�ϳ��ڡI",0
-lv4_con3 BYTE "�ݨӭn�Q��k�⥦�Ѷ}�K",0
-lv4_con4 BYTE "�١H��W�n�����@�ǪF��K",0
-lv4_con5 BYTE "�O�h�]���ɶR�F����ت��u��B�@�ӵL�u�ƹ��M�@�ǹs���H�I",0
-lv4_con6 BYTE "�K�ڡI�o�ǪF���n�i�H�զ��q���K�I",0
-lv4_con8 BYTE "�{�b���O�Y�s�����ɭԤF!",0
-lv4_con9 BYTE "�o�ӫ��b�o�̡K�����ۦn�F�K",0
-lv4_con10 BYTE "�o�Ӹ̭����q�����Ӧ��ΡK",0
-lv4_con11 BYTE "���s�@�@�ϳ�",0
-lv4_con12 BYTE "�ש�i�H��W��y�X���F�K�١H�I�o�O����F��r�H�I�I�٥��~�I�I�I�I�I",0
-lv4_con14 BYTE "�A���\��o���줧�_�I�I�I�I�I",0
+lv4_con1 BYTE "實在是太冷了！我急需買一條圍巾來保暖…",0
+lv4_con2 BYTE "啊…怎麼千辛萬苦買來的圍巾上有防盜磁釦啊！",0
+lv4_con3 BYTE "看來要想辦法把它解開…",0
+lv4_con4 BYTE "欸？桌上好像有一些東西…",0
+lv4_con5 BYTE "是去夜市時買東西附贈的線圈、一個無線滑鼠和一些零食？！",0
+lv4_con6 BYTE "…啊！這些東西剛好可以組成電磁鐵！",0
+lv4_con8 BYTE "現在不是吃零食的時候了!",0
+lv4_con9 BYTE "這個怎麼在這裡…先拿著好了…",0
+lv4_con10 BYTE "這個裡面的電池應該有用…",0
+lv4_con11 BYTE "防盜　　磁釦",0
+lv4_con12 BYTE "終於可以穿上圍巾出門了…欸？！這是什麼東西呀？！！抹布洗！！！！！",0
+lv4_con14 BYTE "你成功獲得鎮寢之寶！！！！！",0
 
-lv4_con13 BYTE BoxWidth-2 DUP("�h�h"),0
+lv4_con13 BYTE BoxWidth-2 DUP("▇▇"),0
 lv4pl WORD 0
 lv4pb WORD 0
 lv4pa WORD 0
@@ -474,7 +474,7 @@ main PROC
 
 	; Get the console ouput handle
 	INVOKE GetStdHandle, STD_OUTPUT_HANDLE
-	mov outputHandle, eax	;�]�� GetStdHandle �|�s��eax�A�Neax�����Ȧs�JoutputHandle
+	mov outputHandle, eax	;因為 GetStdHandle 會存於eax，將eax內的值存入outputHandle
 	call Clrscr
 	
 	INVOKE WriteConsoleOutputCharacter,
@@ -639,7 +639,7 @@ main PROC
 		jmp play
 
 	pp:
-		call Random32 ; �ͦ� 32 �줸���H���ơA���G�s�x�b eax ��
+		call Random32 ; 生成 32 位元的隨機數，結果存儲在 eax 中
 		mov al, ah
 
 		mov byte ptr startxy.x, al
@@ -682,7 +682,7 @@ main PROC
 		   wallxy,	 
 		   ADDR count	 
 
-		inc wallxy.y	; ���ʨ�U�@��W�[y
+		inc wallxy.y	; 移動到下一行增加y
 
 		mov ecx, BoxHeight-2	
 
@@ -813,7 +813,7 @@ endinganime PROC
 		mov outputHandle, eax
 		call Clrscr
 	
-	;-------------------------- �W��----------------------------------
+	;-------------------------- 獨白----------------------------------
 	INVOKE WriteConsoleOutputCharacter,
 		outputHandle,	
 		ADDR ending_word,	
@@ -927,7 +927,7 @@ L:
 	add endpxy.x, 30
 
 
-	;--------------------------------------�W��--------------------
+	;--------------------------------------獨白--------------------
 	INVOKE GetStdHandle, STD_OUTPUT_HANDLE
 		mov outputHandle, eax
 		call Clrscr
@@ -943,7 +943,7 @@ L:
 		ADDR count
 	INVOKE Sleep ,4000
 
-	;------------------------�{��---------------------------
+	;------------------------閃蝦---------------------------
 	INVOKE GetStdHandle, STD_OUTPUT_HANDLE
 		mov outputHandle, eax
 		call Clrscr
@@ -1088,7 +1088,7 @@ L:
 
 	INVOKE Sleep, 4000
 
-	;---------------------------�W��-----------------------------
+	;---------------------------獨白-----------------------------
 	INVOKE GetStdHandle, STD_OUTPUT_HANDLE
 		mov outputHandle, eax
 		call Clrscr
@@ -1141,7 +1141,7 @@ L:
 	inc endcxy.y
 	INVOKE Sleep, 4000
 
-	;------------------------------------�C���s��---------------------------
+	;------------------------------------遊戲廣播---------------------------
 	INVOKE GetStdHandle, STD_OUTPUT_HANDLE
 		mov outputHandle, eax
 		call Clrscr
@@ -1168,7 +1168,7 @@ L:
 	inc endcxy.y
 	INVOKE Sleep, 2000
 
-	;---------------------------------�u�@�W��-------------------------------
+	;---------------------------------工作名單-------------------------------
 	INVOKE GetStdHandle, STD_OUTPUT_HANDLE
 		mov outputHandle, eax
 		call Clrscr
@@ -1230,7 +1230,7 @@ L:
 
 
 
-	;-------------------------------------------�P�¹C��-------------------
+	;-------------------------------------------感謝遊玩-------------------
 
 	INVOKE GetStdHandle, STD_OUTPUT_HANDLE
 		mov outputHandle, eax
@@ -1256,7 +1256,7 @@ endinganime ENDP
 
 
 
-;---------------------------------------- �D�e�� main_menu PROC -----------------------------------
+;---------------------------------------- 主畫面 main_menu PROC -----------------------------------
 main_menu PROC
 
 	INVOKE WriteConsoleOutputCharacter,
@@ -1468,7 +1468,7 @@ main_menu ENDP
 menu_move PROC
 	
 	start:
-		call ReadChar  ; �q��LŪ���@�Ӧr�� 
+		call ReadChar  ; 從鍵盤讀取一個字符 
 
 		.IF al == "d" || al == "D"
 			je colusionr
@@ -1656,7 +1656,7 @@ menu_move PROC
 		mov ebx, menucontentxyinitial
 		mov menucontentxy, ebx
 		
-		;��l
+		;鏡子
 		.IF mexy.x == 46 && mexy.y == 22
 			INVOKE WriteConsoleOutputCharacter,
 				outputHandle,
@@ -1686,7 +1686,7 @@ menu_move PROC
 				ADDR count
 		.ENDIF
 
-		;�D��
+		;浴室
 		.IF mexy.x == 24 && mexy.y == 22
 			call clear_menu
 			INVOKE WriteConsoleOutputCharacter,
@@ -1783,7 +1783,7 @@ menu_move PROC
 			nl1:
 
 
-		;��
+		;圓
 			
 			.IF mexy.x == 78 && mexy.y >29 && mexy.y <33
 				.IF level1finish == 0 || level2finish == 1
@@ -1901,7 +1901,7 @@ menu_move PROC
 					ADDR count
 			nl2:
 
-		;��
+		;羽
 		
 			.IF mexy.x == 118 && mexy.y >9 && mexy.y <13
 				.IF level3finish == 0 || level4finish == 1
@@ -2091,7 +2091,7 @@ menu_move PROC
 			mirror1xy,	
 			ADDR count	
 
-		;��l
+		;鏡子
 		.IF mexy.x == 46 && mexy.y == 22
 			INVOKE WriteConsoleOutputCharacter,
 				outputHandle,
@@ -2545,7 +2545,7 @@ draw_cat PROC
 	   inc catxy.y
 	   INVOKE Sleep, 150
 
-	   ret ;�S��ret�N�|�������� draw_touch_fries
+	   ret ;沒有ret就會直接執行 draw_touch_fries
 
 draw_cat ENDP
 
@@ -3278,7 +3278,7 @@ moving:
 			ret
 		.ENDIF
 
-		call ReadChar  ; �q��LŪ���@�Ӧr�� 
+		call ReadChar  ; 從鍵盤讀取一個字符 
 
 		cmp al, "d"
 		je colusionr
@@ -3684,7 +3684,7 @@ level2 ENDP
 
 level2move PROC
 	start:
-		call ReadChar  ; �q��LŪ���@�Ӧr�� 
+		call ReadChar  ; 從鍵盤讀取一個字符 
 
 
 		.IF al == "d" || al == "D"
@@ -4198,7 +4198,7 @@ level2_2 ENDP
 level2_2move PROC
 
 	start:
-		call ReadChar  ; �q��LŪ���@�Ӧr�� 
+		call ReadChar  ; 從鍵盤讀取一個字符 
 
 		.IF al == "d" || al == "D"
 			je colusionr
@@ -4675,7 +4675,7 @@ preface PROC
 	INVOKE Sleep, 2000
 
 	INVOKE GetStdHandle, STD_OUTPUT_HANDLE
-	mov outputHandle, eax	;�]�� GetStdHandle �|�s��eax�A�Neax�����Ȧs�JoutputHandle
+	mov outputHandle, eax	;因為 GetStdHandle 會存於eax，將eax內的值存入outputHandle
 	call Clrscr
 
 	mov prefacexy.y, 15
@@ -4714,7 +4714,7 @@ preface PROC
 	INVOKE Sleep, 2000
 
 	INVOKE GetStdHandle, STD_OUTPUT_HANDLE
-	mov outputHandle, eax	;�]�� GetStdHandle �|�s��eax�A�Neax�����Ȧs�JoutputHandle
+	mov outputHandle, eax	;因為 GetStdHandle 會存於eax，將eax內的值存入outputHandle
 	call Clrscr
 
 	mov prefacexy.y, 15
@@ -4797,7 +4797,7 @@ preface PROC
 	INVOKE Sleep, 2000
 
 	INVOKE GetStdHandle, STD_OUTPUT_HANDLE
-	mov outputHandle, eax	;�]�� GetStdHandle �|�s��eax�A�Neax�����Ȧs�JoutputHandle
+	mov outputHandle, eax	;因為 GetStdHandle 會存於eax，將eax內的值存入outputHandle
 	call Clrscr
 
 	mov prefacexy.y, 15
@@ -4814,7 +4814,7 @@ preface PROC
 	INVOKE Sleep, 2000
 
 	INVOKE GetStdHandle, STD_OUTPUT_HANDLE
-	mov outputHandle, eax	;�]�� GetStdHandle �|�s��eax�A�Neax�����Ȧs�JoutputHandle
+	mov outputHandle, eax	;因為 GetStdHandle 會存於eax，將eax內的值存入outputHandle
 	call Clrscr
 
 	mov prefacexy.y, 15
@@ -4864,7 +4864,7 @@ preface PROC
 	INVOKE Sleep, 2000
 
 	INVOKE GetStdHandle, STD_OUTPUT_HANDLE
-	mov outputHandle, eax	;�]�� GetStdHandle �|�s��eax�A�Neax�����Ȧs�JoutputHandle
+	mov outputHandle, eax	;因為 GetStdHandle 會存於eax，將eax內的值存入outputHandle
 	call Clrscr
 
 	mov prefacexy.y, 15
@@ -4892,7 +4892,7 @@ preface PROC
 	INVOKE Sleep, 2000
 
 	INVOKE GetStdHandle, STD_OUTPUT_HANDLE
-	mov outputHandle, eax	;�]�� GetStdHandle �|�s��eax�A�Neax�����Ȧs�JoutputHandle
+	mov outputHandle, eax	;因為 GetStdHandle 會存於eax，將eax內的值存入outputHandle
 	call Clrscr
 
 	mov prefacexy.y, 15
@@ -4972,7 +4972,7 @@ preface PROC
 
 	playgame:
 
-		call ReadChar  ; �q��LŪ���@�Ӧr�� 
+		call ReadChar  ; 從鍵盤讀取一個字符 
 
 		.IF al == "p" || al == "P"
 			ret
@@ -4982,10 +4982,10 @@ preface PROC
 
 preface ENDP
 
-;---------------------------------------- ���d�T �����ӭ���j�v PROC -----------------------------------
+;---------------------------------------- 關卡三 成為諧音梗大師 PROC -----------------------------------
 
 be_master PROC
-	;------------------------ draw 3-1 wall & �D���� ----------------------
+	;------------------------ draw 3-1 wall & 道具欄 ----------------------
 	 
 		INVOKE WriteConsoleOutputCharacter,
 		   outputHandle,	
@@ -5418,7 +5418,7 @@ be_master PROC
 
 	;--------------------------- level 3-2 ----------------------------
 
-	;------------------------ clear  & �D���� ----------------------
+	;------------------------ clear  & 道具欄 ----------------------
 	
 	clearall: 
 		mov get_tool, 0
