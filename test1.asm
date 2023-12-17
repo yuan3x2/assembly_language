@@ -1,3 +1,6 @@
+;修了一些小bug和加結尾動畫
+;增加的PROC叫endinganime, 變數在15行, PROC在744行, call在1688
+
 INCLUDE Irvine32.inc
 
 BoxWidth = 70d	;設定寬
@@ -9,6 +12,31 @@ space byte "　",0
 space1 byte "　　　",0
 mexy COORD <90,25>
 
+;====================================endinganime=======================
+endcxy COORD <40, 15>
+endpxy COORD <60, 10>
+
+endc1 BYTE "「你騙我！到底要怎樣才可以出去這個鬼地方」",0
+endc2 BYTE "「嗚嗚嗚線代考試嗚嗚嗚嗚嗚」",0
+
+endp1 BYTE "啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊",0
+endp2 BYTE "啊　　　　　　　　　　　　　　啊",0
+endp3 BYTE "啊　　１　　　０　　　３　　　啊",0
+endp6 BYTE "啊　　　　　　　　　　　　　　啊",0
+endp7 BYTE "啊　　　　　　　　　　　　　　啊",0
+endp8 BYTE "啊　　啊啊　　　　　　　　　　啊",0
+endp9 BYTE "啊　　啊啊　　　　　　　　　　啊",0
+endp10 BYTE "啊　　　　　　　　　　　　　　啊",0
+endp11 BYTE "門　　　　　　　　　　　　　　啊",0
+endp12 BYTE "門　　　　　　　　　　　　　　啊",0
+endp13 BYTE "門　　　　　　　　　　　　　　啊",0
+endp14 BYTE "門　　　　　　　　　　　　　　啊",0
+endp15 BYTE "啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊",0
+endp16 BYTE "製作名單：ＡＡＡ",0
+endp17 BYTE "　　　　　ＢＢＢ",0
+endp18 BYTE "　　　　　ＣＣＣ",0
+endp19 BYTE "　　　　　ＤＤＤ",0
+endp20 BYTE "感謝遊玩此遊戲！",0
 
 ;-----------------------------------------------preface------------------------------------------------------
 preface1 BYTE "「這是哪？我怎麼躺在地上？」",0
@@ -98,12 +126,19 @@ menucontent3 BYTE "怎麼可以偷窺別人洗澡呢 `^′ ", 0
 
 
 menucontent4 BYTE "那裡有貓貓！先走一步掰掰～", 0
-menucontent5 BYTE "level2", 0
-menucontent6 BYTE "level3", 0
+menucontent5 BYTE "正在染髮還沒回來", 0
+menucontent6 BYTE "欸欸欸，前面還沒解完想幹嘛", 0
 menucontent7 BYTE "還沒醒，不要叫我 @#$%^&*", 0
 
-menucontent10 BYTE "恭喜您成功逃出生天！", 0
+menucontent10 BYTE "恭喜您成功利用鎮寢之寶鎮壓住大家的怨氣", 0
+menucontent10_1 BYTE "幫助大家實現願望", 0
+menucontent10_2 BYTE "大家都很感謝你唷~下次見！", 0
 menucontent11 BYTE "別急別急，馬上就能出去了", 0
+
+menucontent12 BYTE "啊，今晚的月色真~美~", 0
+
+menucontent15 BYTE "門被拴住了打不開", 0
+menucontent16 BYTE "欸？門的把手好像有點鬆動了", 0
 
 menucontentxyinitial COORD <14, 9>
 menucontentxy COORD <14, 9>
@@ -119,7 +154,7 @@ micro_wave3 BYTE  "那就拿去加熱了喔...？",0
 no_get_fries BYTE "阿你是要炸什麼啦？＿？，按任意鍵以繼續破關..."
 fries BYTE "獲得冷掉的大薯一份，按任意鍵以繼續破關..."
 
-whitebg BYTE BoxWidth-4 DUP("　"),0
+whitebg BYTE BoxWidth-2 DUP("　"),0
 cold_fries BYTE  "　＿　　　　＿　　　　＿　　　　＿　　　　＿　",0
 cold_fries1 BYTE "｜　｜　　｜　｜　　｜　｜　　｜　｜　　｜　｜",0
 cold_fries2 BYTE "｜　｜　　｜　｜　　｜　｜　　｜　｜　　｜　｜",0
@@ -360,7 +395,7 @@ lv4_con5 BYTE "是去夜市時買東西附贈的線圈、一個無線滑鼠和一些零食？！",0
 lv4_con6 BYTE "…啊！這些東西剛好可以組成電磁鐵！",0
 lv4_con8 BYTE "現在不是吃零食的時候了!",0
 lv4_con9 BYTE "這個怎麼在這裡…先拿著好了…",0
-lv4_con10 BYTE "這個好像有什麼用處…",0
+lv4_con10 BYTE "這個裡面的電池應該有用…",0
 lv4_con11 BYTE "防盜　　磁釦",0
 lv4_con12 BYTE "終於可以穿上圍巾出門了…欸？！這是什麼東西呀？！！抹布洗！！！！！",0
 lv4_con14 BYTE "你成功獲得鎮寢之寶！！！！！",0
@@ -716,10 +751,182 @@ main PROC
 		call main_menu
 		call menu_move
 
-
 	exit
 main ENDP
+;=================================================endinganime==============================
+endinganime PROC
+	INVOKE GetStdHandle, STD_OUTPUT_HANDLE
+		mov outputHandle, eax
+		call Clrscr
+	
+	
+	INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR endc1,	
+		sizeof endc1 -1,	
+		endcxy,	
+		ADDR count
+	add endcxy.y, 3
+	INVOKE Sleep ,2000
 
+	INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR endc2,	
+		sizeof endc2 -1,	
+		endcxy,	
+		ADDR count
+	INVOKE Sleep ,2000
+	
+	INVOKE GetStdHandle, STD_OUTPUT_HANDLE
+		mov outputHandle, eax
+		call Clrscr
+
+	INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR endp1,	
+		sizeof endp1 -1,	
+		endpxy,	
+		ADDR count
+	inc endpxy.y
+	mov ecx, 6
+	INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR endp2,	
+		sizeof endp2 -1,	
+		endpxy,	
+		ADDR count
+	inc endpxy.y
+	INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR endp3,	
+		sizeof endp3 -1,	
+		endpxy,	
+		ADDR count
+	inc endpxy.y
+L:
+	push ecx
+	INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR endp2,	
+		sizeof endp2 -1,	
+		endpxy,	
+		ADDR count
+	inc endpxy.y
+	pop ecx
+	Loop L
+
+	INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR endp6,	
+		sizeof endp6 -1,	
+		endpxy,	
+		ADDR count
+	inc endpxy.y
+	INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR endp7,	
+		sizeof endp7 -1,	
+		endpxy,	
+		ADDR count
+	inc endpxy.y
+	INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR endp8,	
+		sizeof endp8 -1,	
+		endpxy,	
+		ADDR count
+	inc endpxy.y
+	INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR endp9,	
+		sizeof endp9 -1,	
+		endpxy,	
+		ADDR count
+	inc endpxy.y
+	INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR endp10,	
+		sizeof endp10 -1,	
+		endpxy,	
+		ADDR count
+	inc endpxy.y
+	INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR endp11,	
+		sizeof endp11 -1,	
+		endpxy,	
+		ADDR count
+	inc endpxy.y
+	INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR endp12,	
+		sizeof endp12 -1,	
+		endpxy,	
+		ADDR count
+	inc endpxy.y
+	INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR endp13,	
+		sizeof endp13 -1,	
+		endpxy,	
+		ADDR count
+	inc endpxy.y
+	INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR endp14,	
+		sizeof endp14 -1,	
+		endpxy,	
+		ADDR count
+	inc endpxy.y
+	sub endpxy.x, 18
+	INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR endp15,
+		sizeof endp15-1,	
+		endpxy,	
+		ADDR count
+	add endpxy.y,2
+	add endpxy.x, 30
+	INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR endp16,
+		sizeof endp16-1,	
+		endpxy,	
+		ADDR count
+	inc endpxy.y
+
+	INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR endp17,
+		sizeof endp17-1,	
+		endpxy,	
+		ADDR count
+	inc endpxy.y
+	INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR endp18,
+		sizeof endp18-1,	
+		endpxy,	
+		ADDR count
+	inc endpxy.y
+	INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR endp19,
+		sizeof endp19-1,	
+		endpxy,	
+		ADDR count
+	inc endpxy.y
+	INVOKE WriteConsoleOutputCharacter,
+		outputHandle,	
+		ADDR endp20,
+		sizeof endp20-1,	
+		endpxy,	
+		ADDR count
+	inc endpxy.y
+	INVOKE Sleep, 10000
+
+	ret
+endinganime ENDP
 ;---------------------------------------- 主畫面 main_menu PROC -----------------------------------
 main_menu PROC
 
@@ -1132,6 +1339,13 @@ menu_move PROC
 		.ENDIF
 
 		.IF mexy.x == 48 && mexy.y == 22
+			mov menucontentspacexy.y, 11
+			INVOKE WriteConsoleOutputCharacter,
+				outputHandle,
+				ADDR menucontentspace,	
+				sizeof menucontentspace,	
+				menucontentspacexy,	
+				ADDR count
 
 			add menucontentxy.y, 2
 
@@ -1163,6 +1377,40 @@ menu_move PROC
 				ADDR count	
 		.ENDIF
 
+		;窗戶
+		.IF mexy.x == 138 && (mexy.y >= 8 && mexy.y <= 32)
+			call clear_menu
+			INVOKE WriteConsoleOutputCharacter,
+				outputHandle,
+				ADDR menucontent12,	
+				sizeof menucontent12 - 1,	
+				menucontentxy,	
+				ADDR count	
+		.ENDIF
+
+		;閂
+		.IF mexy.x == 4 && mexy.y == 30
+			.IF toolendget == 0
+				call clear_menu
+				INVOKE WriteConsoleOutputCharacter,
+					outputHandle,
+					ADDR menucontent15,	
+					sizeof menucontent15 - 1,	
+					menucontentxy,	
+					ADDR count
+			.ENDIF
+
+			.IF toolendget == 1
+				call clear_menu
+				INVOKE WriteConsoleOutputCharacter,
+					outputHandle,
+					ADDR menucontent16,	
+					sizeof menucontent16 - 1,	
+					menucontentxy,	
+					ADDR count
+			.ENDIF
+
+		.ENDIF
 
 		;77
 			.IF mexy.x == 78 && mexy.y >9 && mexy.y <13
@@ -1384,6 +1632,7 @@ menu_move PROC
 				.ENDIF
 				.IF level1finish == 1 && level2finish == 1 && level3finish == 1 && level4finish == 0
 					call clear_allmenu
+					INVOKE Sleep, 500
 					call level4
 					INVOKE WriteConsoleOutputCharacter,
 						outputHandle,	
@@ -1522,6 +1771,24 @@ menu_move PROC
 					menucontentxy,	
 					ADDR count
 
+				add menucontentxy.y ,2
+
+				INVOKE WriteConsoleOutputCharacter,
+					outputHandle,
+					ADDR menucontent10_1,	
+					sizeof menucontent10_1 - 1,	
+					menucontentxy,	
+					ADDR count
+
+				add menucontentxy.y ,2
+
+				INVOKE WriteConsoleOutputCharacter,
+					outputHandle,
+					ADDR menucontent10_2,	
+					sizeof menucontent10_2 - 1,	
+					menucontentxy,	
+					ADDR count
+
 				INVOKE Sleep , 8000
 
 				call clear_menu
@@ -1533,6 +1800,7 @@ menu_move PROC
 					ADDR count
 				
 				INVOKE Sleep , 4000
+				call endinganime
 				ret
 			.ENDIF
 		.ENDIF
@@ -1782,9 +2050,11 @@ level1 ENDP
 
 refresh_bg PROC
 
-		mov ecx, 30
-
+		mov ecx, 37
+		mov whitebgxy.x, 4
+		mov whitebgxy.y, 3
 L1:	
+
 	push ecx	; save counter
 
 	INVOKE WriteConsoleOutputCharacter,
@@ -4759,7 +5029,7 @@ be_master PROC
 			jmp check_right2
 		.ENDIF
 
-		.IF ax == 3920h && me2xy_3.x == 34 && (me2xy_3.y == 22 || me2xy_3.y == 24) ;space get
+		.IF ax == 3920h && me2xy_3.x == 32 && (me2xy_3.y == 22 || me2xy_3.y == 24) ;space get
 			.IF get_tool == 4
 				INVOKE WriteConsoleOutputCharacter,
 						outputHandle,	
