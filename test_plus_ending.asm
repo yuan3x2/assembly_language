@@ -126,12 +126,14 @@ menucontent3 BYTE "怎麼可以偷窺別人洗澡呢 `^′ ", 0
 
 
 menucontent4 BYTE "level1", 0
-menucontent5 BYTE "level2", 0
+menucontent5 BYTE "欸欸欸，前面還沒解完想幹嘛", 0
 menucontent6 BYTE "level3", 0
 menucontent7 BYTE "還沒醒，不要叫我 @#$%^&*", 0
 
 menucontent10 BYTE "恭喜您成功逃出生天！", 0
 menucontent11 BYTE "別急別急，馬上就能出去了", 0
+
+menucontent12 BYTE "啊，今晚的月色真~美~", 0
 
 menucontentxyinitial COORD <14, 9>
 menucontentxy COORD <14, 9>
@@ -1356,6 +1358,16 @@ menu_move PROC
 				ADDR count	
 		.ENDIF
 
+		;窗戶
+		.IF mexy.x == 138 && (mexy.y >= 8 && mexy.y <= 32)
+			call clear_menu
+			INVOKE WriteConsoleOutputCharacter,
+				outputHandle,
+				ADDR menucontent12,	
+				sizeof menucontent12 - 1,	
+				menucontentxy,	
+				ADDR count	
+		.ENDIF
 
 		;77
 			.IF mexy.x == 78 && mexy.y >9 && mexy.y <13
